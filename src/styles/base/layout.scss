@@ -31,7 +31,7 @@ h3 {
 
 p,
 a {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 a {
@@ -50,6 +50,7 @@ button {
   font-size: 16px;
   font-weight: 600;
   border: 0;
+  min-width: 100px;
   &:disabled {
     opacity: 0.5;
   }

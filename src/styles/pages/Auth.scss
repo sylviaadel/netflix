@@ -95,7 +95,7 @@
     }
     section.container {
       background: $whiteColor;
-      padding: 60px 0;
+      padding: $spacing-medium;
       color: #333;
       h1 {
         color: #333;
@@ -121,10 +121,10 @@
         }
         & + a {
           position: absolute;
-          top: 30px;
+          top: 14px;
           right: 3%;
           color: inherit;
-          font-size: 19px;
+          font-size: 14px;
           font-weight: bold;
         }
       }
@@ -151,6 +151,15 @@
     }
     &.signup {
       background: $whiteColor;
+      section.container {
+        padding: 60px 0;
+        form {
+          & + a {
+            top: 30px;
+            font-size: 19px;
+          }
+        }
+      }
     }
   }
 }
