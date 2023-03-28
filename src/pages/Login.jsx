@@ -7,6 +7,7 @@ import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
+import AuthNavbar from "../components/shared/AuthNavbar";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -50,6 +51,7 @@ export default function Login() {
 
   return (
     <div className="auth-page">
+      <AuthNavbar />
       <h1>Login to Your Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         {FormFields}

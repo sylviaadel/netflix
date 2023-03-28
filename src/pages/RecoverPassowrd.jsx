@@ -6,6 +6,7 @@ import InputText from "../components/form/InputText";
 import { recoverMessage } from "../scripts/helpers";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
+import AuthNavbar from "../components/shared/AuthNavbar";
 
 export default function RecoverPassowrd() {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ export default function RecoverPassowrd() {
 
   return (
     <div className="auth-page">
+      <AuthNavbar />
       <h1>Recover Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         <InputText key={email.id} item={email} state={[form, setForm]} />

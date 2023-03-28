@@ -7,6 +7,7 @@ import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
+import AuthNavbar from "../components/shared/AuthNavbar";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ export default function SignUp() {
       saveUID(result.payload);
     }
     setUid(result.payload);
-    navigate("/courses");
+    navigate("/");
   }
 
   function onFail(result) {
@@ -50,6 +51,7 @@ export default function SignUp() {
 
   return (
     <div className="auth-page">
+      <AuthNavbar />
       <h1>Create a new Account</h1>
       <form onSubmit={(event) => onSubmit(event)}>
         {FormFields}

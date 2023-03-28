@@ -12,7 +12,7 @@ export async function createAccount(name, email, password) {
 
     await setDoc(docRef, {
       name: name,
-      isTeacher: false,
+      isAdmin: false,
     });
   } catch (error) {
     result.message = error.code;
