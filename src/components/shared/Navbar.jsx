@@ -31,8 +31,16 @@ export default function Navbar() {
   return (
     <section id="Navbar">
       <img src={logo} alt="Red Netflix logo word" />
-      <div className="login-btn" onClick={() => onChange()}>
-        <FontAwesomeIcon icon={icon({ name: "user-circle" })} />
+      <div>
+        <FontAwesomeIcon
+          className="search-icon"
+          icon={icon({ name: "magnifying-glass" })}
+        />
+        <FontAwesomeIcon
+          className="login-btn"
+          onClick={() => onChange()}
+          icon={icon({ name: "user-circle" })}
+        />
       </div>
       <Modal state={[modal, setModal]} />
     </section>

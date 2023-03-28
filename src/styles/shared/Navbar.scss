@@ -12,10 +12,18 @@
   img {
     height: 24px;
   }
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: $spacing-small;
+  }
   .login-btn {
-    float: right;
-    color: $lightGreyColor;
+    color: $whiteColor;
     font-size: 30px;
+  }
+  .search-icon {
+    color: $whiteColor;
+    font-size: 24px;
   }
 }
 
