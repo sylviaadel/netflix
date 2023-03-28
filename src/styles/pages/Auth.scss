@@ -87,6 +87,55 @@
       margin: $spacing-small 0;
     }
   }
+  &.signup {
+    background: $whiteColor;
+    #AuthNavbar {
+      border-bottom: 1px solid #e6e6e6;
+      background: transparent;
+    }
+    section.container {
+      background: $whiteColor;
+      padding: 60px 0;
+      color: #333;
+      h1 {
+        color: #333;
+        margin-bottom: $spacing-small;
+      }
+      p {
+        font-size: 18px;
+        margin: 0 0 10px;
+      }
+      form {
+        input[type="email"],
+        input[type="password"] {
+          height: 60px;
+          border: 1px solid #8c8c8c;
+          border-radius: 0;
+          background-color: $whiteColor;
+          color: $blackColor;
+          &:-webkit-autofill + span,
+          &:focus + span {
+            font-weight: bold;
+            font-size: 13px;
+          }
+        }
+        & + a {
+          position: absolute;
+          top: 30px;
+          right: 3%;
+          color: inherit;
+          font-size: 19px;
+          font-weight: bold;
+        }
+      }
+      .primary-btn {
+        border-radius: 4px;
+        font-size: 24px;
+        font-weight: 400;
+        min-height: 64px;
+      }
+    }
+  }
 }
 
 @media (min-width: 740px) {
@@ -99,6 +148,9 @@
       max-width: 450px;
       padding: 60px 68px 40px;
       margin: 0 auto;
+    }
+    &.signup {
+      background: $whiteColor;
     }
   }
 }

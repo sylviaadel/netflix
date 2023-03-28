@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { recoverAccount } from "../scripts/auth/recoverAccount";
-import loginData from "../data/loginData.json";
+import authData from "../data/authData.json";
 import InputText from "../components/form/InputText";
 import { recoverMessage } from "../scripts/helpers";
 import InfoPopup from "../components/modal/InfoPopup";
@@ -11,7 +11,7 @@ import AuthNavbar from "../components/shared/AuthNavbar";
 export default function RecoverPassowrd() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "" });
-  const email = loginData[0];
+  const email = authData[0];
   const [modal, setModal] = useState(null);
 
   async function onSubmit(event) {
@@ -51,6 +51,9 @@ export default function RecoverPassowrd() {
         <div className="links-container">
           <Link to="/login">Go back to Login</Link>
         </div>
+        <p>
+          This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        </p>
       </section>
       <Modal state={[modal, setModal]} />
     </div>
