@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "key": "email",
+    "label": "Email:",
+    "type": "email",
+    "required": true,
+    "disabled": false
+  },
+  {
+    "id": 2,
+    "key": "password",
+    "label": "Password:",
+    "type": "password",
+    "required": true,
+    "disabled": false
+  }
+]
