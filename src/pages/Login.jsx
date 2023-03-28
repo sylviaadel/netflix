@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "../state/UsersProvider";
 import { login } from "../scripts/auth/login";
-import loginData from "../data/loginData.json";
+import authData from "../data/authData.json";
 import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
@@ -45,7 +45,7 @@ export default function Login() {
     navigate("/login");
   }
 
-  const FormFields = loginData.map((item) => (
+  const FormFields = authData.map((item) => (
     <InputText key={item.id} item={item} state={[form, setForm]} />
   ));
 

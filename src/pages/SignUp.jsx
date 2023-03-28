@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createAccount } from "../scripts/auth/createAccount";
 import { useUser } from "../state/UsersProvider";
-import signupData from "../data/signupData.json";
+import authData from "../data/authData.json";
 import InputText from "../components/form/InputText";
 import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
@@ -13,12 +13,12 @@ export default function SignUp() {
   const navigate = useNavigate();
   const { setUid, saveUID } = useUser();
   const [remember, setRemember] = useState(false);
-  const [form, setForm] = useState({ name: "", email: "", password: "" });
+  const [form, setForm] = useState({ email: "", password: "" });
   const [modal, setModal] = useState(null);
 
   async function onSubmit(event) {
     event.preventDefault();
-    const result = await createAccount(form.name, form.email, form.password);
+    const result = await createAccount(form.email, form.password);
     result.status ? onSuccess(result) : onFail(result);
   }
 
@@ -45,20 +45,27 @@ export default function SignUp() {
     navigate("/sign-up");
   }
 
-  const FormFields = signupData.map((item) => (
+  const FormFields = authData.map((item) => (
     <InputText key={item.id} item={item} state={[form, setForm]} />
   ));
 
   return (
-    <div className="auth-page">
+    <div className="auth-page signup">
       <AuthNavbar />
-      <h1>Create a new Account</h1>
-      <form onSubmit={(event) => onSubmit(event)}>
-        {FormFields}
-        <InputCheckbox remember={remember} set={() => setRemember(!remember)} />
-        <button className="primary-btn">Sign Up</button>
-      </form>
-      <Link to="/login">Already have an account</Link>
+      <section className="container">
+        <h1>Create a password to start your membership</h1>
+        <p>Just a few more steps and you're finished!</p>
+        <p>We hate paperwork, too.</p>
+        <form onSubmit={(event) => onSubmit(event)}>
+          {FormFields}
+          <InputCheckbox
+            remember={remember}
+            set={() => setRemember(!remember)}
+          />
+          <button className="primary-btn">Sign Up</button>
+        </form>
+        <Link to="/login">Sign In</Link>
+      </section>
       <Modal state={[modal, setModal]} />
     </div>
   );
