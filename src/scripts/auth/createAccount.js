@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "@firebase/auth";
 import { auth, database } from "../firebaseSetup";
 import { setDoc, doc } from "@firebase/firestore";
 
-export async function createAccount(name, email, password) {
+export async function createAccount(email, password) {
   let result = { status: false, payload: "", message: "" };
 
   try {
@@ -11,7 +11,7 @@ export async function createAccount(name, email, password) {
     const docRef = doc(database, "users", data.user.uid);
 
     await setDoc(docRef, {
-      name: name,
+      email: email,
       isAdmin: false,
     });
   } catch (error) {
