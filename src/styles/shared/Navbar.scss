@@ -1,0 +1,12 @@
+#Navbar {
+  height: 41px;
+  padding: 0 4%;
+  img {
+    height: 100%;
+  }
+}
+
+@media (min-width: 740px) {
+  #Navbar {
+  }
+}
