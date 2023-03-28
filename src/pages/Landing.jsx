@@ -1,3 +1,22 @@
+import Movie1 from "../assets/images/movie1.webp";
+import Movie2 from "../assets/images/movie2.webp";
+import Top10 from "../components/landing/Top10";
+
 export default function Landing() {
-  return <h1>Landing Page</h1>;
+  return (
+    <div id="LandingPage">
+      <section className="titles-container">
+        <h3>Movies</h3>
+        <div className="titles-list">
+          <article>
+            <img src={Movie1} alt="movie" />
+          </article>
+          <article>
+            <img src={Movie2} alt="movie" />
+          </article>
+        </div>
+      </section>
+      <Top10 />
+    </div>
+  );
 }
