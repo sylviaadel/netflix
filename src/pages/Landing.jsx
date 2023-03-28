@@ -5,9 +5,9 @@ import Top10 from "../components/landing/Top10";
 export default function Landing() {
   return (
     <div id="LandingPage">
-      <section className="items-container">
+      <section className="titles-container">
         <h3>Movies</h3>
-        <div className="items-list">
+        <div className="titles-list">
           <article>
             <img src={Movie1} alt="movie" />
           </article>

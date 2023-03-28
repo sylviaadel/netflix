@@ -3,7 +3,7 @@
   min-height: calc(100vh);
   margin-top: 30px;
   padding-top: $spacing-large;
-  .items-container {
+  .titles-container {
     margin: $spacing-medium 0;
     h3 {
       color: $lightGreyColor;
@@ -11,7 +11,7 @@
       margin: 0 4% $spacing-xsmall;
       font-weight: normal;
     }
-    .items-list {
+    .titles-list {
       display: flex;
       margin-left: 4%;
       gap: $spacing-xsmall;
