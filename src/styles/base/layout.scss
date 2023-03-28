@@ -1,10 +1,14 @@
 /* Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@font-face {
+  font-family: "Netflix Sans";
+  src: local("Netflix Sans"),
+    url(../../assets/fonts/NetflixSans-Regular.woff2) format("woff");
+}
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Netflix Sans", sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -14,7 +18,7 @@ body {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 32px;
 }
 
 h2 {
@@ -39,6 +43,13 @@ button {
 }
 
 .primary-btn {
+  background-color: $redColor;
+  height: 50px;
+  color: $whiteColor;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
   &:disabled {
     opacity: 0.5;
   }
@@ -57,23 +68,5 @@ button {
   clear: both;
 }
 
-@media (min-width: 860px) {
-  h1 {
-    font-size: 50px;
-  }
-  h2 {
-    font-size: 42px;
-  }
-  h3 {
-    font-size: 32px;
-  }
-  p,
-  a {
-    font-size: 28px;
-  }
-  .primary-btn {
-  }
-  .link-btn {
-    font-size: 25px;
-  }
+@media (min-width: 740px) {
 }

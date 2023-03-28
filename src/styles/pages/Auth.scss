@@ -1,0 +1,104 @@
+.auth-page {
+  background-color: #000;
+  min-height: calc(100vh);
+  section.container {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    margin: 20px auto;
+    min-height: calc(100vh - 120px);
+    padding: 0 5%;
+    color: #b3b3b3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h1 {
+      color: $whiteColor;
+      margin-bottom: 28px;
+    }
+    .primary-btn {
+      margin: 24px 0 12px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      label {
+        color: #8c8c8c;
+        position: relative;
+        margin-bottom: $spacing-small;
+        span {
+          position: absolute;
+          left: 20px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 16px;
+          transition: font 0.1s ease, top 0.1s ease, transform 0.1s ease;
+        }
+        input[type="email"],
+        input[type="password"] {
+          background: #333;
+          border: 0;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 4px;
+          color: $whiteColor;
+          padding: 16px 20px 0;
+          width: 100%;
+          &:-webkit-autofill + span {
+            top: 7px;
+            color: $blackColor;
+            font-size: 11px;
+            transform: translateY(0);
+          }
+          &:focus + span {
+            top: 7px;
+            font-size: 11px;
+            transform: translateY(0);
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .remember-me {
+        font-size: 13px;
+        font-weight: 400;
+        float: left;
+        input {
+          float: left;
+          margin: 2px 5px 0 0;
+        }
+        & + a {
+          float: right;
+          font-size: 13px;
+          color: inherit;
+        }
+      }
+    }
+    .links-container {
+      margin-top: $spacing-large;
+      color: #737373;
+      a {
+        color: $whiteColor;
+        font-size: 16px;
+      }
+    }
+    p {
+      font-size: 13px;
+      margin: $spacing-small 0;
+    }
+  }
+}
+
+@media (min-width: 740px) {
+  .auth-page {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../../assets/images/auth-bg.jpg") 50% no-repeat;
+    background-size: auto;
+    background-position: inherit;
+    section.container {
+      max-width: 450px;
+      padding: 60px 68px 40px;
+      margin: 0 auto;
+    }
+  }
+}

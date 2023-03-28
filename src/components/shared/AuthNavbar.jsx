@@ -1,3 +1,9 @@
+import logo from "../../assets/images/logo.png";
+
 export default function AuthNavbar() {
-  return <h1>Navbar</h1>;
+  return (
+    <section id="AuthNavbar">
+      <img src={logo} alt="Red Netflix logo word" />
+    </section>
+  );
 }

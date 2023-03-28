@@ -42,12 +42,16 @@ export default function RecoverPassowrd() {
   return (
     <div className="auth-page">
       <AuthNavbar />
-      <h1>Recover Account</h1>
-      <form onSubmit={(event) => onSubmit(event)}>
-        <InputText key={email.id} item={email} state={[form, setForm]} />
-        <button className="primary-btn">Recover Account</button>
-      </form>
-      <Link to="/login">Go back to Login</Link>
+      <section className="container">
+        <h1>Recover Account</h1>
+        <form onSubmit={(event) => onSubmit(event)}>
+          <InputText key={email.id} item={email} state={[form, setForm]} />
+          <button className="primary-btn">Recover Account</button>
+        </form>
+        <div className="links-container">
+          <Link to="/login">Go back to Login</Link>
+        </div>
+      </section>
       <Modal state={[modal, setModal]} />
     </div>
   );

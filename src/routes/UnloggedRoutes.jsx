@@ -3,7 +3,6 @@ import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import RecoverPassword from "../pages/RecoverPassowrd";
 import NotFound from "../pages/NotFound";
-import AuthNavbar from "../components/shared/AuthNavbar";
 
 export default function UnloggedRoutes() {
   return (

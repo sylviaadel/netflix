@@ -52,16 +52,27 @@ export default function Login() {
   return (
     <div className="auth-page">
       <AuthNavbar />
-      <h1>Login to Your Account</h1>
-      <form onSubmit={(event) => onSubmit(event)}>
-        {FormFields}
-        <InputCheckbox remember={remember} set={() => setRemember(!remember)} />
-        <button className="primary-btn">Login</button>
-      </form>
-      <div className="links-container">
-        <Link to="/recover-password">Forgot you password?</Link>
-        <Link to="/sign-up">Create a new account</Link>
-      </div>
+      <section className="container">
+        <h1>Sign In</h1>
+        <form onSubmit={(event) => onSubmit(event)}>
+          {FormFields}
+          <button className="primary-btn">Sign In</button>
+          <div>
+            <InputCheckbox
+              remember={remember}
+              set={() => setRemember(!remember)}
+            />
+            <Link to="/recover-password">Forgot you password?</Link>
+          </div>
+        </form>
+        <div className="links-container">
+          New to Netflix?
+          <Link to="/sign-up"> Sign up now</Link>.
+        </div>
+        <p>
+          This page is protected by Google reCAPTCHA to ensure you're not a bot.
+        </p>
+      </section>
       <Modal state={[modal, setModal]} />
     </div>
   );

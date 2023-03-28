@@ -5,7 +5,6 @@ export default function InputText({ item, state }) {
 
   return (
     <label className="input-text">
-      {item.label}
       <input
         value={item.value === "" ? formValue : item.value}
         onChange={(event) =>
@@ -15,6 +14,7 @@ export default function InputText({ item, state }) {
         required={item.required}
         disabled={item.disabled}
       />
+      <span>{item.label}</span>
     </label>
   );
 }
