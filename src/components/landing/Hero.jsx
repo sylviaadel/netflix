@@ -18,7 +18,7 @@ export default function Hero({ item }) {
       <div className="background"></div>
       <img src={background} alt={heading} />
       <div className="details">
-        <img src={logo} />
+        <img src={logo} alt={heading} />
         <p>{description}</p>
         <a href={videoLink} className="white-btn">
           <i className="fa-solid fa-play"></i> Play
