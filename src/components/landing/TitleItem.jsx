@@ -11,7 +11,7 @@ export default function TitleItem({ item }) {
 
   function openDetails() {
     setID(uid);
-    setModal(<DetailsPopup item={data[0]} />);
+    setModal(<DetailsPopup item={item} />);
   }
 
   return (

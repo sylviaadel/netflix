@@ -29,7 +29,7 @@ export default function Top10() {
   }
 
   function openDetails() {
-    setModal(<DetailsPopup item={data[0]} />);
+    setModal(<DetailsPopup item={data[2]} />);
   }
 
   const Items = topTen.map((item) => (

@@ -8,7 +8,7 @@ export default function Hero({ item }) {
   const { data } = useItems();
   const [modal, setModal] = useState(null);
   function openDetails() {
-    setModal(<DetailsPopup item={data[0]} />);
+    setModal(<DetailsPopup item={item} />);
   }
 
   return (
