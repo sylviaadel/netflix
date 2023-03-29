@@ -5,6 +5,7 @@ import { useItems } from "../state/ItemsProvider";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import Hero from "../components/landing/Hero";
+import TitleItem from "../components/landing/TitleItem";
 
 export default function Landing() {
   const { data, dispatch } = useItems();
@@ -28,11 +29,7 @@ export default function Landing() {
     setStatus(2);
   }
 
-  const Items = data.map((item) => (
-    <article key={item.id}>
-      <img src={item.thumbnail} alt="movie" />
-    </article>
-  ));
+  const Items = data.map((item) => <TitleItem item={item} />);
 
   return (
     <div id="LandingPage">

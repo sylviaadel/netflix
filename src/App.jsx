@@ -2,7 +2,6 @@ import { BrowserRouter } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { readDocument } from "./scripts/fireStore/readDocument";
 import { useUser } from "./state/UsersProvider";
-import Navbar from "./components/shared/Navbar";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 import UserRoutes from "./routes/UserRoutes";
