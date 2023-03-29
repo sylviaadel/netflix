@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
-import Movie1 from "../assets/images/movie1.webp";
-import Movie2 from "../assets/images/movie2.webp";
 import Top10 from "../components/landing/Top10";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
 import { useItems } from "../state/ItemsProvider";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
+import Hero from "../components/landing/Hero";
 
 export default function Landing() {
   const { data, dispatch } = useItems();
@@ -37,6 +36,7 @@ export default function Landing() {
 
   return (
     <div id="LandingPage">
+      <Hero item={data[0]} />
       {status === 0 && <Spinner />}
       {status === 1 && (
         <section className="titles-container">

@@ -1,8 +1,7 @@
 #LandingPage {
   background-color: #161b18;
   min-height: calc(100vh);
-  margin-top: 30px;
-  padding-top: $spacing-large;
+  margin-top: 50px;
   .titles-container {
     margin: $spacing-medium 0;
     h3 {
@@ -86,9 +85,36 @@
       }
     }
   }
+  #Hero {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    & + .titles-container {
+      margin-top: -50px;
+      z-index: 1;
+      position: relative;
+    }
+    .background {
+      background: rgb(22, 27, 24);
+      background: linear-gradient(
+        0deg,
+        rgba(22, 27, 24, 1) 0%,
+        rgba(255, 255, 255, 0) 37%
+      );
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+    img {
+      height: inherit;
+      width: inherit;
+      object-fit: cover;
+    }
+  }
 }
 @media (min-width: 740px) {
   #LandingPage {
+    margin-top: 70px;
     .top10-container {
       h3 {
         font-size: 18px;

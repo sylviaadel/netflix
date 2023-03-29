@@ -9,6 +9,7 @@
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
   img {
     height: 24px;
   }
@@ -18,8 +19,7 @@
     gap: $spacing-small;
   }
   .login-btn {
-    color: $whiteColor;
-    font-size: 30px;
+    border-radius: 3px;
   }
   .search-icon {
     color: $whiteColor;
