@@ -13,7 +13,6 @@ export default function Landing() {
   const movies = data.filter((item) => item.type === "movie");
   const series = data.filter((item) => item.type === "series");
   const documentaries = data.filter((item) => item.type === "documentary");
-
   const collection = "titles";
 
   useEffect(() => {

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
-import { useItems } from "../../state/ItemsProvider";
 
 export default function Hero({ item }) {
   const { heading, logo, background, description, videoLink } = item;
-  const { data } = useItems();
   const [modal, setModal] = useState(null);
+
   function openDetails() {
     setModal(<DetailsPopup item={item} />);
   }
