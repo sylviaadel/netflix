@@ -29,7 +29,7 @@ export default function Landing() {
     setStatus(2);
   }
 
-  const Items = data.map((item) => <TitleItem id={item.id} item={item} />);
+  const Items = data.map((item) => <TitleItem key={item.id} item={item} />);
 
   return (
     <div id="LandingPage">
