@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { readDocuments } from "../../scripts/fireStore/readDocuments";
 import { useItems } from "../../state/ItemsProvider";
-import DetailsPopup from "../modal/DetailsPopup";
-import Modal from "../modal/Modal";
+import TopTenItem from "./TopTenItem";
 
 export default function Top10() {
   const { data, dispatch } = useItems();
@@ -28,21 +27,12 @@ export default function Top10() {
     setStatus(2);
   }
 
-  function openDetails() {
-    setModal(<DetailsPopup item={data[2]} />);
-  }
-
-  const Items = topTen.map((item) => (
-    <li key={item.id}>
-      <img src={item.topTenImg} alt={item.heading} onClick={openDetails} />
-    </li>
-  ));
+  const Items = topTen.map((item) => <TopTenItem key={item.id} item={item} />);
 
   return (
     <section className="top10-container">
       <h3>Top 10 TV in Sweden Today</h3>
       <ol>{Items}</ol>
-      <Modal state={[modal, setModal]} />
     </section>
   );
 }

@@ -3,9 +3,9 @@ import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
 import { useItems } from "../../state/ItemsProvider";
 
-export default function TitleItem({ item }) {
+export default function TopTenItem({ item }) {
+  const { topTenImg, heading } = item;
   const { uid } = useItems();
-  const { heading, thumbnail } = item;
   const [id, setID] = useState("");
   const [modal, setModal] = useState(null);
 
@@ -16,9 +16,9 @@ export default function TitleItem({ item }) {
 
   return (
     <>
-      <article key={id}>
-        <img onClick={openDetails} src={thumbnail} alt={heading} />
-      </article>
+      <li>
+        <img src={topTenImg} alt={heading} onClick={openDetails} />
+      </li>
       <Modal state={[modal, setModal]} />
     </>
   );
