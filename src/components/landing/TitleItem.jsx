@@ -13,7 +13,6 @@ export default function TitleItem({ item }) {
     setID(uid);
     setModal(<DetailsPopup item={data[0]} />);
   }
-  console.log(uid);
 
   return (
     <>

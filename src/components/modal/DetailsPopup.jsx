@@ -1,5 +1,5 @@
 export default function DetailsPopup({ item }) {
-  const { background, logo, description } = item;
+  const { background, logo, description, videoLink } = item;
 
   return (
     <div className="details-modal">
@@ -8,9 +8,9 @@ export default function DetailsPopup({ item }) {
         <img src={background} />
         <div className="details">
           <img src={logo} />
-          <button className="white-btn">
+          <a href={videoLink} className="white-btn">
             <i className="fa-solid fa-play"></i> Play
-          </button>
+          </a>
         </div>
       </section>
       <p>{description}</p>

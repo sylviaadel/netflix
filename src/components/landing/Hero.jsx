@@ -1,5 +1,17 @@
+import { useState } from "react";
+import DetailsPopup from "../modal/DetailsPopup";
+import Modal from "../modal/Modal";
+import { useItems } from "../../state/ItemsProvider";
+
 export default function Hero({ item }) {
   const { heading, logo, background, description, videoLink } = item;
+  const { uid, data } = useItems();
+  const [id, setID] = useState("");
+  const [modal, setModal] = useState(null);
+  function openDetails() {
+    setID(uid);
+    setModal(<DetailsPopup item={data[0]} />);
+  }
 
   return (
     <section id="Hero">
@@ -8,13 +20,14 @@ export default function Hero({ item }) {
       <div className="details">
         <img src={logo} />
         <p>{description}</p>
-        <button className="white-btn">
+        <a href={videoLink} className="white-btn">
           <i className="fa-solid fa-play"></i> Play
-        </button>
-        <a href={videoLink} className="grey-btn">
-          <i className="fa-solid fa-info"></i> More Info
         </a>
+        <button onClick={openDetails} className="grey-btn">
+          <i className="fa-solid fa-info"></i> More Info
+        </button>
       </div>
+      <Modal state={[modal, setModal]} />
     </section>
   );
 }
