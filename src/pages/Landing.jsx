@@ -29,11 +29,11 @@ export default function Landing() {
     setStatus(2);
   }
 
-  const Items = data.map((item) => <TitleItem item={item} />);
+  const Items = data.map((item) => <TitleItem id={item.id} item={item} />);
 
   return (
     <div id="LandingPage">
-      <Hero item={data[0]} />
+      {/* <Hero item={data[0]} /> */}
       {status === 0 && <Spinner />}
       {status === 1 && (
         <section className="titles-container">
