@@ -4,7 +4,7 @@ import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 export default function Spinner() {
   return (
     <div id="Spinner">
-      <FontAwesomeIcon icon={solid("spinner")} />
+      <FontAwesomeIcon icon={solid("circle-notch")} />
     </div>
   );
 }

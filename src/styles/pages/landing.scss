@@ -1,33 +1,42 @@
 #LandingPage {
   background-color: #161b18;
   min-height: calc(100vh);
-  margin-top: 30px;
-  padding-top: $spacing-large;
+  margin-top: 50px;
   .titles-container {
     margin: $spacing-medium 0;
     h3 {
       color: $lightGreyColor;
-      font-size: 18px;
+      font-size: 12px;
       margin: 0 4% $spacing-xsmall;
       font-weight: normal;
     }
     .titles-list {
       display: flex;
-      margin-left: 4%;
+      margin: 0 4%;
       gap: $spacing-xsmall;
       overflow: auto;
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background: $darkGreyColor;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $redColor;
+        border-radius: 10px;
+      }
       img {
         height: 130px;
         width: 230px;
-        object-fit: contain;
+        object-fit: cover;
       }
     }
   }
   .top10-container {
-    margin: $spacing-medium 0;
+    padding: 0 0 $spacing-medium 0;
     h3 {
       color: $lightGreyColor;
-      font-size: 18px;
+      font-size: 12px;
       margin: 0 4% $spacing-xsmall;
       font-weight: normal;
     }
@@ -37,7 +46,18 @@
       display: flex;
       overflow-x: auto;
       padding: 0 0 0 $spacing-medium;
-      height: 165px;
+      height: 170px;
+      margin: 0 4%;
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background: $darkGreyColor;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: $redColor;
+        border-radius: 10px;
+      }
       li {
         counter-increment: item;
         margin-bottom: 5px;
@@ -65,8 +85,69 @@
       }
     }
   }
+  #Hero {
+    height: 100%;
+    position: relative;
+    width: 100%;
+    & + .titles-container {
+      margin-top: -50px;
+      z-index: 1;
+      position: relative;
+    }
+    .background {
+      background: rgb(22, 27, 24);
+      background: linear-gradient(
+        0deg,
+        rgba(22, 27, 24, 1) 0%,
+        rgba(255, 255, 255, 0) 37%
+      );
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+    img {
+      height: inherit;
+      width: inherit;
+      object-fit: cover;
+    }
+    .details {
+      position: absolute;
+      top: 40%;
+      left: 4%;
+      p {
+        font-size: 10px;
+        color: $whiteColor;
+        font-weight: bold;
+        margin-bottom: $spacing-small;
+        width: 36%;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.45);
+      }
+      img {
+        width: 36%;
+        display: block;
+        margin-bottom: $spacing-small;
+      }
+      button,
+      a {
+        float: left;
+        margin-right: 10px;
+        font-size: 16px;
+      }
+    }
+  }
 }
 @media (min-width: 740px) {
   #LandingPage {
+    margin-top: 70px;
+    .top10-container {
+      h3 {
+        font-size: 18px;
+      }
+    }
+    .titles-container {
+      h3 {
+        font-size: 18px;
+      }
+    }
   }
 }

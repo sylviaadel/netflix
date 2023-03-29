@@ -4,9 +4,8 @@ import { useNavigate } from "react-router";
 import InfoPopup from "../modal/InfoPopup";
 import Modal from "../modal/Modal";
 import logo from "../../assets/images/logo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { logoutInfo } from "../../scripts/helpers";
+import userImage from "../../assets/images/Netflix-avatar.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -32,15 +31,8 @@ export default function Navbar() {
     <section id="Navbar">
       <img src={logo} alt="Red Netflix logo word" />
       <div>
-        <FontAwesomeIcon
-          className="search-icon"
-          icon={icon({ name: "magnifying-glass" })}
-        />
-        <FontAwesomeIcon
-          className="login-btn"
-          onClick={() => onChange()}
-          icon={icon({ name: "user-circle" })}
-        />
+        <i className=" search-icon fa-solid fa-magnifying-glass"></i>
+        <img src={userImage} className="login-btn" onClick={() => onChange()} />
       </div>
       <Modal state={[modal, setModal]} />
     </section>
