@@ -10,6 +10,10 @@ import TitleItem from "../components/landing/TitleItem";
 export default function Landing() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
+  const movies = data.filter((item) => item.type === "movie");
+  const series = data.filter((item) => item.type === "series");
+  const documentaries = data.filter((item) => item.type === "documentary");
+
   const collection = "titles";
 
   useEffect(() => {
@@ -29,16 +33,24 @@ export default function Landing() {
     setStatus(2);
   }
 
-  const Items = data.map((item) => <TitleItem key={item.id} item={item} />);
+  const Movies = movies.map((item) => <TitleItem key={item.id} item={item} />);
+  const Series = series.map((item) => <TitleItem key={item.id} item={item} />);
+  const Documentaries = documentaries.map((item) => (
+    <TitleItem key={item.id} item={item} />
+  ));
 
   return (
     <div id="LandingPage">
-      {/* <Hero item={data[0]} /> */}
+      <Hero item={data[0]} />
       {status === 0 && <Spinner />}
       {status === 1 && (
         <section className="titles-container">
           <h3>Movies</h3>
-          <div className="titles-list">{Items}</div>
+          <div className="titles-list">{Movies}</div>
+          <h3>Series</h3>
+          <div className="titles-list">{Series}</div>
+          <h3>Documentaries</h3>
+          <div className="titles-list">{Documentaries}</div>
         </section>
       )}
       {status === 2 && <NotFound />}

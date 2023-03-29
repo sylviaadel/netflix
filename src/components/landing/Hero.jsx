@@ -5,11 +5,9 @@ import { useItems } from "../../state/ItemsProvider";
 
 export default function Hero({ item }) {
   const { heading, logo, background, description, videoLink } = item;
-  const { uid, data } = useItems();
-  const [id, setID] = useState("");
+  const { data } = useItems();
   const [modal, setModal] = useState(null);
   function openDetails() {
-    setID(uid);
     setModal(<DetailsPopup item={data[0]} />);
   }
 
