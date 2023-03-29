@@ -11,6 +11,13 @@ export default function Navbar() {
   const navigate = useNavigate();
   const { uid, setUid, saveUID } = useUser();
   const [modal, setModal] = useState(null);
+  const [scroll, setScroll] = useState(false);
+
+  window.addEventListener("scroll", () => {
+    // alert("????");
+    setScroll(true);
+  });
+
   const popup = (
     <InfoPopup setModal={setModal} onClose={logoutUser} item={logoutInfo} />
   );
@@ -28,7 +35,7 @@ export default function Navbar() {
     }
   }
   return (
-    <section id="Navbar">
+    <section id="Navbar" className={`${scroll ? "scrolled" : ""}`}>
       <img src={logo} alt="Red Netflix logo word" />
       <div>
         <i className=" search-icon fa-solid fa-magnifying-glass"></i>

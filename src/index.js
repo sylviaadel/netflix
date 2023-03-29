@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <UsersProvider storageKey="user-uid">
-      <ItemsProvider>
+      <ItemsProvider storageKey="items">
         <App />
       </ItemsProvider>
     </UsersProvider>

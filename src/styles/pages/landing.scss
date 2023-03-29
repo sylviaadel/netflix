@@ -1,7 +1,6 @@
 #LandingPage {
   background-color: #161b18;
   min-height: calc(100vh);
-  margin-top: 50px;
   .titles-container {
     margin: $spacing-medium 0;
     h3 {
@@ -138,7 +137,6 @@
 }
 @media (min-width: 740px) {
   #LandingPage {
-    margin-top: 70px;
     .top10-container {
       h3 {
         font-size: 18px;

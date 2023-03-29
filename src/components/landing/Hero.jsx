@@ -9,10 +9,10 @@ export default function Hero({ item }) {
         <img src={logo} />
         <p>{description}</p>
         <button className="white-btn">
-          <i class="fa-solid fa-play"></i> Play
+          <i className="fa-solid fa-play"></i> Play
         </button>
         <a href={videoLink} className="grey-btn">
-          <i class="fa-solid fa-info"></i> More Info
+          <i className="fa-solid fa-info"></i> More Info
         </a>
       </div>
     </section>
