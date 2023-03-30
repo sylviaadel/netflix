@@ -7,7 +7,7 @@ import NotFound from "./NotFound";
 import Hero from "../components/landing/Hero";
 import TitlesContainer from "../components/landing/TitlesContainer";
 
-export default function Landing(adminClass) {
+export default function Landing() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const movies = data.filter((item) => item.type === "movie");
@@ -33,7 +33,7 @@ export default function Landing(adminClass) {
   }
 
   return (
-    <div id="LandingPage" className="admin">
+    <div id="LandingPage">
       {/* <Hero item={data[0]} /> */}
       {status === 0 && <Spinner />}
       {status === 1 && (
