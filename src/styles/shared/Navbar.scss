@@ -16,6 +16,11 @@
   img {
     height: 24px;
   }
+  a {
+    img {
+      margin-top: 20px;
+    }
+  }
   & > div {
     display: flex;
     align-items: center;
