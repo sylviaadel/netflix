@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
-import Top10 from "../components/landing/Top10";
 import { readDocuments } from "../scripts/fireStore/readDocuments";
 import { useItems } from "../state/ItemsProvider";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import TitlesContainer from "../components/landing/TitlesContainer";
 
-export default function Admin({ userClass }) {
+export default function Admin() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const movies = data.filter((item) => item.type === "movie");
@@ -38,7 +37,6 @@ export default function Admin({ userClass }) {
         <TitlesContainer series={series} movies={movies} doc={documentaries} />
       )}
       {status === 2 && <NotFound />}
-      {/* <Top10 /> */}
     </div>
   );
 }
