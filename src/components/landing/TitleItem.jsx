@@ -8,25 +8,23 @@ import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 
 export default function TitleItem({ item }) {
-  const { uid, dispatch } = useItems();
-  const { heading, thumbnail } = item;
-  const [id, setID] = useState("");
+  const { dispatch } = useItems();
+  const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
   const collectionName = "titles";
 
   function openDetails() {
-    setID(uid);
     setModal(<DetailsPopup item={item} />);
   }
 
-  async function deleteCourse() {
+  async function deleteItem() {
     await deleteDocument(collectionName, id);
     dispatch({ type: "delete", payload: id });
   }
 
   function confirmDelete() {
     setModal(
-      <InfoPopup setModal={setModal} onClose={deleteCourse} item={deleteInfo} />
+      <InfoPopup setModal={setModal} onClose={deleteItem} item={deleteInfo} />
     );
   }
 
