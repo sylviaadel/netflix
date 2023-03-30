@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useUser } from "../../state/UsersProvider";
 import { useNavigate } from "react-router";
 import InfoPopup from "../modal/InfoPopup";
@@ -14,7 +15,6 @@ export default function Navbar() {
   const [scroll, setScroll] = useState(false);
 
   window.addEventListener("scroll", () => {
-    // alert("????");
     setScroll(true);
   });
 
@@ -36,7 +36,9 @@ export default function Navbar() {
   }
   return (
     <section id="Navbar" className={`${scroll ? "scrolled" : ""}`}>
-      <img src={logo} alt="Red Netflix logo word" />
+      <Link to="/">
+        <img src={logo} alt="Red Netflix logo word" />
+      </Link>
       <div>
         <i className=" search-icon fa-solid fa-magnifying-glass"></i>
         <img src={userImage} className="login-btn" onClick={() => onChange()} />
