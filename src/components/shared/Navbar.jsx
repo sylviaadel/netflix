@@ -7,6 +7,7 @@ import Modal from "../modal/Modal";
 import logo from "../../assets/images/logo.png";
 import { logoutInfo } from "../../scripts/helpers";
 import userImage from "../../assets/images/Netflix-avatar.png";
+import Search from "./Search";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -34,13 +35,14 @@ export default function Navbar() {
       navigate("/login");
     }
   }
+
   return (
     <section id="Navbar" className={`${scroll ? "scrolled" : ""}`}>
       <Link to="/">
         <img src={logo} alt="Red Netflix logo word" />
       </Link>
       <div>
-        <i className=" search-icon fa-solid fa-magnifying-glass"></i>
+        <Search />
         <img src={userImage} className="login-btn" onClick={() => onChange()} />
       </div>
       <Modal state={[modal, setModal]} />
