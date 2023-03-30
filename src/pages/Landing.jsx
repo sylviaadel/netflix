@@ -5,9 +5,9 @@ import { useItems } from "../state/ItemsProvider";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import Hero from "../components/landing/Hero";
-import TitleItem from "../components/landing/TitleItem";
+import TitlesContainer from "../components/landing/TitlesContainer";
 
-export default function Landing() {
+export default function Landing(adminClass) {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const movies = data.filter((item) => item.type === "movie");
@@ -32,25 +32,12 @@ export default function Landing() {
     setStatus(2);
   }
 
-  const Movies = movies.map((item) => <TitleItem key={item.id} item={item} />);
-  const Series = series.map((item) => <TitleItem key={item.id} item={item} />);
-  const Documentaries = documentaries.map((item) => (
-    <TitleItem key={item.id} item={item} />
-  ));
-
   return (
-    <div id="LandingPage">
+    <div id="LandingPage" className="admin">
       {/* <Hero item={data[0]} /> */}
       {status === 0 && <Spinner />}
       {status === 1 && (
-        <section className="titles-container">
-          <h3>Movies</h3>
-          <div className="titles-list">{Movies}</div>
-          <h3>Series</h3>
-          <div className="titles-list">{Series}</div>
-          <h3>Documentaries</h3>
-          <div className="titles-list">{Documentaries}</div>
-        </section>
+        <TitlesContainer series={series} movies={movies} doc={documentaries} />
       )}
       {status === 2 && <NotFound />}
       <Top10 />
