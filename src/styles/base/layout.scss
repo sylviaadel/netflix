@@ -15,6 +15,9 @@
 
 body {
   background-color: $darkGreyColor;
+  &:has(#portal #Modal) {
+    overflow: hidden;
+  }
 }
 
 h1 {
