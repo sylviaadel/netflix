@@ -12,6 +12,8 @@ export default function App() {
   const [status, setStatus] = useState(0);
   const collection = "users";
   const [loggedInUser, setloggedInUser] = useState(null);
+  const notLoggedIn = uid === "" || uid === null;
+  const admin = loggedInUser?.isAdmin;
 
   useEffect(() => {
     loadData(collection);
@@ -33,11 +35,7 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {uid === "" || uid === null ? (
-          <UnloggedRoutes />
-        ) : (
-          <LoggedRoutes user={loggedInUser} />
-        )}
+        {notLoggedIn ? <UnloggedRoutes /> : <LoggedRoutes user={admin} />}
         <ScrollToTop />
       </BrowserRouter>
     </div>
