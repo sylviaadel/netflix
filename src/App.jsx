@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { readDocument } from "./scripts/fireStore/readDocument";
 import { useUser } from "./state/UsersProvider";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
-import AdminRoutes from "./routes/AdminRoutes";
-import UserRoutes from "./routes/UserRoutes";
 import ScrollToTop from "./components/shared/ScrollToTop";
+import LoggedRoutes from "./routes/LoggedRoutes";
 import "./styles/style.scss";
 
 export default function App() {
@@ -36,10 +35,8 @@ export default function App() {
       <BrowserRouter>
         {uid === "" || uid === null ? (
           <UnloggedRoutes />
-        ) : !loggedInUser?.isAdmin ? (
-          <UserRoutes />
         ) : (
-          <AdminRoutes />
+          <LoggedRoutes user={loggedInUser} />
         )}
         <ScrollToTop />
       </BrowserRouter>
