@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 import { readDocument } from "./scripts/fireStore/readDocument";
 import { useUser } from "./state/UsersProvider";
 import UnloggedRoutes from "./routes/UnloggedRoutes";
-import AdminRoutes from "./routes/AdminRoutes";
-import UserRoutes from "./routes/UserRoutes";
 import ScrollToTop from "./components/shared/ScrollToTop";
+import LoggedRoutes from "./routes/LoggedRoutes";
 import "./styles/style.scss";
 
 export default function App() {
@@ -13,6 +12,8 @@ export default function App() {
   const [status, setStatus] = useState(0);
   const collection = "users";
   const [loggedInUser, setloggedInUser] = useState(null);
+  const notLoggedIn = uid === "" || uid === null;
+  const admin = loggedInUser?.isAdmin;
 
   useEffect(() => {
     loadData(collection);
@@ -34,13 +35,7 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {uid === "" || uid === null ? (
-          <UnloggedRoutes />
-        ) : !loggedInUser?.isAdmin ? (
-          <UserRoutes />
-        ) : (
-          <AdminRoutes />
-        )}
+        {notLoggedIn ? <UnloggedRoutes /> : <LoggedRoutes user={admin} />}
         <ScrollToTop />
       </BrowserRouter>
     </div>

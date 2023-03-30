@@ -8,7 +8,7 @@ import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
 
-export default function RecoverPassowrd() {
+export default function RecoverPassword() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "" });
   const email = authData[0];
