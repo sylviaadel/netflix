@@ -1,0 +1,31 @@
+.error {
+  position: relative;
+  height: calc(100vh - 60px);
+  background: $darkGreyColor;
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 305px;
+    width: 70%;
+    text-align: center;
+    color: $darkGreyColor;
+    background: $lightGreyColor;
+    padding: 2rem 1rem;
+    border-radius: 10px;
+    word-wrap: break-word;
+    svg {
+      margin-right: $spacing-small;
+    }
+  }
+}
+
+@media (min-width: 860px) {
+  .error {
+    height: calc(100vh);
+    h1 {
+      width: 850px;
+    }
+  }
+}
