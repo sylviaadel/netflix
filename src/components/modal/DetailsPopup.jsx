@@ -1,3 +1,5 @@
+import YoutubeEmbed from "../../scripts/YoutubeEmbed";
+
 export default function DetailsPopup({ item }) {
   const { heading, background, logo, description, videoLink } = item;
 
@@ -14,6 +16,7 @@ export default function DetailsPopup({ item }) {
         </div>
       </section>
       <p>{description}</p>
+      <YoutubeEmbed embedId={videoLink} />
     </div>
   );
 }
