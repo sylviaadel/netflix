@@ -1,0 +1,29 @@
+#Footer {
+  background: rgba(0, 0, 0, 0.75);
+  color: #737373;
+  padding: 30px $spacing-medium;
+  p {
+    max-width: 1000px;
+    margin: 0 auto $spacing-large;
+    font-size: 16px;
+  }
+  ul {
+    padding: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    li {
+      list-style: none;
+      display: inline-block;
+      min-width: 100px;
+      width: 25%;
+      margin-bottom: $spacing-small;
+      a {
+        color: #737373;
+        font-size: 13px;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
