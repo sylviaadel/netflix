@@ -1,13 +1,14 @@
 import { useState } from "react";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 import Modal from "./Modal";
+import Seasons from "./Seasons";
 
-export default function DetailsPopup({ item }) {
+export default function DetailsPopup({ item, collectionName }) {
   const { heading, background, logo, description, videoLink } = item;
   const [modal, setModal] = useState(null);
+  const seriesCondition = item.type === "series";
 
   function openVideo() {
-    //setID(uid);
     setModal(<YoutubeEmbed embedId={videoLink} />);
   }
 
@@ -24,7 +25,7 @@ export default function DetailsPopup({ item }) {
         </div>
       </section>
       <p>{description}</p>
-      {/* <YoutubeEmbed embedId={videoLink} /> */}
+      {seriesCondition && <Seasons id={item.id} collection={collectionName} />}
       <Modal state={[modal, setModal]} />
     </div>
   );
