@@ -28,10 +28,9 @@ export default function Seasons({ id, collection }) {
   return (
     <section className="seasons">
       <h3>Episodes</h3>
-      <label>
-        <span>Season</span>
+      <span className="select-wrapper">
         <select>{Seasons}</select>
-      </label>
+      </span>
     </section>
   );
 }
