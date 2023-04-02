@@ -29,46 +29,49 @@
   .login-btn {
     border-radius: 3px;
   }
-  #Search {
-    height: 36px;
-    line-height: 36px;
+}
+#Search {
+  height: 36px;
+  line-height: 36px;
+  z-index: 11;
+  position: fixed;
+  top: 8px;
+  right: 76px;
+  input {
+    width: 25px;
+    background-color: transparent;
+    border: 0;
+    z-index: 1;
     position: relative;
+    transition: width 0.3s ease;
+    font-size: 16px;
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+  &.input-focused {
+    border: solid 1px $whiteColor;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0 10px;
     input {
-      width: 25px;
-      background-color: transparent;
       border: 0;
-      z-index: 1;
-      position: relative;
-      transition: width 0.3s ease;
-      font-size: 16px;
-      &::placeholder {
-        opacity: 0;
-      }
-    }
-    &.input-focused {
-      border: solid 1px $whiteColor;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 0 10px;
-      input {
-        border: 0;
-        margin-left: 30px;
-        color: $whiteColor;
-        width: 200px;
-        &::placeholder {
-          opacity: 1;
-        }
-        &:focus {
-          outline: none;
-        }
-      }
-    }
-    .search-icon {
+      margin-left: 30px;
       color: $whiteColor;
-      font-size: 16px;
-      position: absolute;
-      top: 10px;
-      z-index: 0;
+      width: 200px;
+      &::placeholder {
+        opacity: 1;
+      }
+      &:focus {
+        outline: none;
+      }
     }
+  }
+  .search-icon {
+    color: $whiteColor;
+    font-size: 16px;
+    position: absolute;
+    top: 10px;
+    z-index: 0;
   }
 }
 

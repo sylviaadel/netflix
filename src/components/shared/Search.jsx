@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Search() {
+export default function Search({ onChange }) {
   const [isFocused, setIsFocused] = useState(false);
   const [query, setQuery] = useState("");
   var classes = [];
@@ -18,6 +18,7 @@ export default function Search() {
   }
   function onQueryChange(event) {
     setQuery(event.target.value);
+    onChange(query);
   }
 
   return (
