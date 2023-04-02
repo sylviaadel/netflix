@@ -6,6 +6,7 @@ import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import Hero from "../components/landing/Hero";
 import TitlesContainer from "../components/landing/TitlesContainer";
+import Search from "../components/shared/Search";
 
 export default function Landing() {
   const { data, dispatch } = useItems();
@@ -13,6 +14,7 @@ export default function Landing() {
   const movies = data.filter((item) => item.type === "movie");
   const series = data.filter((item) => item.type === "series");
   const documentaries = data.filter((item) => item.type === "documentary");
+  const [query, setQuery] = useState("");
   const collection = "titles";
 
   useEffect(() => {
@@ -31,13 +33,22 @@ export default function Landing() {
   function onFail() {
     setStatus(2);
   }
+  function onChange(query) {
+    setQuery(query);
+  }
 
   return (
     <div id="LandingPage">
       {/* <Hero item={data[0]} /> */}
+      <Search onChange={onChange} />
       {status === 0 && <Spinner />}
       {status === 1 && (
-        <TitlesContainer series={series} movies={movies} doc={documentaries} />
+        <TitlesContainer
+          query={query}
+          series={series}
+          movies={movies}
+          doc={documentaries}
+        />
       )}
       {status === 2 && <NotFound />}
       <Top10 />

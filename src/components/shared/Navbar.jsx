@@ -42,7 +42,7 @@ export default function Navbar() {
         <img src={logo} alt="Red Netflix logo word" />
       </Link>
       <div>
-        <Search />
+        {/* <Search /> */}
         <img src={userImage} className="login-btn" onClick={() => onChange()} />
       </div>
       <Modal state={[modal, setModal]} />

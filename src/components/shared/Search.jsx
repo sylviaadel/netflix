@@ -1,7 +1,8 @@
 import { useState } from "react";
 
-export default function Search() {
+export default function Search({ onChange }) {
   const [isFocused, setIsFocused] = useState(false);
+  const [query, setQuery] = useState("");
   var classes = [];
 
   function onFocus() {
@@ -12,18 +13,24 @@ export default function Search() {
     setIsFocused(false);
     classes.push("input-focused");
   }
-  if (isFocused) {
+  if (isFocused || query.trim() != "") {
     classes.push("input-focused");
+  }
+  function onQueryChange(event) {
+    setQuery(event.target.value);
+    onChange(query);
   }
 
   return (
     <div id="Search" className={classes.join(" ")}>
       <i className=" search-icon fa-solid fa-magnifying-glass"></i>
       <input
-        placeholder="Titles.."
+        placeholder="Search in Titles"
         type="search"
         onFocus={onFocus}
         onBlur={onBlur}
+        onChange={onQueryChange}
+        value={query}
       />
     </div>
   );

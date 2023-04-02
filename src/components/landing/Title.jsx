@@ -1,10 +1,10 @@
-export default function Title({ title, heading }) {
+export default function Title({ itemsList, title }) {
   return (
     <>
-      <h3>{heading}</h3>
+      <h3>{title}</h3>
       <button>+ Add New</button>
       <div className="clear"></div>
-      <div className="titles-list">{title}</div>
+      <div className="titles-list">{itemsList}</div>
     </>
   );
 }
