@@ -6,7 +6,6 @@ import UnloggedRoutes from "./routes/UnloggedRoutes";
 import ScrollToTop from "./components/shared/ScrollToTop";
 import LoggedRoutes from "./routes/LoggedRoutes";
 import "./styles/style.scss";
-import Footer from "./components/shared/Footer";
 
 export default function App() {
   const { uid } = useUser();
