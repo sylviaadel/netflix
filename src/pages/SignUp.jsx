@@ -8,6 +8,7 @@ import InputCheckbox from "../components/form/InputCheckbox";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
+import Footer from "../components/shared/Footer";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -66,6 +67,7 @@ export default function SignUp() {
         </form>
         <Link to="/login">Sign In</Link>
       </section>
+      <Footer />
       <Modal state={[modal, setModal]} />
     </div>
   );

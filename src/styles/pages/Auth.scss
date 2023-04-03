@@ -4,7 +4,7 @@
   section.container {
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
-    margin: 20px auto;
+    margin: 20px auto 50px;
     min-height: calc(100vh - 120px);
     padding: 0 5%;
     color: #b3b3b3;
@@ -147,7 +147,7 @@
     section.container {
       max-width: 450px;
       padding: 60px 68px 40px;
-      margin: 0 auto;
+      margin: 0 auto 90px;
     }
     &.signup {
       background: $whiteColor;

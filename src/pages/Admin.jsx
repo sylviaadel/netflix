@@ -5,6 +5,7 @@ import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import TitlesContainer from "../components/landing/TitlesContainer";
 import Search from "../components/shared/Search";
+import Footer from "../components/shared/Footer";
 
 export default function Admin() {
   const { data, dispatch } = useItems();
@@ -48,6 +49,7 @@ export default function Admin() {
         />
       )}
       {status === 2 && <NotFound />}
+      <Footer />
     </div>
   );
 }
