@@ -31,8 +31,8 @@ export default function Seasons({ id, collection }) {
     );
     setEpisodes(currentEpisodes);
   }
-
-  const Seasons = seasons.map((option) => (
+  const sortedSeasons = seasons?.sort((a, b) => (a.title > b.title ? 1 : -1));
+  const Seasons = sortedSeasons.map((option) => (
     <option key={option.id} value={option.id}>
       {option.title}
     </option>
