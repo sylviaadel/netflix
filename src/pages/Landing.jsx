@@ -7,6 +7,7 @@ import NotFound from "./NotFound";
 import Hero from "../components/landing/Hero";
 import TitlesContainer from "../components/landing/TitlesContainer";
 import Search from "../components/shared/Search";
+import Footer from "../components/shared/Footer";
 
 export default function Landing() {
   const { data, dispatch } = useItems();
@@ -52,6 +53,7 @@ export default function Landing() {
       )}
       {status === 2 && <NotFound />}
       <Top10 />
+      <Footer />
     </div>
   );
 }

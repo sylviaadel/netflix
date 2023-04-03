@@ -13,7 +13,7 @@ export default function Search({ onChange }) {
     setIsFocused(false);
     classes.push("input-focused");
   }
-  if (isFocused || query.trim() != "") {
+  if (isFocused || query.trim() !== "") {
     classes.push("input-focused");
   }
   function onQueryChange(event) {

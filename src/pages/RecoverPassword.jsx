@@ -7,6 +7,7 @@ import { recoverMessage } from "../scripts/helpers";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
+import Footer from "../components/shared/Footer";
 
 export default function RecoverPassword() {
   const navigate = useNavigate();
@@ -55,6 +56,7 @@ export default function RecoverPassword() {
           This page is protected by Google reCAPTCHA to ensure you're not a bot.
         </p>
       </section>
+      <Footer />
       <Modal state={[modal, setModal]} />
     </div>
   );

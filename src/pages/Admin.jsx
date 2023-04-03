@@ -4,10 +4,13 @@ import { useItems } from "../state/ItemsProvider";
 import Spinner from "../components/shared/Spinner";
 import NotFound from "./NotFound";
 import TitlesContainer from "../components/landing/TitlesContainer";
+import Search from "../components/shared/Search";
+import Footer from "../components/shared/Footer";
 
 export default function Admin() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
+  const [query, setQuery] = useState("");
   const movies = data.filter((item) => item.type === "movie");
   const series = data.filter((item) => item.type === "series");
   const documentaries = data.filter((item) => item.type === "documentary");
@@ -29,14 +32,24 @@ export default function Admin() {
   function onFail() {
     setStatus(2);
   }
+  function onChange(query) {
+    setQuery(query);
+  }
 
   return (
     <div id="AdminPage">
+      <Search onChange={onChange} />
       {status === 0 && <Spinner />}
       {status === 1 && (
-        <TitlesContainer series={series} movies={movies} doc={documentaries} />
+        <TitlesContainer
+          query={query}
+          series={series}
+          movies={movies}
+          doc={documentaries}
+        />
       )}
       {status === 2 && <NotFound />}
+      <Footer />
     </div>
   );
 }

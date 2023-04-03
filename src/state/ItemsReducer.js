@@ -19,12 +19,12 @@ function onCreate(state, action) {
 }
 
 function onUpdate(state, action) {
-  const updatedCourse = action.payload;
-  const id = updatedCourse.id;
-  const clonedCourses = [...state];
-  const itemIndex = clonedCourses.findIndex((item) => item.id === id);
-  clonedCourses[itemIndex] = updatedCourse;
-  return clonedCourses;
+  const updatedItem = action.payload;
+  const id = updatedItem.id;
+  const clonedItems = [...state];
+  const itemIndex = clonedItems.findIndex((item) => item.id === id);
+  clonedItems[itemIndex] = updatedItem;
+  return clonedItems;
 }
 
 function onDelete(state, action) {
