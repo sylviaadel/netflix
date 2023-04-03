@@ -3,6 +3,7 @@
   min-height: calc(100vh);
   .titles-container {
     margin: $spacing-medium 0;
+    padding-top: 85px;
     &:first-child {
       margin-top: 50px;
       padding-top: 3rem;
@@ -24,6 +25,7 @@
         color: $whiteColor;
         font-size: 12px;
         padding: 0 10px;
+        margin-bottom: $spacing-small;
       }
     }
     .titles-list {
@@ -50,7 +52,7 @@
       img {
         height: 130px;
         width: 230px;
-        object-fit: cover;
+        object-fit: contain;
         & + .actions {
           display: block;
           position: absolute;

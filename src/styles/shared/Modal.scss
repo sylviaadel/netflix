@@ -7,7 +7,7 @@
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.8);
     animation: fadeIn 0.1s ease-in;
-    z-index: 1;
+    z-index: 11;
   }
   .modal-content {
     position: fixed;
@@ -22,7 +22,7 @@
     padding-bottom: 20px;
     max-height: calc(100vh - 170px);
     overflow: auto;
-    z-index: 1;
+    z-index: 11;
     color: $whiteColor;
     .close {
       background-color: $darkGreyColor;
@@ -103,6 +103,53 @@
         padding: 2rem 4%;
         font-size: 14px;
         line-height: 24px;
+        word-wrap: break-word;
+      }
+    }
+    .form-modal {
+      padding-bottom: 56px;
+      h2 {
+        margin: 0;
+      }
+      form {
+        padding: $spacing-small;
+        label {
+          display: block;
+          width: 100%;
+          font-size: 14px;
+          input,
+          textarea {
+            background-color: #e8f0fe;
+            border: 0;
+            border-radius: 8px;
+            display: block;
+            height: 45px;
+            margin: $spacing-xsmall 0 $spacing-small;
+            padding: $spacing-small;
+            width: 100%;
+            &:focus {
+              outline: none;
+            }
+          }
+          textarea {
+            height: 90px;
+          }
+          &.choose-img {
+            margin: $spacing-medium 0;
+            input {
+              display: none;
+            }
+            img {
+              height: 30px;
+              float: right;
+              margin-top: -10px;
+            }
+          }
+        }
+        button {
+          float: right;
+          margin: $spacing-small 0 0;
+        }
       }
     }
     &:has(.video-responsive) {

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import TitleItem from "./TitleItem";
 import Title from "./Title";
+import Modal from "../modal/Modal";
 
 export default function TitlesContainer({ movies, series, doc, query }) {
+  const [modal, setModal] = useState(null);
+
   const Movies = movies
     .filter((item) => {
       if (query === "") {
@@ -40,9 +44,10 @@ export default function TitlesContainer({ movies, series, doc, query }) {
 
   return (
     <section className="titles-container">
-      <Title title="Movies" itemsList={Movies} />
+      <Title title="Movies" itemsList={Movies} setModal={setModal} />
       <Title title="Series" itemsList={Series} />
       <Title title="Documentaries" itemsList={Docs} />
+      <Modal state={[modal, setModal]} />
     </section>
   );
 }

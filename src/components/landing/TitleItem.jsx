@@ -6,6 +6,7 @@ import AdminActions from "./AdminActions";
 import { deleteInfo } from "../../scripts/helpers";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
+import imgIcon from "../../assets/images/camera-icon.png";
 
 export default function TitleItem({ item }) {
   const { dispatch } = useItems();
@@ -31,7 +32,11 @@ export default function TitleItem({ item }) {
   return (
     <>
       <article key={id}>
-        <img onClick={openDetails} src={thumbnail} alt={heading} />
+        <img
+          onClick={openDetails}
+          src={thumbnail ? thumbnail : imgIcon}
+          alt={heading}
+        />
         <AdminActions confirm={confirmDelete} />
       </article>
       <Modal state={[modal, setModal]} />
