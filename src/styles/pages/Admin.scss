@@ -4,6 +4,7 @@
   .titles-container {
     margin: $spacing-medium 0 0;
     padding-top: 85px;
+    min-height: calc(100vh - 160px);
     &:first-child {
       margin-top: 50px;
       padding-top: 3rem;
@@ -19,7 +20,7 @@
         float: right;
         margin-right: 4%;
         background-color: $redColor;
-        height: 20px;
+        height: 25px;
         border-radius: 3px;
         border: 0;
         color: $whiteColor;
@@ -67,8 +68,8 @@
             padding: 10px;
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
             margin-left: 10px;
-            width: 50px;
-            font-size: 16px;
+            width: 40px;
+            font-size: 14px;
             &:first-child {
               background-color: rgba(109, 109, 110, 1);
             }

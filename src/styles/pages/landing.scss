@@ -3,6 +3,7 @@
   min-height: calc(100vh);
   .titles-container {
     margin: $spacing-medium 0;
+    min-height: calc(100vh - 420px);
     h3 {
       color: $lightGreyColor;
       font-size: 12px;
