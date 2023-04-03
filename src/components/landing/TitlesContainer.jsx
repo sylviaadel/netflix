@@ -33,9 +33,24 @@ export default function TitlesContainer({ movies, series, doc, query }) {
 
   return (
     <section className="titles-container">
-      <Title title="Movies" itemsList={Movies} setModal={setModal} />
-      <Title title="Series" itemsList={Series} setModal={setModal} />
-      <Title title="Documentaries" itemsList={Docs} setModal={setModal} />
+      <Title
+        title="Movies"
+        itemsList={Movies}
+        setModal={setModal}
+        itemType="movie"
+      />
+      <Title
+        title="Series"
+        itemsList={Series}
+        setModal={setModal}
+        itemType="series"
+      />
+      <Title
+        title="Documentaries"
+        itemsList={Docs}
+        setModal={setModal}
+        itemType="documentary"
+      />
       <Modal state={[modal, setModal]} />
     </section>
   );
