@@ -14,10 +14,14 @@ export default function Title({ list, title, setModal, type }) {
 
   return (
     <>
-      <h3>{title}</h3>
-      <button onClick={openForm}>+ Add New</button>
-      <div className="clear"></div>
-      <div className="titles-list">{list}</div>
+      {list.length && (
+        <div>
+          <h3>{title}</h3>
+          <button onClick={openForm}>+ Add New</button>
+          <div className="clear"></div>
+          <div className="titles-list">{list}</div>
+        </div>
+      )}
     </>
   );
 }
