@@ -2,7 +2,7 @@ import data from "../../data/footerData.json";
 
 export default function Footer() {
   const FooterData = data.map((item) => (
-    <li>
+    <li key={item.id}>
       <a href={item.link}>{item.title}</a>
     </li>
   ));
