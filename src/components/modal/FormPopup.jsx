@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 
-export default function FormPopup({ setModal, collection, id, itemType }) {
+export default function FormPopup({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
@@ -32,7 +32,7 @@ export default function FormPopup({ setModal, collection, id, itemType }) {
       thumbnail: thumbnail,
       background: background,
       videoLink: video,
-      type: itemType,
+      type: type,
     };
     await createDocumentWithManualId(collection, id, data);
     dispatch({ type: "create", payload: data });

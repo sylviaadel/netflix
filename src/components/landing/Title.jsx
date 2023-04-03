@@ -1,6 +1,6 @@
 import FormPopup from "../modal/FormPopup";
 
-export default function Title({ itemsList, title, setModal, itemType }) {
+export default function Title({ list, title, setModal, type }) {
   const collection = "titles";
   const openForm = () =>
     setModal(
@@ -8,7 +8,7 @@ export default function Title({ itemsList, title, setModal, itemType }) {
         setModal={setModal}
         id={undefined}
         collection={collection}
-        itemType={itemType}
+        type={type}
       />
     );
 
@@ -17,7 +17,7 @@ export default function Title({ itemsList, title, setModal, itemType }) {
       <h3>{title}</h3>
       <button onClick={openForm}>+ Add New</button>
       <div className="clear"></div>
-      <div className="titles-list">{itemsList}</div>
+      <div className="titles-list">{list}</div>
     </>
   );
 }
