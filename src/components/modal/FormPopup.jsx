@@ -4,6 +4,7 @@ import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
+import TextBox from "../form/TextBox";
 
 export default function FormPopup({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
@@ -43,15 +44,11 @@ export default function FormPopup({ setModal, collection, id, type }) {
     <div className="form-modal">
       <h2>Add new Item</h2>
       <form onSubmit={(event) => onSubmit(event)}>
-        <label>
-          Title
-          <input
-            value={heading}
-            onChange={(event) => setHeading(event.target.value)}
-            type="text"
-            required
-          />
-        </label>
+        <TextBox
+          title="Title"
+          onChange={(event) => setHeading(event.target.value)}
+          value={heading}
+        />
         <label>
           Description
           <textarea
@@ -71,15 +68,11 @@ export default function FormPopup({ setModal, collection, id, type }) {
           image={background}
           label="Choose Background"
         />
-        <label>
-          VideoLink
-          <input
-            value={video}
-            onChange={(event) => setVideo(event.target.value)}
-            type="text"
-            required
-          />
-        </label>
+        <TextBox
+          title="Video Link"
+          value={video}
+          onChange={(event) => setVideo(event.target.value)}
+        />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
         </button>
