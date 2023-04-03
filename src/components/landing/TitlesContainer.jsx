@@ -5,39 +5,28 @@ import Modal from "../modal/Modal";
 
 export default function TitlesContainer({ movies, series, doc, query }) {
   const [modal, setModal] = useState(null);
+  const filter = (item) => {
+    if (query === "") {
+      return item;
+    } else if (item.heading.toLowerCase().includes(query.toLowerCase())) {
+      return item;
+    }
+  };
 
   const Movies = movies
-    .filter((item) => {
-      if (query === "") {
-        return item;
-      } else if (item.heading.toLowerCase().includes(query.toLowerCase())) {
-        return item;
-      }
-    })
+    .filter(filter)
     .map((item) => (
       <TitleItem item={item} key={item.id} heading={item.heading} />
     ));
 
   const Series = series
-    .filter((item) => {
-      if (query === "") {
-        return item;
-      } else if (item.heading.toLowerCase().includes(query.toLowerCase())) {
-        return item;
-      }
-    })
+    .filter(filter)
     .map((item) => (
       <TitleItem item={item} key={item.id} heading={item.heading} />
     ));
 
   const Docs = doc
-    .filter((item) => {
-      if (query === "") {
-        return item;
-      } else if (item.heading.toLowerCase().includes(query.toLowerCase())) {
-        return item;
-      }
-    })
+    .filter(filter)
     .map((item) => (
       <TitleItem item={item} key={item.id} heading={item.heading} />
     ));
@@ -45,8 +34,8 @@ export default function TitlesContainer({ movies, series, doc, query }) {
   return (
     <section className="titles-container">
       <Title title="Movies" itemsList={Movies} setModal={setModal} />
-      <Title title="Series" itemsList={Series} />
-      <Title title="Documentaries" itemsList={Docs} />
+      <Title title="Series" itemsList={Series} setModal={setModal} />
+      <Title title="Documentaries" itemsList={Docs} setModal={setModal} />
       <Modal state={[modal, setModal]} />
     </section>
   );
