@@ -5,7 +5,7 @@ import Episode from "./Episode";
 export default function Seasons({ id, collection }) {
   const [seasons, setSeasons] = useState([]);
   const [status, setStatus] = useState(0);
-  const [currentSeason, setCurrentSeason] = useState("CB2T7OR2ibPCUKHVAiUa");
+  const [currentSeason, setCurrentSeason] = useState("");
   const [episodes, setEpisodes] = useState([]);
 
   useEffect(() => {
@@ -14,10 +14,6 @@ export default function Seasons({ id, collection }) {
 
   async function loadData(collection) {
     const data = await readSubCollection(`${collection}/${id}/seasons`);
-    const currentEpisodes = await readSubCollection(
-      `${collection}/${id}/seasons/${currentSeason}/episodes`
-    );
-    setEpisodes(currentEpisodes);
     onSuccess(data);
   }
 
@@ -26,14 +22,19 @@ export default function Seasons({ id, collection }) {
     setStatus(1);
   }
 
-  function handleChangeSeason(e) {
-    setCurrentSeason(e.target.value);
-    console.log(currentSeason);
+  async function changeSeason(e) {
+    var clonedSeason = { ...currentSeason };
+    clonedSeason = e.target.value;
+    setCurrentSeason(clonedSeason);
+    const currentEpisodes = await readSubCollection(
+      `${collection}/${id}/seasons/${e.target.value}/episodes`
+    );
+    setEpisodes(currentEpisodes);
   }
 
-  const Seasons = seasons.map((data) => (
-    <option key={data.id} value={data.id}>
-      {data.title}
+  const Seasons = seasons.map((option) => (
+    <option key={option.id} value={option.id}>
+      {option.title}
     </option>
   ));
 
@@ -45,7 +46,9 @@ export default function Seasons({ id, collection }) {
     <section className="seasons">
       <h3>Episodes</h3>
       <span className="select-wrapper">
-        <select onChange={(e) => handleChangeSeason(e)}>{Seasons}</select>
+        <select onChange={(e) => changeSeason(e)} defaultValue={currentSeason}>
+          {Seasons}
+        </select>
       </span>
       <div className="episodes">{Episodes}</div>
     </section>
