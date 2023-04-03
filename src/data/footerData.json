@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "FAQ",
+    "link": "https://help.netflix.com/en/node/412"
+  },
+  {
+    "id": 2,
+    "title": "Help Centre",
+    "link": "https://help.netflix.com/en/"
+  },
+  {
+    "id": 3,
+    "title": "Terms of Use",
+    "link": "https://help.netflix.com/legal/termsofuse"
+  },
+  {
+    "id": 4,
+    "title": "Privacy",
+    "link": "https://help.netflix.com/legal/privacy"
+  },
+  {
+    "id": 5,
+    "title": "Cookie Preferences",
+    "link": "https://www.netflix.com/se-en/login"
+  },
+  {
+    "id": 1,
+    "title": "Corporate Information",
+    "link": "https://help.netflix.com/legal/corpinfo"
+  }
+]
