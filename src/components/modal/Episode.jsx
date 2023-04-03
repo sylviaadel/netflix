@@ -11,14 +11,16 @@ export default function Episode({ item }) {
   }
 
   return (
-    <article onClick={openVideo}>
-      <label>{episode}</label>
-      <img src={thumbnail} />
-      <div>
-        <h4>{heading}</h4>
-        <p>{description}</p>
-      </div>
+    <>
+      <article onClick={openVideo}>
+        <label>{episode}</label>
+        <img src={thumbnail} />
+        <div>
+          <h4>{heading}</h4>
+          <p>{description}</p>
+        </div>
+      </article>
       <Modal state={[modal, setModal]} />
-    </article>
+    </>
   );
 }
