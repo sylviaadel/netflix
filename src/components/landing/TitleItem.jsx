@@ -12,7 +12,7 @@ import FormEpisode from "../modal/FormEpisode";
 
 export default function TitleItem({ item, isSeries }) {
   const { dispatch } = useItems();
-  const { id, heading, thumbnail, background, videoLink, logo } = item;
+  const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
   const collection = "titles";
 

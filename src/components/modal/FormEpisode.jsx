@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
