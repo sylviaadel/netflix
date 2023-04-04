@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import InputImage from "../form/InputImage";
@@ -10,6 +9,7 @@ import { titleErr, descErr, videoErr, episodeErr } from "../../scripts/helpers";
 import TextArea from "../form/TextArea";
 import TextNumber from "../form/TextBoxNumber";
 import SeasonDDL from "../form/SeasonDDL";
+import { createEpisode } from "../../scripts/fireStore/createEpisode";
 
 export default function FormEpisode({ setModal, collection, id, seriesId }) {
   const { dispatch } = useItems();
@@ -18,6 +18,7 @@ export default function FormEpisode({ setModal, collection, id, seriesId }) {
   const [episodeNum, setEpisodeNum] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [video, setVideo] = useState("");
+  const [currentSeason, setCurrentSeason] = useState("");
   id = uuidv4() + "_" + Date.now();
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const chooseThumbnail = (event) =>
@@ -31,15 +32,21 @@ export default function FormEpisode({ setModal, collection, id, seriesId }) {
       description: description,
       thumbnail: thumbnail,
       videoLink: video,
-      episodeNum: episodeNum,
+      episode: episodeNum,
     };
     if (!validText(data.heading) || !validText(data.description)) {
       event.preventDefault();
     } else {
-      await createDocumentWithManualId(collection, id, data);
+      await createEpisode(collection, seriesId, currentSeason, data);
       dispatch({ type: "create", payload: data });
       setModal(null);
     }
+  }
+
+  async function changeSeason(e) {
+    var clonedSeason = { ...currentSeason };
+    clonedSeason = e.target.value;
+    setCurrentSeason(clonedSeason);
   }
 
   return (
@@ -59,7 +66,11 @@ export default function FormEpisode({ setModal, collection, id, seriesId }) {
           validate={validText(description)}
           error={descErr}
         />
-        <SeasonDDL seriesId={seriesId} collection={collection} />
+        <SeasonDDL
+          seriesId={seriesId}
+          collection={collection}
+          changeSeason={changeSeason}
+        />
         <InputImage
           chooseImage={chooseThumbnail}
           image={thumbnail}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 import Modal from "./Modal";
+import imgIcon from "../../assets/images/camera-icon.png";
 
 export default function Episode({ item }) {
   const { episode, thumbnail, heading, description, videoLink } = item;
@@ -14,7 +15,7 @@ export default function Episode({ item }) {
     <>
       <article onClick={openVideo}>
         <label>{episode}</label>
-        <img src={thumbnail} />
+        <img src={thumbnail ? thumbnail : imgIcon} />
         <div>
           <h4>{heading}</h4>
           <p>{description}</p>
