@@ -1,30 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import TextBox from "../form/TextBox";
-import { validText } from "../../scripts/tests/addItem";
-import { titleErr, descErr, videoErr } from "../../scripts/helpers";
+import { validText, validNumber } from "../../scripts/tests/addItem";
+import { titleErr, descErr, videoErr, episodeErr } from "../../scripts/helpers";
 import TextArea from "../form/TextArea";
+import TextNumber from "../form/TextBoxNumber";
+import SeasonDDL from "../form/SeasonDDL";
 
-export default function FormPopup({ setModal, collection, id, type }) {
+export default function FormEpisode({ setModal, collection, id, seriesId }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
-  const [logo, setLogo] = useState("");
+  const [episodeNum, setEpisodeNum] = useState("");
   const [thumbnail, setThumbnail] = useState("");
-  const [background, setBackground] = useState("");
   const [video, setVideo] = useState("");
   id = uuidv4() + "_" + Date.now();
   const [buttonEnabled, setButtonEnabled] = useState(true);
-  const chooseLogo = (event) =>
-    onChooseImage(event, setButtonEnabled, setLogo, id);
   const chooseThumbnail = (event) =>
     onChooseImage(event, setButtonEnabled, setThumbnail, id);
-  const choosebackground = (event) =>
-    onChooseImage(event, setButtonEnabled, setBackground, id);
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -32,11 +29,9 @@ export default function FormPopup({ setModal, collection, id, type }) {
       id: id,
       heading: heading,
       description: description,
-      logo: logo,
       thumbnail: thumbnail,
-      background: background,
       videoLink: video,
-      type: type,
+      episodeNum: episodeNum,
     };
     if (!validText(data.heading) || !validText(data.description)) {
       event.preventDefault();
@@ -49,7 +44,7 @@ export default function FormPopup({ setModal, collection, id, type }) {
 
   return (
     <div className="form-modal">
-      <h2>Add new Item</h2>
+      <h2>Add new Episode</h2>
       <form onSubmit={(event) => onSubmit(event)}>
         <TextBox
           title="Title"
@@ -64,16 +59,18 @@ export default function FormPopup({ setModal, collection, id, type }) {
           validate={validText(description)}
           error={descErr}
         />
-        <InputImage chooseImage={chooseLogo} image={logo} label="Choose Logo" />
+        <SeasonDDL seriesId={seriesId} collection={collection} />
         <InputImage
           chooseImage={chooseThumbnail}
           image={thumbnail}
           label="Choose Thumbnail"
         />
-        <InputImage
-          chooseImage={choosebackground}
-          image={background}
-          label="Choose Background"
+        <TextNumber
+          title="Episode Number"
+          onChange={(event) => setEpisodeNum(event.target.value)}
+          value={episodeNum}
+          validate={validNumber(episodeNum)}
+          error={episodeErr}
         />
         <TextBox
           title="Video ID"

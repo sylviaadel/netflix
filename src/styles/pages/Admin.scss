@@ -65,7 +65,7 @@
           bottom: 10px;
           right: 10px;
           button {
-            background-color: $redColor;
+            background-color: rgba(109, 109, 110, 1);
             border-radius: 3px;
             color: $whiteColor;
             border: 0;
@@ -74,8 +74,10 @@
             margin-left: 10px;
             width: 40px;
             font-size: 14px;
-            &:first-child {
-              background-color: rgba(109, 109, 110, 1);
+            &:last-child {
+              background-color: $redColor;
+              border-radius: 3px;
+              color: $whiteColor;
             }
           }
         }

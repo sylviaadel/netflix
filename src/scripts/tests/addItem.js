@@ -4,3 +4,10 @@ export function validText(name) {
   }
   return true;
 }
+
+export function validNumber(number) {
+  if (number === null || number < 1) {
+    return false;
+  }
+  return true;
+}

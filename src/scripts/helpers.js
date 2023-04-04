@@ -15,12 +15,15 @@ export const deleteInfo = {
   btnTitle: "Delete",
 };
 
-export const headingError = (
+export const titleErr = (
   <p className="error-text">Please enter a valid title.</p>
 );
-export const descError = (
+export const descErr = (
   <p className="error-text">Please enter a valid description.</p>
 );
-export const videoError = (
+export const videoErr = (
   <p className="error-text">Please enter a valid Youtube Video ID.</p>
+);
+export const episodeErr = (
+  <p className="error-text">Please enter a valid Episode Number.</p>
 );
