@@ -14,3 +14,13 @@ export const deleteInfo = {
   message: "Are you sure you want to delete this item?",
   btnTitle: "Delete",
 };
+
+export const headingError = (
+  <p className="error-text">Please enter a valid title.</p>
+);
+export const descError = (
+  <p className="error-text">Please enter a valid description.</p>
+);
+export const videoError = (
+  <p className="error-text">Please enter a valid Youtube Video ID.</p>
+);

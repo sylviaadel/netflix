@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import TextBox from "../form/TextBox";
+import { validText } from "../../scripts/tests/addItem";
+import { headingError, descError, videoError } from "../../scripts/helpers";
 
 export default function FormPopup({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
@@ -35,9 +37,13 @@ export default function FormPopup({ setModal, collection, id, type }) {
       videoLink: video,
       type: type,
     };
-    await createDocumentWithManualId(collection, id, data);
-    dispatch({ type: "create", payload: data });
-    setModal(null);
+    if (!validText(data.title) || !validText(data.description)) {
+      event.preventDefault();
+    } else {
+      await createDocumentWithManualId(collection, id, data);
+      dispatch({ type: "create", payload: data });
+      setModal(null);
+    }
   }
 
   return (
@@ -48,14 +54,16 @@ export default function FormPopup({ setModal, collection, id, type }) {
           title="Title"
           onChange={(event) => setHeading(event.target.value)}
           value={heading}
+          validate={validText(heading)}
+          error={headingError}
         />
-        <label>
+        <label className={`${validText(description) ? "" : "is-error"}`}>
           Description
           <textarea
             value={description}
             onChange={(event) => setDescription(event.target.value)}
-            required
           ></textarea>
+          {validText(description) ? "" : descError}
         </label>
         <InputImage chooseImage={chooseLogo} image={logo} label="Choose Logo" />
         <InputImage
@@ -69,9 +77,11 @@ export default function FormPopup({ setModal, collection, id, type }) {
           label="Choose Background"
         />
         <TextBox
-          title="Video Link"
+          title="Video ID"
           value={video}
           onChange={(event) => setVideo(event.target.value)}
+          validate={validText(video)}
+          error={videoError}
         />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
