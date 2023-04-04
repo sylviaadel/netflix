@@ -7,7 +7,7 @@ import { deleteInfo } from "../../scripts/helpers";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import imgIcon from "../../assets/images/camera-icon.png";
-import YoutubeEmbed from "../../scripts/YoutubeEmbed";
+import HoverCard from "./HoverCard";
 
 export default function TitleItem({ item }) {
   const { dispatch } = useItems();
@@ -30,10 +30,6 @@ export default function TitleItem({ item }) {
     );
   }
 
-  function openVideo() {
-    setModal(<YoutubeEmbed embedId={videoLink} />);
-  }
-
   return (
     <>
       <article key={id}>
@@ -43,18 +39,7 @@ export default function TitleItem({ item }) {
           alt={heading}
         />
         <AdminActions confirm={confirmDelete} />
-        <div className="hover-card">
-          <img src={background ? background : imgIcon} />
-          <img src={logo ? logo : imgIcon} alt={heading} />
-          <div className="card-details">
-            <button onClick={openVideo} className="play-btn">
-              <i className="fa-solid fa-play"></i>
-            </button>
-            <button onClick={openDetails} className="info-btn">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-        </div>
+        <HoverCard item={item} setModal={setModal} details={openDetails} />
       </article>
       <Modal state={[modal, setModal]} />
     </>
