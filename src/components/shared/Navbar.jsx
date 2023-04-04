@@ -13,6 +13,9 @@ export default function Navbar() {
   const { uid, setUid, saveUID } = useUser();
   const [modal, setModal] = useState(null);
   const [scroll, setScroll] = useState(false);
+  const popup = (
+    <InfoPopup setModal={setModal} onClose={logoutUser} item={logoutInfo} />
+  );
 
   function changeScroll() {
     if (window.scrollY >= 1) {
@@ -26,10 +29,6 @@ export default function Navbar() {
     changeScroll();
     window.addEventListener("scroll", changeScroll);
   });
-
-  const popup = (
-    <InfoPopup setModal={setModal} onClose={logoutUser} item={logoutInfo} />
-  );
 
   function logoutUser() {
     setUid("");
