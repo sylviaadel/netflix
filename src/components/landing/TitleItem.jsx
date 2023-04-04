@@ -17,7 +17,9 @@ export default function TitleItem({ item, isSeries }) {
   const collection = "titles";
 
   function openDetails() {
-    setModal(<DetailsPopup item={item} collectionName={collection} />);
+    setModal(
+      <DetailsPopup item={item} collectionName={collection} seriesId={id} />
+    );
   }
 
   async function deleteItem() {
@@ -33,12 +35,7 @@ export default function TitleItem({ item, isSeries }) {
 
   function addEpisode() {
     setModal(
-      <FormEpisode
-        setModal={setModal}
-        id={undefined}
-        collection={collection}
-        seriesId={id}
-      />
+      <FormEpisode setModal={setModal} collection={collection} seriesId={id} />
     );
   }
 

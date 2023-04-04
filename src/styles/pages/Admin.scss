@@ -87,58 +87,16 @@
       }
     }
   }
-  .top10-container {
-    padding: 0 0 $spacing-medium 0;
-    h3 {
-      color: $lightGreyColor;
-      font-size: 12px;
-      margin: 0 4% $spacing-xsmall;
-      font-weight: normal;
-    }
-    ol {
-      list-style: none;
-      counter-reset: item;
-      display: flex;
-      overflow-x: auto;
-      padding: 0 0 0 $spacing-medium;
-      height: 170px;
-      margin: 0 4%;
-      &::-webkit-scrollbar {
-        height: 5px;
-      }
-      &::-webkit-scrollbar-track {
-        background: $darkGreyColor;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: $redColor;
-        border-radius: 10px;
-      }
-      li {
-        counter-increment: item;
-        margin-bottom: 5px;
-        position: relative;
-        margin-right: $spacing-medium;
-        &::before {
-          content: counter(item);
-          color: #161b18;
-          font-size: 160px;
-          position: absolute;
-          font-family: fantasy;
-          display: inline-block;
-          top: -31px;
-          -webkit-text-stroke: 3px #595959;
-          text-shadow: 1px 1px 0 #595959;
-          z-index: 0;
-        }
-        img {
-          height: 135px;
-          width: 96px;
-          object-fit: cover;
-          margin-left: 55px;
-          position: inherit;
-        }
-      }
-    }
+}
+#root:has(#AdminPage) + #portal {
+  .add-season {
+    display: block;
+    background-color: $redColor;
+    height: 40px;
+    border-radius: 3px;
+    border: 0;
+    color: #fff;
+    padding: 0 10px;
   }
 }
 @media (min-width: 740px) {
