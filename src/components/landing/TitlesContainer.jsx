@@ -22,7 +22,12 @@ export default function TitlesContainer({ movies, series, doc, query }) {
   const Series = series
     .filter(filter)
     .map((item) => (
-      <TitleItem item={item} key={item.id} heading={item.heading} />
+      <TitleItem
+        item={item}
+        key={item.id}
+        heading={item.heading}
+        isSeries={true}
+      />
     ));
 
   const Docs = doc

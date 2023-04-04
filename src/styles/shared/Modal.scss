@@ -17,7 +17,7 @@
     background: $darkGreyColor;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     min-width: 320px;
-    width: 70%;
+    width: 90%;
     border-radius: 10px;
     padding-bottom: 20px;
     max-height: calc(100vh - 170px);
@@ -124,7 +124,8 @@
             }
           }
           input,
-          textarea {
+          textarea,
+          select {
             background-color: #e8f0fe;
             border: 0;
             border-radius: 8px;
@@ -156,6 +157,7 @@
               height: 30px;
               float: right;
               margin-top: -10px;
+              border-radius: 5px;
             }
           }
         }
@@ -231,9 +233,9 @@
             font-size: 1.5em;
           }
           img {
-            min-width: 90px;
-            height: 50px;
-            object-fit: cover;
+            height: 70px;
+            width: 90px;
+            object-fit: contain;
           }
           div {
             padding: 1rem;
@@ -262,6 +264,7 @@
   #Modal {
     .modal-content {
       min-width: 750px;
+      width: 70%;
       h2 {
         font-size: 20px;
       }
