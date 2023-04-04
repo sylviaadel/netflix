@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUser } from "../../state/UsersProvider";
 import { useNavigate } from "react-router";
@@ -7,7 +7,6 @@ import Modal from "../modal/Modal";
 import logo from "../../assets/images/logo.png";
 import { logoutInfo } from "../../scripts/helpers";
 import userImage from "../../assets/images/Netflix-avatar.png";
-import Search from "./Search";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -15,8 +14,17 @@ export default function Navbar() {
   const [modal, setModal] = useState(null);
   const [scroll, setScroll] = useState(false);
 
-  window.addEventListener("scroll", () => {
-    setScroll(true);
+  function changeScroll() {
+    if (window.scrollY >= 1) {
+      setScroll(true);
+    } else {
+      setScroll(false);
+    }
+  }
+
+  useEffect(() => {
+    changeScroll();
+    window.addEventListener("scroll", changeScroll);
   });
 
   const popup = (
@@ -42,7 +50,6 @@ export default function Navbar() {
         <img src={logo} alt="Red Netflix logo word" />
       </Link>
       <div>
-        {/* <Search /> */}
         <img src={userImage} className="login-btn" onClick={() => onChange()} />
       </div>
       <Modal state={[modal, setModal]} />
