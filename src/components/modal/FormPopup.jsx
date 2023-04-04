@@ -7,6 +7,7 @@ import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import TextBox from "../form/TextBox";
 import { validText } from "../../scripts/tests/addItem";
 import { headingError, descError, videoError } from "../../scripts/helpers";
+import TextArea from "../form/TextArea";
 
 export default function FormPopup({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
@@ -37,7 +38,7 @@ export default function FormPopup({ setModal, collection, id, type }) {
       videoLink: video,
       type: type,
     };
-    if (!validText(data.title) || !validText(data.description)) {
+    if (!validText(data.heading) || !validText(data.description)) {
       event.preventDefault();
     } else {
       await createDocumentWithManualId(collection, id, data);
@@ -57,14 +58,12 @@ export default function FormPopup({ setModal, collection, id, type }) {
           validate={validText(heading)}
           error={headingError}
         />
-        <label className={`${validText(description) ? "" : "is-error"}`}>
-          Description
-          <textarea
-            value={description}
-            onChange={(event) => setDescription(event.target.value)}
-          ></textarea>
-          {validText(description) ? "" : descError}
-        </label>
+        <TextArea
+          onChange={(event) => setDescription(event.target.value)}
+          value={description}
+          validate={validText(description)}
+          error={descError}
+        />
         <InputImage chooseImage={chooseLogo} image={logo} label="Choose Logo" />
         <InputImage
           chooseImage={chooseThumbnail}
