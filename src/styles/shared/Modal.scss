@@ -117,6 +117,12 @@
           display: block;
           width: 100%;
           font-size: 14px;
+          &.is-error {
+            input,
+            textarea {
+              border-bottom: solid 3px #e87c03;
+            }
+          }
           input,
           textarea {
             background-color: #e8f0fe;
@@ -130,6 +136,13 @@
             &:focus {
               outline: none;
             }
+          }
+          .error-text {
+            color: #e87c03;
+            border-radius: 4px;
+            text-align: left;
+            margin: 0 0 $spacing-small 0;
+            font-size: 12px;
           }
           textarea {
             height: 90px;
