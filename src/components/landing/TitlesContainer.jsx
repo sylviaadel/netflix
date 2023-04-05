@@ -5,6 +5,7 @@ import Modal from "../modal/Modal";
 
 export default function TitlesContainer({ movies, series, doc, query }) {
   const [modal, setModal] = useState(null);
+  const DOC = "Documentaries";
   const filter = (item) => {
     if (query === "") {
       return item;
@@ -31,7 +32,6 @@ export default function TitlesContainer({ movies, series, doc, query }) {
         item={item}
         key={item.id}
         heading={item.heading}
-        isSeries={true}
         type="series"
       />
     ));
@@ -51,12 +51,7 @@ export default function TitlesContainer({ movies, series, doc, query }) {
     <section className="titles-container">
       <Title title="Movies" list={Movies} setModal={setModal} type="movie" />
       <Title title="Series" list={Series} setModal={setModal} type="series" />
-      <Title
-        title="Documentaries"
-        list={Docs}
-        setModal={setModal}
-        type="documentary"
-      />
+      <Title title={DOC} list={Docs} setModal={setModal} type="documentary" />
       <Modal state={[modal, setModal]} />
     </section>
   );

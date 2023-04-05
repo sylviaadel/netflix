@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import Seasons from "./Seasons";
 import imgIcon from "../../assets/images/camera-icon.png";
 import FormSeason from "./FormSeason";
+import FormEpisode from "./FormEpisode";
 
 export default function DetailsPopup({ item, collectionName, seriesId }) {
   const { heading, background, logo, description, videoLink } = item;
@@ -25,6 +26,17 @@ export default function DetailsPopup({ item, collectionName, seriesId }) {
     );
   }
 
+  function addEpisode() {
+    debugger;
+    setModal(
+      <FormEpisode
+        setModal={setModal}
+        collection={collection}
+        seriesId={seriesId}
+      />
+    );
+  }
+
   return (
     <div className="details-modal">
       <section id="Hero">
@@ -41,7 +53,13 @@ export default function DetailsPopup({ item, collectionName, seriesId }) {
         </div>
       </section>
       <p>{description}</p>
-      {seriesCondition && <Seasons id={item.id} collection={collectionName} />}
+      {seriesCondition && (
+        <Seasons
+          id={item.id}
+          collection={collectionName}
+          addEpisode={addEpisode}
+        />
+      )}
       <Modal state={[modal, setModal]} />
     </div>
   );
