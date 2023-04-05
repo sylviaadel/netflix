@@ -17,9 +17,7 @@ export default function TitleItem({ item, type }) {
   const collection = "titles";
 
   function openDetails() {
-    setModal(
-      <DetailsPopup item={item} collectionName={collection} seriesId={id} />
-    );
+    setModal(<DetailsPopup item={item} seriesId={id} />);
   }
 
   async function deleteItem() {
