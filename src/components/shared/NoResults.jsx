@@ -4,7 +4,7 @@ export default function NoResults() {
   return (
     <section className="no-results">
       <div className="clear"></div>
-      <img src={NoResultsImg} />
+      <img src={NoResultsImg} alt="No Results" />
       <p>No Results Found</p>
     </section>
   );
