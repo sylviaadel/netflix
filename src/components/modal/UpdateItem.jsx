@@ -21,7 +21,7 @@ export default function UpdateItem({ setModal, collection, id, type }) {
     onChooseImage(event, setButtonEnabled, setLogo, id);
   const chooseThumbnail = (event) =>
     onChooseImage(event, setButtonEnabled, setThumbnail, id);
-  const choosebackground = (event) =>
+  const chooseBackground = (event) =>
     onChooseImage(event, setButtonEnabled, setBackground, id);
 
   useEffect(() => {
@@ -89,12 +89,12 @@ export default function UpdateItem({ setModal, collection, id, type }) {
       <h2>Update Item</h2>
       <form onSubmit={(event) => onSubmit(event)}>
         <FormItems
-          background={background}
+          bg={background}
           logo={logo}
           thumbnail={thumbnail}
           changeHeading={changeHeading}
           changeDescription={changeDescription}
-          chooseBg={choosebackground}
+          chooseBg={chooseBackground}
           chooseLogo={chooseLogo}
           chooseThumbnail={chooseThumbnail}
           changeVideo={changeVideo}
