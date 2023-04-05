@@ -71,11 +71,12 @@
           top: 60%;
           left: 4%;
           img {
-            width: 36%;
+            width: 300px;
             display: block;
-            margin-bottom: $spacing-small;
+            margin-bottom: 16px;
             height: 65px;
             object-fit: contain;
+            object-position: left bottom;
           }
           button,
           a {
@@ -194,6 +195,9 @@
         margin-bottom: $spacing-small;
         font-size: 24px;
         float: left;
+        & + button {
+          display: none;
+        }
       }
       .select-wrapper {
         float: right;
@@ -254,6 +258,11 @@
           }
           div {
             padding: 1rem;
+            &.actions {
+              display: none;
+              right: 0 !important ;
+              bottom: auto !important ;
+            }
             h4 {
               color: #fff;
               font-size: 1em;

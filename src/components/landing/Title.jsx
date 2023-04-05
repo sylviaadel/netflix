@@ -2,7 +2,7 @@ import AddItem from "../modal/AddItem";
 
 export default function Title({ list, title, setModal, type }) {
   const collection = "titles";
-  const openForm = () =>
+  function openForm() {
     setModal(
       <AddItem
         setModal={setModal}
@@ -11,6 +11,7 @@ export default function Title({ list, title, setModal, type }) {
         type={type}
       />
     );
+  }
 
   return (
     <>

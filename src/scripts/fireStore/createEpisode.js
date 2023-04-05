@@ -1,7 +1,13 @@
-import { collection, addDoc } from "firebase/firestore";
+import { doc, collection, setDoc } from "firebase/firestore";
 import { database } from "../firebaseSetup";
 
-export async function createEpisode(collectionName, seriesId, seasonId, data) {
+export async function createEpisode(
+  collectionName,
+  seriesId,
+  seasonId,
+  id,
+  data
+) {
   const reference = collection(
     database,
     collectionName,
@@ -10,8 +16,8 @@ export async function createEpisode(collectionName, seriesId, seasonId, data) {
     seasonId,
     "episodes"
   );
-  const document = await addDoc(reference, data);
-  const result = document.id;
+  const document = doc(reference, id);
+  await setDoc(document, data);
 
-  return result;
+  return `created document with manual id ${id}`;
 }

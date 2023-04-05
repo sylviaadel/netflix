@@ -8,19 +8,16 @@ import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import imgIcon from "../../assets/images/camera-icon.png";
 import HoverCard from "./HoverCard";
-import FormEpisode from "../modal/FormEpisode";
 import UpdateItem from "../modal/UpdateItem";
 
-export default function TitleItem({ item, isSeries, type }) {
+export default function TitleItem({ item, type }) {
   const { dispatch } = useItems();
   const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
   const collection = "titles";
 
   function openDetails() {
-    setModal(
-      <DetailsPopup item={item} collectionName={collection} seriesId={id} />
-    );
+    setModal(<DetailsPopup item={item} seriesId={id} />);
   }
 
   async function deleteItem() {
@@ -31,12 +28,6 @@ export default function TitleItem({ item, isSeries, type }) {
   function confirmDelete() {
     setModal(
       <InfoPopup setModal={setModal} onClose={deleteItem} item={deleteInfo} />
-    );
-  }
-
-  function addEpisode() {
-    setModal(
-      <FormEpisode setModal={setModal} collection={collection} seriesId={id} />
     );
   }
 
@@ -59,12 +50,7 @@ export default function TitleItem({ item, isSeries, type }) {
           src={thumbnail ? thumbnail : imgIcon}
           alt={heading}
         />
-        <AdminActions
-          confirm={confirmDelete}
-          isSeries={isSeries}
-          addEpisode={addEpisode}
-          openModal={openEditModal}
-        />
+        <AdminActions confirm={confirmDelete} openModal={openEditModal} />
         <HoverCard item={item} setModal={setModal} details={openDetails} />
       </article>
       <Modal state={[modal, setModal]} />

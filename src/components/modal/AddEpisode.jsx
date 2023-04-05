@@ -11,7 +11,7 @@ import TextNumber from "../form/TextBoxNumber";
 import SeasonDDL from "../form/SeasonDDL";
 import { createEpisode } from "../../scripts/fireStore/createEpisode";
 
-export default function FormEpisode({ setModal, collection, id, seriesId }) {
+export default function AddEpisode({ setModal, collection, id, seriesId }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
@@ -37,7 +37,7 @@ export default function FormEpisode({ setModal, collection, id, seriesId }) {
     if (!validText(data.heading) || !validText(data.description)) {
       event.preventDefault();
     } else {
-      await createEpisode(collection, seriesId, currentSeason, data);
+      await createEpisode(collection, seriesId, currentSeason, id, data);
       dispatch({ type: "create", payload: data });
       setModal(null);
     }

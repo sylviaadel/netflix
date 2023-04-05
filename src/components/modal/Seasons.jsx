@@ -3,7 +3,7 @@ import { readSubCollection } from "../../scripts/fireStore/readSubCollection";
 import ComingSoon from "../shared/ComingSoon";
 import Episode from "./Episode";
 
-export default function Seasons({ id, collection }) {
+export default function Seasons({ id, collection, addEpisode, seriesId }) {
   const [seasons, setSeasons] = useState([]);
   const [status, setStatus] = useState(0);
   const [currentSeason, setCurrentSeason] = useState("");
@@ -39,13 +39,23 @@ export default function Seasons({ id, collection }) {
     </option>
   ));
 
-  const Episodes = episodes.map((item) => (
-    <Episode key={item.id} item={item} />
+  const sorted = episodes?.sort((a, b) => (a.episode > b.episode ? 1 : -1));
+
+  const Episodes = sorted.map((item) => (
+    <Episode
+      key={item.id}
+      item={item}
+      currentSeason={currentSeason}
+      seriesId={seriesId}
+    />
   ));
 
   return (
     <section className="seasons">
       <h3>Episodes</h3>
+      <button onClick={addEpisode}>
+        <i className="fa-solid fa-plus"></i>
+      </button>
       <span className="select-wrapper">
         <select onChange={(e) => changeSeason(e)} defaultValue={currentSeason}>
           {Seasons}
