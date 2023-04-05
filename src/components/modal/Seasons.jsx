@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { readSubCollection } from "../../scripts/fireStore/readSubCollection";
+import ComingSoon from "../shared/ComingSoon";
 import NoReults from "../shared/NoResults";
 import Episode from "./Episode";
 
@@ -54,7 +55,7 @@ export default function Seasons({ id, collection }) {
       {Episodes.length > 0 ? (
         <div className="episodes">{Episodes}</div>
       ) : (
-        <NoReults />
+        <ComingSoon />
       )}
     </section>
   );
