@@ -59,35 +59,36 @@
         height: 130px;
         width: 230px;
         object-fit: contain;
-        & + .actions {
-          display: block;
-          position: absolute;
-          bottom: 10px;
-          right: 10px;
-          button {
-            background-color: rgba(109, 109, 110, 1);
-            border-radius: 3px;
-            color: $whiteColor;
-            border: 0;
-            padding: 10px;
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
-            margin-left: 10px;
-            width: 40px;
-            font-size: 14px;
-            &:last-child {
-              background-color: $redColor;
-              border-radius: 3px;
-              color: $whiteColor;
-            }
-          }
-        }
       }
       article {
         position: relative;
       }
     }
   }
+  .actions {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    button {
+      background-color: rgba(109, 109, 110, 1);
+      border-radius: 3px;
+      color: $whiteColor;
+      border: 0;
+      padding: 10px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      margin-left: 10px;
+      width: 40px;
+      font-size: 14px;
+      &:last-child {
+        background-color: $redColor;
+        border-radius: 3px;
+        color: $whiteColor;
+      }
+    }
+  }
 }
+
 #root:has(#AdminPage) + #portal {
   .add-season {
     display: block;
@@ -97,6 +98,32 @@
     border: 0;
     color: #fff;
     padding: 0 10px;
+  }
+  .episodes article div p {
+    width: 80%;
+  }
+
+  .actions {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    button {
+      background-color: rgba(109, 109, 110, 1);
+      border-radius: 3px;
+      color: $whiteColor;
+      border: 0;
+      padding: 10px;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+      margin-left: 10px;
+      width: 40px;
+      font-size: 14px;
+      &:last-child {
+        background-color: $redColor;
+        border-radius: 3px;
+        color: $whiteColor;
+      }
+    }
   }
 }
 #root:has(#AdminPage) + #portal {

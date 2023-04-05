@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { readSubCollection } from "../../scripts/fireStore/readSubCollection";
 import ComingSoon from "../shared/ComingSoon";
 import Episode from "./Episode";
+import { deleteInfo } from "../../scripts/helpers";
 
 export default function Seasons({ id, collection, addEpisode }) {
   const [seasons, setSeasons] = useState([]);
@@ -23,6 +24,11 @@ export default function Seasons({ id, collection, addEpisode }) {
     setStatus(1);
   }
 
+  async function deleteItem() {
+    // await deleteDocument(collection, id);
+    // dispatch({ type: "delete", payload: id });
+  }
+
   async function changeSeason(e) {
     var clonedSeason = { ...currentSeason };
     clonedSeason = e.target.value;
@@ -40,7 +46,12 @@ export default function Seasons({ id, collection, addEpisode }) {
   ));
 
   const Episodes = episodes.map((item) => (
-    <Episode key={item.id} item={item} />
+    <Episode
+      key={item.id}
+      item={item}
+      deleteInfo={deleteInfo}
+      deleteItem={deleteItem}
+    />
   ));
 
   return (

@@ -258,6 +258,11 @@
           }
           div {
             padding: 1rem;
+            &.actions {
+              display: none;
+              right: 0 !important ;
+              bottom: auto !important ;
+            }
             h4 {
               color: #fff;
               font-size: 1em;
