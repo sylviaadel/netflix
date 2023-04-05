@@ -5,10 +5,15 @@ import imgIcon from "../../assets/images/camera-icon.png";
 import AdminActions from "../landing/AdminActions";
 import InfoPopup from "./InfoPopup";
 import UpdateItem from "./UpdateItem";
+import { deleteInfo } from "../../scripts/helpers";
+import { deleteEpisode } from "../../scripts/fireStore/deleteEpisode";
+import { useItems } from "../../state/ItemsProvider";
 
-export default function Episode({ item, deleteItem, deleteInfo }) {
-  const { episode, thumbnail, heading, description, videoLink } = item;
+export default function Episode({ item, currentSeason, seriesId }) {
+  const { dispatch } = useItems();
+  const { id, episode, thumbnail, heading, description, videoLink } = item;
   const [modal, setModal] = useState(null);
+  const collection = "titles";
 
   function openVideo() {
     setModal(<YoutubeEmbed embedId={videoLink} />);
@@ -18,6 +23,12 @@ export default function Episode({ item, deleteItem, deleteInfo }) {
     setModal(
       <InfoPopup setModal={setModal} onClose={deleteItem} item={deleteInfo} />
     );
+  }
+
+  async function deleteItem() {
+    debugger;
+    await deleteEpisode(collection, seriesId, currentSeason, id);
+    dispatch({ type: "delete", payload: id });
   }
 
   async function openEditModal() {

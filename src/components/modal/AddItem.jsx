@@ -78,37 +78,6 @@ export default function AddItem({ setModal, collection, id, type }) {
           description={""}
           video={""}
         />
-        {/* <TextBox
-          title="Title"
-          onChange={(event) => setHeading(event.target.value)}
-          value={heading}
-          validate={validText(heading)}
-          error={titleErr}
-        />
-        <TextArea
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-          validate={validText(description)}
-          error={descErr}
-        />
-        <InputImage chooseImage={chooseLogo} image={logo} label="Choose Logo" />
-        <InputImage
-          chooseImage={chooseThumbnail}
-          image={thumbnail}
-          label="Choose Thumbnail"
-        />
-        <InputImage
-          chooseImage={choosebackground}
-          image={background}
-          label="Choose Background"
-        />
-        <TextBox
-          title="Video ID"
-          value={video}
-          onChange={(event) => setVideo(event.target.value)}
-          validate={validText(video)}
-          error={videoErr}
-        /> */}
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
         </button>
