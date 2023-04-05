@@ -19,16 +19,15 @@ export default function Episode({ item, currentSeason, seriesId }) {
     setModal(<YoutubeEmbed embedId={videoLink} />);
   }
 
+  async function deleteItem() {
+    await deleteEpisode(collection, seriesId, currentSeason, id);
+    dispatch({ type: "delete", payload: id });
+  }
+
   function confirmDelete() {
     setModal(
       <InfoPopup setModal={setModal} onClose={deleteItem} item={deleteInfo} />
     );
-  }
-
-  async function deleteItem() {
-    debugger;
-    await deleteEpisode(collection, seriesId, currentSeason, id);
-    dispatch({ type: "delete", payload: id });
   }
 
   async function openEditModal() {
