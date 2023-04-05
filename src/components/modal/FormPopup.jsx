@@ -2,12 +2,9 @@ import { useState } from "react";
 import { createDocumentWithManualId } from "../../scripts/fireStore/createDocumentWithManualId";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
-import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import TextBox from "../form/TextBox";
 import { validText } from "../../scripts/tests/addItem";
-import { titleErr, descErr, videoErr } from "../../scripts/helpers";
-import TextArea from "../form/TextArea";
+import FormItems from "./FormItems";
 
 export default function FormPopup({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
@@ -38,7 +35,11 @@ export default function FormPopup({ setModal, collection, id, type }) {
       videoLink: video,
       type: type,
     };
-    if (!validText(data.heading) || !validText(data.description)) {
+    if (
+      !validText(data.heading) ||
+      !validText(data.description) ||
+      !validText(data.videoLink)
+    ) {
       event.preventDefault();
     } else {
       await createDocumentWithManualId(collection, id, data);
@@ -47,11 +48,37 @@ export default function FormPopup({ setModal, collection, id, type }) {
     }
   }
 
+  function changeHeading(heading) {
+    setHeading(heading);
+  }
+
+  function changeDescription(description) {
+    setDescription(description);
+  }
+
+  function changeVideo(video) {
+    setVideo(video);
+  }
+
   return (
     <div className="form-modal">
       <h2>Add new Item</h2>
       <form onSubmit={(event) => onSubmit(event)}>
-        <TextBox
+        <FormItems
+          background={background}
+          logo={logo}
+          thumbnail={thumbnail}
+          changeHeading={changeHeading}
+          changeDescription={changeDescription}
+          chooseBg={choosebackground}
+          chooseLogo={chooseLogo}
+          chooseThumbnail={chooseThumbnail}
+          changeVideo={changeVideo}
+          heading={""}
+          description={""}
+          video={""}
+        />
+        {/* <TextBox
           title="Title"
           onChange={(event) => setHeading(event.target.value)}
           value={heading}
@@ -81,7 +108,7 @@ export default function FormPopup({ setModal, collection, id, type }) {
           onChange={(event) => setVideo(event.target.value)}
           validate={validText(video)}
           error={videoErr}
-        />
+        /> */}
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
         </button>
