@@ -6,7 +6,7 @@ import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import { validText } from "../../scripts/tests/addItem";
 import FormItems from "./FormItems";
 
-export default function FormPopup({ setModal, collection, id, type }) {
+export default function AddItem({ setModal, collection, id, type }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");

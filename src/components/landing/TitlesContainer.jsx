@@ -16,7 +16,12 @@ export default function TitlesContainer({ movies, series, doc, query }) {
   const Movies = movies
     .filter(filter)
     .map((item) => (
-      <TitleItem item={item} key={item.id} heading={item.heading} />
+      <TitleItem
+        item={item}
+        key={item.id}
+        heading={item.heading}
+        type="movie"
+      />
     ));
 
   const Series = series
@@ -27,13 +32,19 @@ export default function TitlesContainer({ movies, series, doc, query }) {
         key={item.id}
         heading={item.heading}
         isSeries={true}
+        type="series"
       />
     ));
 
   const Docs = doc
     .filter(filter)
     .map((item) => (
-      <TitleItem item={item} key={item.id} heading={item.heading} />
+      <TitleItem
+        item={item}
+        key={item.id}
+        heading={item.heading}
+        type="documentary"
+      />
     ));
 
   return (

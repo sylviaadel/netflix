@@ -9,8 +9,9 @@ import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
 import imgIcon from "../../assets/images/camera-icon.png";
 import HoverCard from "./HoverCard";
 import FormEpisode from "../modal/FormEpisode";
+import UpdateItem from "../modal/UpdateItem";
 
-export default function TitleItem({ item, isSeries }) {
+export default function TitleItem({ item, isSeries, type }) {
   const { dispatch } = useItems();
   const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
@@ -39,6 +40,17 @@ export default function TitleItem({ item, isSeries }) {
     );
   }
 
+  async function openEditModal() {
+    setModal(
+      <UpdateItem
+        id={id}
+        setModal={setModal}
+        collection={collection}
+        type={type}
+      />
+    );
+  }
+
   return (
     <>
       <article key={id}>
@@ -51,6 +63,7 @@ export default function TitleItem({ item, isSeries }) {
           confirm={confirmDelete}
           isSeries={isSeries}
           addEpisode={addEpisode}
+          openModal={openEditModal}
         />
         <HoverCard item={item} setModal={setModal} details={openDetails} />
       </article>
