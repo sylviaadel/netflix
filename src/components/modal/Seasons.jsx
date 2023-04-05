@@ -39,7 +39,9 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
     </option>
   ));
 
-  const Episodes = episodes.map((item) => (
+  const sorted = episodes?.sort((a, b) => (a.episode > b.episode ? 1 : -1));
+
+  const Episodes = sorted.map((item) => (
     <Episode
       key={item.id}
       item={item}
