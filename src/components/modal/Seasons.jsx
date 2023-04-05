@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { readSubCollection } from "../../scripts/fireStore/readSubCollection";
+import NoReults from "../shared/NoResults";
 import Episode from "./Episode";
 
 export default function Seasons({ id, collection }) {
@@ -50,7 +51,11 @@ export default function Seasons({ id, collection }) {
           {Seasons}
         </select>
       </span>
-      <div className="episodes">{Episodes}</div>
+      {Episodes.length > 0 ? (
+        <div className="episodes">{Episodes}</div>
+      ) : (
+        <NoReults />
+      )}
     </section>
   );
 }
