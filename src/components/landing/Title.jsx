@@ -1,10 +1,10 @@
-import FormPopup from "../modal/FormPopup";
+import AddItem from "../modal/AddItem";
 
 export default function Title({ list, title, setModal, type }) {
   const collection = "titles";
   const openForm = () =>
     setModal(
-      <FormPopup
+      <AddItem
         setModal={setModal}
         id={undefined}
         collection={collection}
