@@ -11,7 +11,7 @@ import HoverCard from "./HoverCard";
 import FormEpisode from "../modal/FormEpisode";
 import UpdateItem from "../modal/UpdateItem";
 
-export default function TitleItem({ item, isSeries }) {
+export default function TitleItem({ item, isSeries, type }) {
   const { dispatch } = useItems();
   const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
@@ -42,7 +42,12 @@ export default function TitleItem({ item, isSeries }) {
 
   async function openEditModal() {
     setModal(
-      <UpdateItem id={id} setModal={setModal} collection={collection} />
+      <UpdateItem
+        id={id}
+        setModal={setModal}
+        collection={collection}
+        type={type}
+      />
     );
   }
 
