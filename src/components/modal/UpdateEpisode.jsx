@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import { validText, validNumber } from "../../scripts/tests/addItem";
-import { updateSubCollection } from "../../scripts/fireStore/updateSubCollection";
 import { videoErr, episodeErr, titleErr, descErr } from "../../scripts/helpers";
 import TextBox from "../form/TextBox";
 import TextArea from "../form/TextArea";
 import TextNumber from "../form/TextBoxNumber";
 import InputImage from "../form/InputImage";
 import { readDocument } from "../../scripts/fireStore/readDocument";
+import { updateDocument } from "../../scripts/fireStore/updateDocument";
 
 export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
   const { dispatch } = useItems();
@@ -66,7 +66,7 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
     ) {
       event.preventDefault();
     } else {
-      await updateSubCollection(
+      await updateDocument(
         `${collection}/${seriesId}/seasons/${seasonId}/episodes`,
         data
       );
