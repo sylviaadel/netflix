@@ -2,13 +2,9 @@ import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import { validText, validNumber } from "../../scripts/tests/addItem";
-import { videoErr, episodeErr, titleErr, descErr } from "../../scripts/helpers";
-import TextBox from "../form/TextBox";
-import TextArea from "../form/TextArea";
-import TextNumber from "../form/TextBoxNumber";
-import InputImage from "../form/InputImage";
 import { readDocument } from "../../scripts/fireStore/readDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
+import FormEpisode from "./FormEpisode";
 
 export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
   const { dispatch } = useItems();
@@ -75,41 +71,37 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
     }
   }
 
+  function changeHeading(heading) {
+    setHeading(heading);
+  }
+
+  function changeDescription(description) {
+    setDescription(description);
+  }
+
+  function changeEpisode(episode) {
+    setEpisode(episode);
+  }
+
+  function changeVideo(video) {
+    setVideo(video);
+  }
+
   return (
     <div className="form-modal">
       <h2>Update Episode</h2>
       <form onSubmit={(event) => onSubmit(event)}>
-        <TextBox
-          title="Title"
-          onChange={(event) => setHeading(event.target.value)}
-          value={heading}
-          validate={validText(heading)}
-          error={titleErr}
-        />
-        <TextArea
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-          validate={validText(description)}
-          error={descErr}
-        />
-        <InputImage
-          chooseImage={chooseThumbnail}
-          image={thumbnail}
-          label="Choose Thumbnail"
-        />
-        <TextNumber
-          title="Episode Number"
-          onChange={(event) => setEpisode(event.target.value)}
-          value={episode}
-          validate={validNumber(episode)}
-          error={episodeErr}
-        />
-        <TextBox
-          title="Video ID"
-          value={video}
-          onChange={(event) => setVideo(event.target.value)}
-          validate={validText(video)}
-          error={videoErr}
+        <FormEpisode
+          thumbnail={thumbnail}
+          changeHeading={changeHeading}
+          changeDescription={changeDescription}
+          chooseThumbnail={chooseThumbnail}
+          changeEpisode={changeEpisode}
+          changeVideo={changeVideo}
+          heading={heading}
+          description={description}
+          episode={episode}
+          video={video}
         />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
