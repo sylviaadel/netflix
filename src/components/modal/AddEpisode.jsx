@@ -34,7 +34,12 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
       videoLink: video,
       episode: episodeNum,
     };
-    if (!validText(data.heading) || !validText(data.description)) {
+    if (
+      !validText(data.heading) ||
+      !validText(data.description) ||
+      !validNumber(data.episode) ||
+      !validText(data.videoLink)
+    ) {
       event.preventDefault();
     } else {
       await createEpisode(collection, seriesId, currentSeason, id, data);

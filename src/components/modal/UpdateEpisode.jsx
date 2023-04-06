@@ -58,6 +58,7 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
     if (
       !validText(data.heading) ||
       !validText(data.description) ||
+      !validNumber(data.episode) ||
       !validText(data.videoLink)
     ) {
       event.preventDefault();
