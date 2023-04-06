@@ -25,6 +25,7 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     onChooseImage(event, setButtonEnabled, setThumbnail, id);
 
   async function onSubmit(event) {
+    debugger;
     event.preventDefault();
     const data = {
       id: id,
@@ -43,9 +44,9 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     }
   }
 
-  async function changeSeason(e) {
+  async function changeSeason(seasonId) {
     var clonedSeason = { ...currentSeason };
-    clonedSeason = e.target.value;
+    clonedSeason = seasonId;
     setCurrentSeason(clonedSeason);
   }
 

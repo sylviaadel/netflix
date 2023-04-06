@@ -17,6 +17,7 @@ export default function SeasonDDL({ seriesId, collection, changeSeason }) {
   function onSuccess(data) {
     setSeasons(data);
     setStatus(1);
+    changeSeason(data.sort((a, b) => (a.title > b.title ? 1 : -1))[0].id);
   }
 
   const sortedSeasons = seasons?.sort((a, b) => (a.title > b.title ? 1 : -1));
@@ -29,7 +30,7 @@ export default function SeasonDDL({ seriesId, collection, changeSeason }) {
   return (
     <label>
       Choose Season
-      <select onChange={(e) => changeSeason(e)}>{Seasons}</select>
+      <select onChange={(e) => changeSeason(e.target.value)}>{Seasons}</select>
     </label>
   );
 }
