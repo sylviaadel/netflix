@@ -1,21 +1,17 @@
 import { useState } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
-import InputImage from "../form/InputImage";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import TextBox from "../form/TextBox";
 import { validText, validNumber } from "../../scripts/tests/addItem";
-import { titleErr, descErr, videoErr, episodeErr } from "../../scripts/helpers";
-import TextArea from "../form/TextArea";
-import TextNumber from "../form/TextBoxNumber";
 import SeasonDDL from "../form/SeasonDDL";
 import { createEpisode } from "../../scripts/fireStore/createEpisode";
+import FormEpisode from "./FormEpisode";
 
 export default function AddEpisode({ setModal, collection, id, seriesId }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
-  const [episodeNum, setEpisodeNum] = useState("");
+  const [episode, setEpisode] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [video, setVideo] = useState("");
   const [currentSeason, setCurrentSeason] = useState("");
@@ -32,7 +28,7 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
       description: description,
       thumbnail: thumbnail,
       videoLink: video,
-      episode: episodeNum,
+      episode: episode,
     };
     if (
       !validText(data.heading) ||
@@ -54,46 +50,42 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     setCurrentSeason(clonedSeason);
   }
 
+  function changeHeading(heading) {
+    setHeading(heading);
+  }
+
+  function changeDescription(description) {
+    setDescription(description);
+  }
+
+  function changeEpisode(episode) {
+    setEpisode(episode);
+  }
+
+  function changeVideo(video) {
+    setVideo(video);
+  }
+
   return (
     <div className="form-modal">
       <h2>Add new Episode</h2>
       <form onSubmit={(event) => onSubmit(event)}>
-        <TextBox
-          title="Title"
-          onChange={(event) => setHeading(event.target.value)}
-          value={heading}
-          validate={validText(heading)}
-          error={titleErr}
-        />
-        <TextArea
-          onChange={(event) => setDescription(event.target.value)}
-          value={description}
-          validate={validText(description)}
-          error={descErr}
+        <FormEpisode
+          thumbnail={thumbnail}
+          changeHeading={changeHeading}
+          changeDescription={changeDescription}
+          chooseThumbnail={chooseThumbnail}
+          changeEpisode={changeEpisode}
+          changeVideo={changeVideo}
+          heading={heading}
+          description={description}
+          episode={episode}
+          video={video}
         />
         <SeasonDDL
           seriesId={seriesId}
           collection={collection}
           changeSeason={changeSeason}
-        />
-        <InputImage
-          chooseImage={chooseThumbnail}
-          image={thumbnail}
-          label="Choose Thumbnail"
-        />
-        <TextNumber
-          title="Episode Number"
-          onChange={(event) => setEpisodeNum(event.target.value)}
-          value={episodeNum}
-          validate={validNumber(episodeNum)}
-          error={episodeErr}
-        />
-        <TextBox
-          title="Video ID"
-          value={video}
-          onChange={(event) => setVideo(event.target.value)}
-          validate={validText(video)}
-          error={videoErr}
         />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
