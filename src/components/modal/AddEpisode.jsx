@@ -25,7 +25,6 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     onChooseImage(event, setButtonEnabled, setThumbnail, id);
 
   async function onSubmit(event) {
-    debugger;
     event.preventDefault();
     const data = {
       id: id,

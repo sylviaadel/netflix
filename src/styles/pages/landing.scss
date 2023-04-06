@@ -146,6 +146,9 @@
         margin-bottom: 5px;
         position: relative;
         margin-right: $spacing-medium;
+        &:last-child img {
+          margin-left: 110px;
+        }
         &::before {
           content: counter(item);
           color: #161b18;
