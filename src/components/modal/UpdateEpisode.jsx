@@ -1,24 +1,49 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
-import { v4 as uuidv4 } from "uuid";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
 import { validText, validNumber } from "../../scripts/tests/addItem";
-import SeasonDDL from "../form/SeasonDDL";
-import { createEpisode } from "../../scripts/fireStore/createEpisode";
+import { readDocument } from "../../scripts/fireStore/readDocument";
+import { updateDocument } from "../../scripts/fireStore/updateDocument";
 import FormEpisode from "./FormEpisode";
 
-export default function AddEpisode({ setModal, collection, id, seriesId }) {
+export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
   const { dispatch } = useItems();
+  const [status, setStatus] = useState(0);
   const [heading, setHeading] = useState("");
   const [description, setDescription] = useState("");
-  const [episode, setEpisode] = useState("");
   const [thumbnail, setThumbnail] = useState("");
+  const [episode, setEpisode] = useState("");
   const [video, setVideo] = useState("");
-  const [currentSeason, setCurrentSeason] = useState("");
-  id = uuidv4() + "_" + Date.now();
+  const currentEpisodeId = id;
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const chooseThumbnail = (event) =>
     onChooseImage(event, setButtonEnabled, setThumbnail, id);
+  const collection = "titles";
+
+  useEffect(() => {
+    loadData(collection);
+  }, [currentEpisodeId]);
+
+  async function loadData(collection) {
+    const data = await readDocument(
+      `${collection}/${seriesId}/seasons/${seasonId}/episodes`,
+      id
+    ).catch(onFail);
+    onSuccess(data);
+  }
+
+  async function onSuccess(data) {
+    setHeading(data.heading);
+    setDescription(data.description);
+    setEpisode(data.episode);
+    setThumbnail(data.thumbnail);
+    setVideo(data.videoLink);
+    setStatus(1);
+  }
+
+  function onFail() {
+    setStatus(2);
+  }
 
   async function onSubmit(event) {
     event.preventDefault();
@@ -27,8 +52,8 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
       heading: heading,
       description: description,
       thumbnail: thumbnail,
-      videoLink: video,
       episode: episode,
+      videoLink: video,
     };
     if (
       !validText(data.heading) ||
@@ -38,16 +63,13 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     ) {
       event.preventDefault();
     } else {
-      await createEpisode(collection, seriesId, currentSeason, id, data);
-      dispatch({ type: "create", payload: data });
+      await updateDocument(
+        `${collection}/${seriesId}/seasons/${seasonId}/episodes`,
+        data
+      );
+      dispatch({ type: "update", payload: data });
       setModal(null);
     }
-  }
-
-  async function changeSeason(seasonId) {
-    var clonedSeason = { ...currentSeason };
-    clonedSeason = seasonId;
-    setCurrentSeason(clonedSeason);
   }
 
   function changeHeading(heading) {
@@ -68,7 +90,7 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
 
   return (
     <div className="form-modal">
-      <h2>Add new Episode</h2>
+      <h2>Update Episode</h2>
       <form onSubmit={(event) => onSubmit(event)}>
         <FormEpisode
           thumbnail={thumbnail}
@@ -81,11 +103,6 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
           description={description}
           episode={episode}
           video={video}
-        />
-        <SeasonDDL
-          seriesId={seriesId}
-          collection={collection}
-          changeSeason={changeSeason}
         />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit

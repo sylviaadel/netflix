@@ -4,10 +4,10 @@ import Modal from "./Modal";
 import imgIcon from "../../assets/images/camera-icon.png";
 import AdminActions from "../landing/AdminActions";
 import InfoPopup from "./InfoPopup";
-import UpdateItem from "./UpdateItem";
 import { deleteInfo } from "../../scripts/helpers";
 import { deleteEpisode } from "../../scripts/fireStore/deleteEpisode";
 import { useItems } from "../../state/ItemsProvider";
+import UpdateEpisode from "./UpdateEpisode";
 
 export default function Episode({ item, currentSeason, seriesId }) {
   const { dispatch } = useItems();
@@ -31,7 +31,14 @@ export default function Episode({ item, currentSeason, seriesId }) {
   }
 
   async function openEditModal() {
-    setModal(<UpdateItem />);
+    setModal(
+      <UpdateEpisode
+        id={id}
+        setModal={setModal}
+        seriesId={seriesId}
+        seasonId={currentSeason}
+      />
+    );
   }
 
   return (
