@@ -7,6 +7,12 @@
     max-width: 1000px;
     margin: 0 auto $spacing-large;
     font-size: 16px;
+    a {
+      color: #757575;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
   ul {
     padding: 0;

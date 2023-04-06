@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <section id="Footer">
       <p>
-        Questions? Call <a href="tel:0201 604 328"></a>0201 604 328
+        Questions? Call <a href="tel:0201 604 328">0201 604 328</a>
       </p>
       <ul>{FooterData}</ul>
     </section>
