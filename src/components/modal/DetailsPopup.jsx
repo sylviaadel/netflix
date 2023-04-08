@@ -5,9 +5,10 @@ import Seasons from "./Seasons";
 import imgIcon from "../../assets/images/camera-icon.png";
 import FormSeason from "./FormSeason";
 import AddEpisode from "./AddEpisode";
+import MoreDetails from "./MoreDetails";
 
 export default function DetailsPopup({ item, seriesId }) {
-  const { heading, background, logo, description, videoLink } = item;
+  const { heading, background, logo, videoLink } = item;
   const [modal, setModal] = useState(null);
   const seriesCondition = item.type === "series";
   const collection = "titles";
@@ -53,7 +54,7 @@ export default function DetailsPopup({ item, seriesId }) {
           )}
         </div>
       </section>
-      <p>{description}</p>
+      <MoreDetails item={item} />
       {seriesCondition && (
         <Seasons
           id={item.id}

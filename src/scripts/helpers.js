@@ -24,6 +24,16 @@ export const descErr = (
 export const videoErr = (
   <p className="error-text">Please enter a valid Youtube Video ID.</p>
 );
+export const matchesErr = (
+  <p className="error-text">Please enter a valid percentage.</p>
+);
+export const yearErr = <p className="error-text">Please enter a valid Year.</p>;
+export const castErr = (
+  <p className="error-text">Please enter valid Cast names.</p>
+);
+export const genresErr = (
+  <p className="error-text">Please enter valid genres.</p>
+);
 export const episodeErr = (
   <p className="error-text">Please enter a valid Episode Number.</p>
 );

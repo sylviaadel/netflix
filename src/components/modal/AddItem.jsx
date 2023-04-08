@@ -3,7 +3,7 @@ import { createDocumentWithManualId } from "../../scripts/fireStore/createDocume
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import { validText } from "../../scripts/tests/addItem";
+import { validNumber, validText } from "../../scripts/tests/addItem";
 import FormItems from "./FormItems";
 
 export default function AddItem({ setModal, collection, id, type }) {
@@ -14,6 +14,10 @@ export default function AddItem({ setModal, collection, id, type }) {
   const [thumbnail, setThumbnail] = useState("");
   const [background, setBackground] = useState("");
   const [video, setVideo] = useState("");
+  const [matches, setMatches] = useState("");
+  const [year, setYear] = useState("");
+  const [cast, setCast] = useState("");
+  const [genres, setGenres] = useState("");
   id = uuidv4() + "_" + Date.now();
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const chooseLogo = (event) =>
@@ -34,11 +38,19 @@ export default function AddItem({ setModal, collection, id, type }) {
       background: background,
       videoLink: video,
       type: type,
+      matches: matches,
+      year: year,
+      cast: cast,
+      genres: genres,
     };
     if (
       !validText(data.heading) ||
       !validText(data.description) ||
-      !validText(data.videoLink)
+      !validText(data.videoLink) ||
+      !validNumber(data.matches) ||
+      !validNumber(data.year) ||
+      !validText(data.cast) ||
+      !validText(data.genres)
     ) {
       event.preventDefault();
     } else {
@@ -60,6 +72,22 @@ export default function AddItem({ setModal, collection, id, type }) {
     setVideo(video);
   }
 
+  function changeMatches(matches) {
+    setMatches(matches);
+  }
+
+  function changeYear(year) {
+    setYear(year);
+  }
+
+  function changeCast(cast) {
+    setCast(cast);
+  }
+
+  function changeGenres(genres) {
+    setGenres(genres);
+  }
+
   return (
     <div className="form-modal">
       <h2>Add new Item</h2>
@@ -74,9 +102,17 @@ export default function AddItem({ setModal, collection, id, type }) {
           chooseLogo={chooseLogo}
           chooseThumbnail={chooseThumbnail}
           changeVideo={changeVideo}
+          changeMatches={changeMatches}
+          changeYear={changeYear}
+          changeCast={changeCast}
+          changeGenres={changeGenres}
           heading={""}
           description={""}
           video={""}
+          matches={""}
+          year={""}
+          cast={""}
+          genres={""}
         />
         <button disabled={!buttonEnabled} className="primary-btn">
           Submit
