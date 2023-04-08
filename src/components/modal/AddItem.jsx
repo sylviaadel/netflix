@@ -17,11 +17,11 @@ export default function AddItem({ setModal, collection, id, type }) {
   id = uuidv4() + "_" + Date.now();
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const chooseLogo = (event) =>
-    onChooseImage(event, setButtonEnabled, setLogo, id);
+    onChooseImage(event, setButtonEnabled, setLogo, id, 300, 65);
   const chooseThumbnail = (event) =>
-    onChooseImage(event, setButtonEnabled, setThumbnail, id);
+    onChooseImage(event, setButtonEnabled, setThumbnail, id, 230, 130);
   const choosebackground = (event) =>
-    onChooseImage(event, setButtonEnabled, setBackground, id);
+    onChooseImage(event, setButtonEnabled, setBackground, id, 1145, 600);
 
   async function onSubmit(event) {
     event.preventDefault();

@@ -17,7 +17,7 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
   const currentEpisodeId = id;
   const [buttonEnabled, setButtonEnabled] = useState(true);
   const chooseThumbnail = (event) =>
-    onChooseImage(event, setButtonEnabled, setThumbnail, id);
+    onChooseImage(event, setButtonEnabled, setThumbnail, id, 230, 130);
   const collection = "titles";
 
   useEffect(() => {

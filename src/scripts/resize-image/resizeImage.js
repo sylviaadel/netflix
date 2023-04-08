@@ -19,10 +19,15 @@ async function loadImage(image) {
 function proportionalScaling(image, width, height) {
   let newWidth = image.width;
   let newHeight = image.height;
+
   if (newWidth > newHeight) {
-    newWidth *= width / newWidth;
+    newHeight *= width / newWidth;
+    newWidth = width;
+  } else {
+    newWidth *= height / newHeight;
     newHeight = height;
   }
+
   return { width: newWidth, height: newHeight };
 }
 
