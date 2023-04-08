@@ -2,7 +2,7 @@ import imgIcon from "../../assets/images/camera-icon.png";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 
 export default function HoverCard({ item, details, setModal }) {
-  const { heading, background, logo, videoLink } = item;
+  const { heading, background, logo, videoLink, matches, year, genres } = item;
 
   function openVideo() {
     setModal(<YoutubeEmbed embedId={videoLink} />);
@@ -19,6 +19,11 @@ export default function HoverCard({ item, details, setModal }) {
         <button onClick={details} className="info-btn">
           <i className="fa-solid fa-chevron-down"></i>
         </button>
+        <section className="card-more-details">
+          <span>{matches}% Match</span>
+          <span>{year}</span>
+          <p>{genres}</p>
+        </section>
       </div>
     </div>
   );

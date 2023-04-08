@@ -78,7 +78,7 @@
             }
           }
           .card-details {
-            padding: $spacing-xsmall $spacing-xsmall $spacing-large;
+            padding: $spacing-xsmall $spacing-xsmall $spacing-small;
             .play-btn {
               background-color: $whiteColor;
               color: #000;
@@ -102,6 +102,23 @@
               justify-content: center;
               border: solid 2px #919191;
               float: right;
+            }
+            .card-more-details {
+              display: inline-block;
+              width: 100%;
+              padding-top: 10px;
+              span {
+                display: inline-block;
+                margin: 0 10px 5px 0;
+                font-size: 11px;
+                &:first-child {
+                  color: #46d369;
+                  font-weight: 600;
+                }
+              }
+              p {
+                font-size: 10px;
+              }
             }
           }
         }
