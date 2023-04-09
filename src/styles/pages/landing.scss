@@ -144,8 +144,8 @@
     ol {
       list-style: none;
       counter-reset: item;
-      display: flex;
-      overflow-x: auto;
+      //display: flex;
+      //overflow-x: auto;
       padding: 0 0 0 $spacing-medium;
       height: 170px;
       margin: 0 4%;
@@ -159,32 +159,34 @@
         background: $redColor;
         border-radius: 10px;
       }
-      li {
-        counter-increment: item;
-        margin-bottom: 5px;
-        position: relative;
-        margin-right: $spacing-medium;
-        &:last-child img {
+      .slick-slide {
+        &:last-child li img {
           margin-left: 110px;
         }
-        &::before {
-          content: counter(item);
-          color: #161b18;
-          font-size: 160px;
-          position: absolute;
-          font-family: fantasy;
-          display: inline-block;
-          top: -31px;
-          -webkit-text-stroke: 3px #595959;
-          text-shadow: 1px 1px 0 #595959;
-          z-index: 0;
-        }
-        img {
-          height: 135px;
-          width: 96px;
-          object-fit: cover;
-          margin-left: 55px;
-          position: inherit;
+        li {
+          counter-increment: item;
+          margin-bottom: 5px;
+          position: relative;
+          margin-right: $spacing-medium;
+          &::before {
+            content: counter(item);
+            color: #161b18;
+            font-size: 160px;
+            position: absolute;
+            font-family: fantasy;
+            display: inline-block;
+            top: -31px;
+            -webkit-text-stroke: 3px #595959;
+            text-shadow: 1px 1px 0 #595959;
+            z-index: 0;
+          }
+          img {
+            height: 135px;
+            width: 96px;
+            object-fit: cover;
+            margin-left: 55px;
+            position: inherit;
+          }
         }
       }
     }
