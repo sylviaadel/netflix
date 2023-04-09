@@ -10,7 +10,7 @@ import imgIcon from "../../assets/images/camera-icon.png";
 import HoverCard from "./HoverCard";
 import UpdateItem from "../modal/UpdateItem";
 
-export default function TitleItem({ item, type }) {
+export default function TitleItem({ item, type, onHover }) {
   const { dispatch } = useItems();
   const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
@@ -44,7 +44,7 @@ export default function TitleItem({ item, type }) {
 
   return (
     <>
-      <article key={id}>
+      <article key={id} onMouseEnter={onHover}>
         <img
           onClick={openDetails}
           src={thumbnail ? thumbnail : imgIcon}
