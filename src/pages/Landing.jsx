@@ -40,7 +40,7 @@ export default function Landing() {
 
   return (
     <div id="LandingPage">
-      {/* <Hero item={data[0]} /> */}
+      <Hero />
       <Search onChange={onChange} />
       {status === 0 && <Spinner />}
       {status === 1 && (

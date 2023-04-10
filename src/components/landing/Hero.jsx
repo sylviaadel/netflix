@@ -1,13 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useItems } from "../../state/ItemsProvider";
 import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
+import { readDocument } from "../../scripts/fireStore/readDocument";
+import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 
-export default function Hero({ item }) {
+export default function Hero({}) {
+  const { dispatch } = useItems();
+  const [status, setStatus] = useState(0);
+  const [item, setItem] = useState([]);
   const { heading, logo, background, description, videoLink } = item;
   const [modal, setModal] = useState(null);
+  const collection = "titles";
+
+  useEffect(() => {
+    loadData(collection);
+  }, []);
+
+  async function loadData(collection) {
+    const data = await readDocument(collection, "6lqA2DI7kgAIz0Ja8sbP").catch(
+      onFail
+    );
+    dispatch({ type: "initializeArray", payload: data });
+    onSuccess(data);
+  }
+
+  async function onSuccess(data) {
+    setItem(data);
+    setStatus(1);
+  }
+
+  function onFail() {
+    setStatus(2);
+  }
 
   function openDetails() {
     setModal(<DetailsPopup item={item} />);
+  }
+
+  function openVideo() {
+    setModal(<YoutubeEmbed embedId={videoLink} />);
   }
 
   return (
@@ -17,9 +49,9 @@ export default function Hero({ item }) {
       <div className="details">
         <img src={logo} alt={heading} />
         <p>{description}</p>
-        <a href={videoLink} className="white-btn">
+        <button onClick={openVideo} className="white-btn">
           <i className="fa-solid fa-play"></i> Play
-        </a>
+        </button>
         <button onClick={openDetails} className="grey-btn">
           <i className="fa-solid fa-info"></i> More Info
         </button>
