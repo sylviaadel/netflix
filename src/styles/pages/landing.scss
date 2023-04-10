@@ -2,8 +2,9 @@
   background-color: #161b18;
   min-height: calc(100vh);
   .titles-container {
-    margin: $spacing-medium 0;
+    margin: -24px 0 $spacing-medium;
     min-height: calc(100vh - 420px);
+    position: relative;
     h3 {
       color: $lightGreyColor;
       font-size: 12px;
