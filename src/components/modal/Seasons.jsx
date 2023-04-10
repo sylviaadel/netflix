@@ -18,19 +18,26 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
     onSuccess(data);
   }
 
-  function onSuccess(data) {
+  async function setSeason(seasonId) {
+    setCurrentSeason(seasonId);
+    const currentEpisodes = await readSubCollection(
+      `${collection}/${id}/seasons/${seasonId}/episodes`
+    );
+    setEpisodes(currentEpisodes);
+  }
+
+  async function onSuccess(data) {
     setSeasons(data);
     setStatus(1);
+
+    var seasonId = data.sort((a, b) => (a.title > b.title ? 1 : -1))[0].id;
+    setSeason(seasonId);
   }
 
   async function changeSeason(e) {
     var clonedSeason = { ...currentSeason };
     clonedSeason = e.target.value;
-    setCurrentSeason(clonedSeason);
-    const currentEpisodes = await readSubCollection(
-      `${collection}/${id}/seasons/${e.target.value}/episodes`
-    );
-    setEpisodes(currentEpisodes);
+    setSeason(clonedSeason);
   }
 
   const sortedSeasons = seasons?.sort((a, b) => (a.title > b.title ? 1 : -1));
