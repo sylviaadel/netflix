@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
-import { readDocument } from "../../scripts/fireStore/readDocument";
+import { readDocuments } from "../../scripts/fireStore/readDocuments";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 
 export default function Hero({}) {
@@ -18,13 +18,13 @@ export default function Hero({}) {
   }, []);
 
   async function loadData(collection) {
-    const data = await readDocument(collection, "6lqA2DI7kgAIz0Ja8sbP");
-    dispatch({ type: "initializeArray", payload: data });
+    const data = await readDocuments(collection);
     onSuccess(data);
   }
 
   async function onSuccess(data) {
-    setItem(data);
+    dispatch({ type: "initializeArray", payload: data[0] });
+    setItem(data[0]);
     setStatus(1);
   }
 
