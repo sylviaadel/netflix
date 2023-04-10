@@ -3,11 +3,9 @@ import { readDocuments } from "../../scripts/fireStore/readDocuments";
 import { useItems } from "../../state/ItemsProvider";
 import TopTenItem from "./TopTenItem";
 
-export default function Top10() {
+export default function Top10({ collection }) {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
-  const [modal, setModal] = useState(null);
-  const collection = "titles";
   const topTen = data.filter((item) => item.topTen === true);
 
   useEffect(() => {
@@ -27,7 +25,9 @@ export default function Top10() {
     setStatus(2);
   }
 
-  const Items = topTen.map((item) => <TopTenItem key={item.id} item={item} />);
+  const Items = topTen.map((item) => (
+    <TopTenItem key={item.id} item={item} collection={collection} />
+  ));
 
   return (
     <section className="top10-container">

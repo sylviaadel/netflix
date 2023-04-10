@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom";
 
-export default function Modal({ state, header }) {
+export default function Modal({ state }) {
   const [modal, setModal] = state;
 
   const portal = document.getElementById("portal");

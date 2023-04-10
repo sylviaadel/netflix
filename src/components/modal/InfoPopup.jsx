@@ -1,5 +1,6 @@
 export default function InfoPopup({ setModal, onClose, item }) {
   const { title, message, btnTitle } = item;
+
   function confirmClose() {
     onClose();
     setModal(null);

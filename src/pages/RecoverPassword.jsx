@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { recoverAccount } from "../scripts/auth/recoverAccount";
 import authData from "../data/authData.json";
 import InputText from "../components/form/InputText";
-import { recoverMessage } from "../scripts/helpers";
+import { recoverMessage, googleMsg } from "../scripts/helpers";
 import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
@@ -52,9 +52,7 @@ export default function RecoverPassword() {
         <div className="links-container">
           <Link to="/login">Go back to Login</Link>
         </div>
-        <p>
-          This page is protected by Google reCAPTCHA to ensure you're not a bot.
-        </p>
+        <p>{googleMsg}</p>
       </section>
       <Footer />
       <Modal state={[modal, setModal]} />

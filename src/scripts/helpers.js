@@ -37,3 +37,6 @@ export const genresErr = (
 export const episodeErr = (
   <p className="error-text">Please enter a valid Episode Number.</p>
 );
+
+export const googleMsg =
+  "This page is protected by Google reCAPTCHA to ensure you're not a bot.";

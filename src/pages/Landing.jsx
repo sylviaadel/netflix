@@ -52,7 +52,7 @@ export default function Landing() {
         />
       )}
       {status === 2 && <NotFound />}
-      <Top10 />
+      <Top10 collection={collection} />
       <Footer />
     </div>
   );

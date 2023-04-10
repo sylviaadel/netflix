@@ -1,14 +1,7 @@
 import { useState, useEffect } from "react";
 import { validMatch, validText } from "../../scripts/tests/addItem";
-import {
-  videoErr,
-  titleErr,
-  descErr,
-  matchesErr,
-  yearErr,
-  castErr,
-  genresErr,
-} from "../../scripts/helpers";
+import { videoErr, titleErr, descErr, matchesErr } from "../../scripts/helpers";
+import { yearErr, castErr, genresErr } from "../../scripts/helpers";
 import TextBox from "../form/TextBox";
 import TextArea from "../form/TextArea";
 import InputImage from "../form/InputImage";

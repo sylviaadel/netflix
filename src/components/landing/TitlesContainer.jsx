@@ -18,23 +18,13 @@ export default function TitlesContainer({ movies, series, doc, query }) {
   const Movies = movies
     .filter(filter)
     .map((item) => (
-      <TitleItem
-        item={item}
-        key={item.id}
-        heading={item.heading}
-        type="movie"
-      />
+      <TitleItem item={item} key={item.id} type="movie" setModal={setModal} />
     ));
 
   const Series = series
     .filter(filter)
     .map((item) => (
-      <TitleItem
-        item={item}
-        key={item.id}
-        heading={item.heading}
-        type="series"
-      />
+      <TitleItem item={item} key={item.id} type="series" setModal={setModal} />
     ));
 
   const Docs = doc
@@ -43,8 +33,8 @@ export default function TitlesContainer({ movies, series, doc, query }) {
       <TitleItem
         item={item}
         key={item.id}
-        heading={item.heading}
         type="documentary"
+        setModal={setModal}
       />
     ));
   console.log(Movies.length);

@@ -18,9 +18,7 @@ export default function Hero({}) {
   }, []);
 
   async function loadData(collection) {
-    const data = await readDocument(collection, "6lqA2DI7kgAIz0Ja8sbP").catch(
-      onFail
-    );
+    const data = await readDocument(collection, "6lqA2DI7kgAIz0Ja8sbP");
     dispatch({ type: "initializeArray", payload: data });
     onSuccess(data);
   }
@@ -30,12 +28,10 @@ export default function Hero({}) {
     setStatus(1);
   }
 
-  function onFail() {
-    setStatus(2);
-  }
-
   function openDetails() {
-    setModal(<DetailsPopup item={item} />);
+    setModal(
+      <DetailsPopup item={item} collection={collection} setModal={setModal} />
+    );
   }
 
   function openVideo() {

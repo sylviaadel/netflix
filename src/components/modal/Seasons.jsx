@@ -32,6 +32,7 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
     );
     setEpisodes(currentEpisodes);
   }
+
   const sortedSeasons = seasons?.sort((a, b) => (a.title > b.title ? 1 : -1));
   const Seasons = sortedSeasons.map((option) => (
     <option key={option.id} value={option.id}>
@@ -40,7 +41,6 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
   ));
 
   const sorted = episodes?.sort((a, b) => (a.episode > b.episode ? 1 : -1));
-
   const Episodes = sorted.map((item) => (
     <Episode
       key={item.id}
@@ -57,9 +57,7 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
         <i className="fa-solid fa-plus"></i>
       </button>
       <span className="select-wrapper">
-        <select onChange={(e) => changeSeason(e)} defaultValue={currentSeason}>
-          {Seasons}
-        </select>
+        <select onChange={(e) => changeSeason(e)}>{Seasons}</select>
       </span>
       {Episodes.length > 0 ? (
         <div className="episodes">{Episodes}</div>

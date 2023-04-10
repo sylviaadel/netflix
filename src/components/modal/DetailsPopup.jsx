@@ -1,17 +1,13 @@
-import { useState } from "react";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
-import Modal from "./Modal";
 import Seasons from "./Seasons";
 import imgIcon from "../../assets/images/camera-icon.png";
 import FormSeason from "./FormSeason";
 import AddEpisode from "./AddEpisode";
 import MoreDetails from "./MoreDetails";
 
-export default function DetailsPopup({ item, seriesId }) {
+export default function DetailsPopup({ item, series, collection, setModal }) {
   const { heading, background, logo, videoLink } = item;
-  const [modal, setModal] = useState(null);
   const seriesCondition = item.type === "series";
-  const collection = "titles";
 
   function openVideo() {
     setModal(<YoutubeEmbed embedId={videoLink} />);
@@ -19,11 +15,7 @@ export default function DetailsPopup({ item, seriesId }) {
 
   function addSeason() {
     setModal(
-      <FormSeason
-        seriesId={seriesId}
-        collection={collection}
-        setModal={setModal}
-      />
+      <FormSeason series={series} collection={collection} setModal={setModal} />
     );
   }
 
@@ -32,7 +24,7 @@ export default function DetailsPopup({ item, seriesId }) {
       <AddEpisode
         setModal={setModal}
         collection={collection}
-        seriesId={seriesId}
+        seriesId={series}
       />
     );
   }
@@ -60,10 +52,9 @@ export default function DetailsPopup({ item, seriesId }) {
           id={item.id}
           collection={collection}
           addEpisode={addEpisode}
-          seriesId={seriesId}
+          seriesId={series}
         />
       )}
-      <Modal state={[modal, setModal]} />
     </div>
   );
 }

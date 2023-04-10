@@ -9,6 +9,7 @@ import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
 import Footer from "../components/shared/Footer";
+import { googleMsg } from "../scripts/helpers";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -70,9 +71,7 @@ export default function Login() {
           New to Netflix?
           <Link to="/sign-up"> Sign up now</Link>.
         </div>
-        <p>
-          This page is protected by Google reCAPTCHA to ensure you're not a bot.
-        </p>
+        <p>{googleMsg}</p>
       </section>
       <Footer />
       <Modal state={[modal, setModal]} />
