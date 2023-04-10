@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { validText, validNumber } from "../../scripts/tests/addItem";
+import { validText, validNum } from "../../scripts/tests/addItem";
 import { videoErr, titleErr, descErr, episodeErr } from "../../scripts/helpers";
 import TextBox from "../form/TextBox";
 import TextArea from "../form/TextArea";
@@ -83,7 +83,7 @@ export default function FormEpisode({
         title="Episode Number"
         onChange={(event) => onEpisodeChange(event)}
         value={itemEpisode}
-        validate={validNumber(itemEpisode)}
+        validate={validNum(itemEpisode)}
         error={episodeErr}
       />
       <TextBox

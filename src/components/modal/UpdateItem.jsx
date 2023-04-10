@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import { validText, validNumber } from "../../scripts/tests/addItem";
+import { validText, validNum, validMatch } from "../../scripts/tests/addItem";
 import FormItems from "./FormItems";
 import { readDocument } from "../../scripts/fireStore/readDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
@@ -75,8 +75,8 @@ export default function UpdateItem({ setModal, collection, id, type }) {
       !validText(data.heading) ||
       !validText(data.description) ||
       !validText(data.videoLink) ||
-      !validNumber(data.matches) ||
-      !validNumber(data.year) ||
+      !validMatch(data.matches) ||
+      !validNum(data.year) ||
       !validText(data.cast) ||
       !validText(data.genres)
     ) {

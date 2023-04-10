@@ -5,8 +5,15 @@ export function validText(name) {
   return true;
 }
 
-export function validNumber(number) {
+export function validNum(number) {
   if (number === null || number < 1) {
+    return false;
+  }
+  return true;
+}
+
+export function validMatch(number) {
+  if (number === null || number < 1 || number > 100) {
     return false;
   }
   return true;

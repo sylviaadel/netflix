@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import { validText, validNumber } from "../../scripts/tests/addItem";
+import { validText, validNum } from "../../scripts/tests/addItem";
 import { readDocument } from "../../scripts/fireStore/readDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
 import FormEpisode from "./FormEpisode";
@@ -58,7 +58,7 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
     if (
       !validText(data.heading) ||
       !validText(data.description) ||
-      !validNumber(data.episode) ||
+      !validNum(data.episode) ||
       !validText(data.videoLink)
     ) {
       event.preventDefault();

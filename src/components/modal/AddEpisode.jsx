@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import { validText, validNumber } from "../../scripts/tests/addItem";
+import { validText, validNum } from "../../scripts/tests/addItem";
 import SeasonDDL from "../form/SeasonDDL";
 import { createEpisode } from "../../scripts/fireStore/createEpisode";
 import FormEpisode from "./FormEpisode";
@@ -33,7 +33,7 @@ export default function AddEpisode({ setModal, collection, id, seriesId }) {
     if (
       !validText(data.heading) ||
       !validText(data.description) ||
-      !validNumber(data.episode) ||
+      !validNum(data.episode) ||
       !validText(data.videoLink)
     ) {
       event.preventDefault();

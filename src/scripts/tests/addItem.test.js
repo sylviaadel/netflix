@@ -1,4 +1,4 @@
-import { validText, validPrice, validImageURL } from "./addItem";
+import { validText, validMatch } from "./addItem";
 
 test("Verify that the title is right", () => {
   //Arrange
@@ -97,4 +97,37 @@ test("Verify that vedio ID is not only spaces", () => {
 
   //Assert
   expect(addedVedioID).toEqual(false);
+});
+
+test("Verify that the match is right", () => {
+  //Arrange
+  const match = "98";
+
+  //Action
+  const addedMatch = validMatch(match);
+
+  //Assert
+  expect(addedMatch).toEqual(true);
+});
+
+test("Verify that match is not empty", () => {
+  //Arrange
+  const match = "";
+
+  //Action
+  const addedMatch = validMatch(match);
+
+  //Assert
+  expect(addedMatch).toEqual(false);
+});
+
+test("Verify that match is not above 100", () => {
+  //Arrange
+  const match = "102";
+
+  //Action
+  const addedMatch = validMatch(match);
+
+  //Assert
+  expect(addedMatch).toEqual(false);
 });

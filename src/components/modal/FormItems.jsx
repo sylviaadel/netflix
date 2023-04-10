@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { validText } from "../../scripts/tests/addItem";
+import { validMatch, validText } from "../../scripts/tests/addItem";
 import {
   videoErr,
   titleErr,
@@ -140,7 +140,7 @@ export default function FormItems({
         title="Matches Pencentage"
         onChange={(event) => onMatchesChange(event)}
         value={itemMatches}
-        validate={validText(itemMatches)}
+        validate={validMatch(itemMatches)}
         error={matchesErr}
       />
       <TextNumber
