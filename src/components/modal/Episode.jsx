@@ -14,6 +14,7 @@ export default function Episode({
   currentSeason,
   seriesId,
   onUpdateEpisode,
+  onDeleteEpisode,
 }) {
   const { dispatch } = useItems();
   const { id, episode, thumbnail, heading, description, videoLink } = item;
@@ -27,6 +28,7 @@ export default function Episode({
   async function deleteItem() {
     await deleteEpisode(collection, seriesId, currentSeason, id);
     dispatch({ type: "delete", payload: id });
+    onDeleteEpisode(currentSeason);
   }
 
   function confirmDelete() {

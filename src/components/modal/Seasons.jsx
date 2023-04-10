@@ -40,7 +40,11 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
     setSeason(clonedSeason);
   }
 
-  async function onUpdateEpisode(seasonId) {
+  function onUpdateEpisode(seasonId) {
+    setSeason(seasonId);
+  }
+
+  function onDeleteEpisode(seasonId) {
     setSeason(seasonId);
   }
 
@@ -59,6 +63,7 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
       item={item}
       currentSeason={currentSeason}
       seriesId={seriesId}
+      onDeleteEpisode={onDeleteEpisode}
     />
   ));
 
