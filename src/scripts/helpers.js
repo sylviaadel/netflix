@@ -22,7 +22,7 @@ export const descErr = (
   <p className="error-text">Please enter a valid description.</p>
 );
 export const videoErr = (
-  <p className="error-text">Please enter a valid Youtube Video ID.</p>
+  <p className="error-text">Please enter a valid Video Link.</p>
 );
 export const matchesErr = (
   <p className="error-text">Please enter a valid percentage.</p>

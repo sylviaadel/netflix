@@ -123,7 +123,7 @@ export default function FormItems({
       />
       <InputImage chooseImage={chooseBg} image={bg} label="Choose Background" />
       <TextBox
-        title="Video ID"
+        title="Video Link"
         value={itemVideo}
         onChange={(event) => onVideoChange(event)}
         validate={validText(itemVideo)}

@@ -37,7 +37,6 @@ export default function TitlesContainer({ movies, series, doc, query }) {
         setModal={setModal}
       />
     ));
-  console.log(Movies.length);
 
   return (
     <section className="titles-container">
