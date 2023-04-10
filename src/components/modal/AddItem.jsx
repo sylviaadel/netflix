@@ -3,7 +3,7 @@ import { createDocumentWithManualId } from "../../scripts/fireStore/createDocume
 import { useItems } from "../../state/ItemsProvider";
 import { v4 as uuidv4 } from "uuid";
 import { onChooseImage } from "../../scripts/resize-image/chooseImage";
-import { validNum, validText } from "../../scripts/tests/addItem";
+import { validNum, validText, validMatch } from "../../scripts/tests/addItem";
 import FormItems from "./FormItems";
 
 export default function AddItem({ setModal, collection, id, type }) {
@@ -47,7 +47,7 @@ export default function AddItem({ setModal, collection, id, type }) {
       !validText(data.heading) ||
       !validText(data.description) ||
       !validText(data.videoLink) ||
-      !validNum(data.matches) ||
+      !validMatch(data.matches) ||
       !validNum(data.year) ||
       !validText(data.cast) ||
       !validText(data.genres)
