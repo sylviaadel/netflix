@@ -42,17 +42,15 @@ export default function Episode({ item, currentSeason, seriesId }) {
   }
 
   return (
-    <>
-      <article>
-        <label>{episode}</label>
-        <img onClick={openVideo} src={thumbnail ? thumbnail : imgIcon} />
-        <div>
-          <h4>{heading}</h4>
-          <p>{description}</p>
-        </div>
-        <AdminActions confirm={confirmDelete} openModal={openEditModal} />
-      </article>
+    <article>
+      <label>{episode}</label>
+      <img onClick={openVideo} src={thumbnail ? thumbnail : imgIcon} />
+      <div>
+        <h4>{heading}</h4>
+        <p>{description}</p>
+      </div>
+      <AdminActions confirm={confirmDelete} openModal={openEditModal} />
       <Modal state={[modal, setModal]} />
-    </>
+    </article>
   );
 }

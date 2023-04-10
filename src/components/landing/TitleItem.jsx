@@ -42,16 +42,14 @@ export default function TitleItem({ item, type, setModal }) {
   }
 
   return (
-    <>
-      <article key={id}>
-        <img
-          onClick={openDetails}
-          src={thumbnail ? thumbnail : imgIcon}
-          alt={heading}
-        />
-        <AdminActions confirm={confirmDelete} openModal={openEditModal} />
-        <HoverCard item={item} setModal={setModal} details={openDetails} />
-      </article>
-    </>
+    <article key={id}>
+      <img
+        onClick={openDetails}
+        src={thumbnail ? thumbnail : imgIcon}
+        alt={heading}
+      />
+      <AdminActions confirm={confirmDelete} openModal={openEditModal} />
+      <HoverCard item={item} setModal={setModal} details={openDetails} />
+    </article>
   );
 }
