@@ -40,6 +40,10 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
     setSeason(clonedSeason);
   }
 
+  async function onUpdateEpisode(seasonId) {
+    setSeason(seasonId);
+  }
+
   const sortedSeasons = seasons?.sort((a, b) => (a.title > b.title ? 1 : -1));
   const Seasons = sortedSeasons.map((option) => (
     <option key={option.id} value={option.id}>
@@ -51,6 +55,7 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
   const Episodes = sorted.map((item) => (
     <Episode
       key={item.id}
+      onUpdateEpisode={onUpdateEpisode}
       item={item}
       currentSeason={currentSeason}
       seriesId={seriesId}

@@ -9,7 +9,12 @@ import { deleteEpisode } from "../../scripts/fireStore/deleteEpisode";
 import { useItems } from "../../state/ItemsProvider";
 import UpdateEpisode from "./UpdateEpisode";
 
-export default function Episode({ item, currentSeason, seriesId }) {
+export default function Episode({
+  item,
+  currentSeason,
+  seriesId,
+  onUpdateEpisode,
+}) {
   const { dispatch } = useItems();
   const { id, episode, thumbnail, heading, description, videoLink } = item;
   const [modal, setModal] = useState(null);
@@ -36,6 +41,7 @@ export default function Episode({ item, currentSeason, seriesId }) {
         id={id}
         setModal={setModal}
         seriesId={seriesId}
+        onUpdateEpisode={onUpdateEpisode}
         seasonId={currentSeason}
       />
     );
@@ -49,7 +55,11 @@ export default function Episode({ item, currentSeason, seriesId }) {
         <h4>{heading}</h4>
         <p>{description}</p>
       </div>
-      <AdminActions confirm={confirmDelete} openModal={openEditModal} />
+      <AdminActions
+        UpdateEpisode={UpdateEpisode}
+        confirm={confirmDelete}
+        openModal={openEditModal}
+      />
       <Modal state={[modal, setModal]} />
     </article>
   );

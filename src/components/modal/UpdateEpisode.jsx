@@ -6,7 +6,13 @@ import { readDocument } from "../../scripts/fireStore/readDocument";
 import { updateDocument } from "../../scripts/fireStore/updateDocument";
 import FormEpisode from "./FormEpisode";
 
-export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
+export default function UpdateEpisode({
+  setModal,
+  id,
+  seriesId,
+  seasonId,
+  onUpdateEpisode,
+}) {
   const { dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const [heading, setHeading] = useState("");
@@ -70,6 +76,8 @@ export default function UpdateEpisode({ setModal, id, seriesId, seasonId }) {
       dispatch({ type: "update", payload: data });
       setModal(null);
     }
+
+    onUpdateEpisode(seasonId);
   }
 
   function changeHeading(heading) {
