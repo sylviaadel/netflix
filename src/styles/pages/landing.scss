@@ -244,6 +244,22 @@
     }
   }
 }
+
+.no-results {
+  width: 100%;
+  padding: $spacing-large 0;
+  text-align: center;
+  color: $whiteColor;
+  img {
+    width: 200px;
+    margin: $spacing-medium auto;
+  }
+  p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
 #root:has(#LandingPage) + #portal {
   .add-season {
     display: none;
