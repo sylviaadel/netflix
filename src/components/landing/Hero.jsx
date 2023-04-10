@@ -35,7 +35,7 @@ export default function Hero({}) {
   }
 
   function openVideo() {
-    setModal(<YoutubeEmbed embedId={videoLink} />);
+    setModal(<YoutubeEmbed videoLink={videoLink} />);
   }
 
   return (

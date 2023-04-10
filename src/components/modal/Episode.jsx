@@ -16,7 +16,7 @@ export default function Episode({ item, currentSeason, seriesId }) {
   const collection = "titles";
 
   function openVideo() {
-    setModal(<YoutubeEmbed embedId={videoLink} />);
+    setModal(<YoutubeEmbed videoLink={videoLink} />);
   }
 
   async function deleteItem() {

@@ -5,7 +5,7 @@ export default function HoverCard({ item, details, setModal }) {
   const { heading, background, logo, videoLink, matches, year, genres } = item;
 
   function openVideo() {
-    setModal(<YoutubeEmbed embedId={videoLink} />);
+    setModal(<YoutubeEmbed videoLink={videoLink} />);
   }
 
   return (

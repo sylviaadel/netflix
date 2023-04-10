@@ -66,7 +66,7 @@ test("Verify that description is not only spaces", () => {
   expect(addedDescription).toEqual(false);
 });
 
-test("Verify that the video ID is right", () => {
+test("Verify that the video Link is right", () => {
   //Arrange
   const vedioID = "wehhOMoaI7A";
 
@@ -77,7 +77,7 @@ test("Verify that the video ID is right", () => {
   expect(addedVedioID).toEqual(true);
 });
 
-test("Verify that video ID is not empty", () => {
+test("Verify that video Link is not empty", () => {
   //Arrange
   const vedioID = "";
 
@@ -88,7 +88,7 @@ test("Verify that video ID is not empty", () => {
   expect(addedVedioID).toEqual(false);
 });
 
-test("Verify that vedio ID is not only spaces", () => {
+test("Verify that vedio Link is not only spaces", () => {
   //Arrange
   const vedioID = "    ";
 

@@ -87,7 +87,7 @@ export default function FormEpisode({
         error={episodeErr}
       />
       <TextBox
-        title="Video ID"
+        title="Video Link"
         value={itemVideo}
         onChange={(event) => onVideoChange(event)}
         validate={validText(itemVideo)}

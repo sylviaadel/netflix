@@ -10,7 +10,7 @@ export default function DetailsPopup({ item, series, collection, setModal }) {
   const seriesCondition = item.type === "series";
 
   function openVideo() {
-    setModal(<YoutubeEmbed embedId={videoLink} />);
+    setModal(<YoutubeEmbed videoLink={videoLink} />);
   }
 
   function addSeason() {
