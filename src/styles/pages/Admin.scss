@@ -101,7 +101,7 @@
     padding: 0 10px;
   }
   .episodes article div p {
-    width: 80%;
+    width: 60%;
   }
 
   .actions {
@@ -148,6 +148,11 @@
       h3 {
         font-size: 18px;
       }
+    }
+  }
+  #root:has(#AdminPage) + #portal {
+    .episodes article div p {
+      width: 80%;
     }
   }
 }

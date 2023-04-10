@@ -68,7 +68,7 @@
         width: 100%;
         .details {
           position: absolute;
-          top: 60%;
+          top: 25%;
           left: 4%;
           img {
             width: 300px;
@@ -107,6 +107,7 @@
         column-gap: 2em;
         grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
         display: grid;
+        font-size: 12px;
         .matches {
           color: #46d369;
           font-weight: 600;
@@ -114,18 +115,18 @@
         }
         p {
           padding: 1rem 0 0;
-          font-size: 14px;
+          font-size: 12px;
           line-height: 24px;
           word-wrap: break-word;
         }
         div:last-child {
           span {
-            font-size: 14px;
+            font-size: 12px;
             display: block;
             margin-bottom: 0.5rem;
             line-height: 20px;
             small {
-              font-size: 14px;
+              font-size: 12px;
               color: #777;
             }
           }
@@ -253,7 +254,7 @@
           border-bottom: 1px solid #404040;
           display: flex;
           align-items: center;
-          padding: 1em;
+          padding: 0;
           cursor: pointer;
           label {
             color: #d2d2d2;
@@ -281,7 +282,7 @@
             p {
               margin-top: 0.5rem;
               color: #d2d2d2;
-              font-size: 14px;
+              font-size: 12px;
               line-height: 20px;
             }
           }
@@ -294,13 +295,38 @@
   }
 }
 
-@media (min-width: 860px) {
+@media (min-width: 740px) {
   #Modal {
     .modal-content {
       min-width: 750px;
       width: 70%;
       h2 {
         font-size: 20px;
+      }
+    }
+    .details-modal {
+      #Hero {
+        .details {
+          top: 60%;
+        }
+      }
+      .more-details {
+        font-size: 16px !important;
+        p {
+          font-size: 14px !important;
+        }
+        div:last-child span {
+          font-size: 14px !important;
+          small {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+    .modal-content .seasons .episodes article {
+      padding: 1rem;
+      div p {
+        font-size: 14px;
       }
     }
   }
