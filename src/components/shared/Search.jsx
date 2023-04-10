@@ -18,7 +18,7 @@ export default function Search({ onChange }) {
   }
   function onQueryChange(event) {
     setQuery(event.target.value);
-    onChange(query);
+    onChange(event.target.value);
   }
 
   return (
