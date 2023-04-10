@@ -76,7 +76,6 @@ export default function UpdateEpisode({
       dispatch({ type: "update", payload: data });
       setModal(null);
     }
-
     onUpdateEpisode(seasonId);
   }
 
