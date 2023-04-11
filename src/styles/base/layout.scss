@@ -105,7 +105,8 @@ button {
 }
 
 @media (min-width: 740px) {
-  .white-btn.grey-btn {
+  .white-btn,
+  .grey-btn {
     height: 40px;
   }
   .grey-btn {
