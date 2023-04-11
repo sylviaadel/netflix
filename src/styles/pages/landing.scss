@@ -1,10 +1,13 @@
 #LandingPage {
   background-color: #161b18;
   min-height: calc(100vh);
-  .titles-container {
+  .titles {
     margin: $spacing-medium 0;
     min-height: calc(100vh - 420px);
     position: relative;
+    &.is-hovered .titles-list {
+      overflow: initial;
+    }
     h3 {
       color: $lightGreyColor;
       font-size: 12px;
@@ -18,12 +21,15 @@
       display: flex;
       margin: 0 4% 2rem;
       gap: $spacing-xsmall;
-      flex-wrap: wrap;
+      position: relative;
+      overflow-x: auto;
+      overflow-y: hidden;
+      //flex-wrap: wrap;
       article {
         transition: all 0.2s ease-in-out;
       }
       &::-webkit-scrollbar {
-        height: 5px;
+        height: 10px;
       }
       &::-webkit-scrollbar-track {
         background: $darkGreyColor;
@@ -157,7 +163,7 @@
         position: sticky;
         top: 60px;
         left: 4px;
-        z-index: 11;
+        z-index: 1;
         height: 100px;
         cursor: pointer;
         &::before {
@@ -170,7 +176,7 @@
         position: sticky;
         top: 60px;
         right: 20px;
-        z-index: 11;
+        z-index: 1;
         height: 100px;
         cursor: pointer;
         &::before {
@@ -224,7 +230,7 @@
     height: 100%;
     position: relative;
     width: 100%;
-    & + .titles-container {
+    & + .titles {
       margin-top: -50px;
       z-index: 1;
       position: relative;
@@ -310,7 +316,7 @@
         font-size: 18px;
       }
     }
-    .titles-container {
+    .titles {
       margin: -24px 0 $spacing-medium;
       h3 {
         font-size: 18px;

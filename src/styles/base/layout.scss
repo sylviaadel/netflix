@@ -9,6 +9,7 @@
 body {
   background-color: $darkGreyColor;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   &:has(#portal #Modal) {
     overflow: hidden;
   }
