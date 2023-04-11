@@ -5,7 +5,7 @@ import { validText } from "../../scripts/tests/addItem";
 import { titleErr } from "../../scripts/helpers";
 import { createSeason } from "../../scripts/fireStore/createSeason";
 
-export default function FormSeason({ setModal, collection, seriesId }) {
+export default function FormSeason({ setModal, collection, series }) {
   const { dispatch } = useItems();
   const [heading, setHeading] = useState("");
 
@@ -17,7 +17,7 @@ export default function FormSeason({ setModal, collection, seriesId }) {
     if (!validText(data.title)) {
       event.preventDefault();
     } else {
-      const documentId = await createSeason(collection, seriesId, data);
+      const documentId = await createSeason(collection, series, data);
       dispatch({ type: "create", payload: { id: documentId, ...data } });
       setModal(null);
     }
