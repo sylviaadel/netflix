@@ -146,10 +146,30 @@
       list-style: none;
       counter-reset: item;
       display: flex;
-      overflow-x: auto;
-      padding: 0 0 0 $spacing-medium;
       height: 170px;
       margin: 0 4%;
+      position: relative;
+      overflow: hidden;
+      .fa-chevron-left {
+        color: #fff;
+        transform: scale(1.5);
+        position: sticky;
+        top: 60px;
+        left: 4px;
+        z-index: 11;
+        height: 100px;
+        cursor: pointer;
+      }
+      .fa-chevron-right {
+        color: #fff;
+        transform: scale(1.5);
+        position: sticky;
+        top: 60px;
+        right: 20px;
+        z-index: 11;
+        height: 100px;
+        cursor: pointer;
+      }
       &::-webkit-scrollbar {
         height: 5px;
       }
@@ -165,8 +185,11 @@
         margin-bottom: 5px;
         position: relative;
         margin-right: $spacing-medium;
-        &:last-child img {
+        &:last-of-type img {
           margin-left: 110px;
+        }
+        &:first-of-type {
+          margin-left: $spacing-medium;
         }
         &::before {
           content: counter(item);
