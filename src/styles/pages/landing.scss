@@ -217,7 +217,7 @@
     }
     .details {
       position: absolute;
-      top: 15%;
+      bottom: 10%;
       left: 4%;
       p {
         font-size: 10px;
@@ -269,7 +269,7 @@
   #LandingPage {
     #Hero {
       .details {
-        top: 40%;
+        bottom: 12%;
         p {
           width: 36%;
         }

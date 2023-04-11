@@ -43,6 +43,14 @@
           color: $whiteColor;
           padding: 16px 20px 0;
           width: 100%;
+          &.has-value {
+            & + span {
+              top: 7px;
+              color: $blackColor;
+              font-size: 11px;
+              transform: translateY(0);
+            }
+          }
           &:-webkit-autofill + span {
             top: 7px;
             color: $blackColor;

@@ -23,8 +23,8 @@ export default function Hero({}) {
   }
 
   async function onSuccess(data) {
-    dispatch({ type: "initializeArray", payload: data[0] });
-    setItem(data[0]);
+    dispatch({ type: "initializeArray", payload: data });
+    setItem(data[1]);
     setStatus(1);
   }
 
