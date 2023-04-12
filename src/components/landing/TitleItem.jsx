@@ -10,7 +10,7 @@ import HoverCard from "./HoverCard";
 import UpdateItem from "../modal/UpdateItem";
 import Modal from "../modal/Modal";
 
-export default function TitleItem({ item, type, onHover }) {
+export default function TitleItem({ item, type }) {
   const { dispatch } = useItems();
   const { id, heading, thumbnail } = item;
   const [modal, setModal] = useState(null);
@@ -45,7 +45,7 @@ export default function TitleItem({ item, type, onHover }) {
   }
 
   return (
-    <article key={id} onMouseEnter={onHover}>
+    <article key={id}>
       <img
         onClick={openDetails}
         src={thumbnail ? thumbnail : imgIcon}
