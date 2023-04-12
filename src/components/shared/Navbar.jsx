@@ -36,11 +36,7 @@ export default function Navbar() {
     navigate("/");
   }
   function onChange() {
-    if (uid) {
-      setModal(popup);
-    } else {
-      navigate("/login");
-    }
+    setModal(popup);
   }
 
   return (
