@@ -5,10 +5,6 @@
     margin: $spacing-medium 0;
     min-height: calc(100vh - 420px);
     position: relative;
-    &.is-hovered .titles-list {
-      overflow: initial;
-      padding-bottom: 10px;
-    }
     h3 {
       color: $lightGreyColor;
       font-size: 12px;
@@ -23,9 +19,7 @@
       margin: 0 4% 2rem;
       gap: $spacing-xsmall;
       position: relative;
-      overflow-x: auto;
-      overflow-y: hidden;
-      //flex-wrap: wrap;
+      flex-wrap: wrap;
       article {
         transition: all 0.2s ease-in-out;
       }

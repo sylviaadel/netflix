@@ -6,7 +6,6 @@ import NoResults from "../shared/NoResults";
 
 export default function TitlesContainer({ movies, series, doc, query }) {
   const [modal, setModal] = useState(null);
-  const [hover, setHover] = useState(false);
   const DOC = "Documentaries";
   const filter = (item) => {
     if (query === "") {
@@ -16,35 +15,20 @@ export default function TitlesContainer({ movies, series, doc, query }) {
     }
   };
 
-  function onHover() {
-    setHover(!hover);
-  }
-
   const Movies = movies
     .filter(filter)
-    .map((item) => (
-      <TitleItem item={item} key={item.id} type="movie" onHover={onHover} />
-    ));
+    .map((item) => <TitleItem item={item} key={item.id} type="movie" />);
 
   const Series = series
     .filter(filter)
-    .map((item) => (
-      <TitleItem item={item} key={item.id} type="series" onHover={onHover} />
-    ));
+    .map((item) => <TitleItem item={item} key={item.id} type="series" />);
 
   const Docs = doc
     .filter(filter)
-    .map((item) => (
-      <TitleItem
-        item={item}
-        key={item.id}
-        type="documentary"
-        onHover={onHover}
-      />
-    ));
+    .map((item) => <TitleItem item={item} key={item.id} type="documentary" />);
 
   return (
-    <section className={`${hover ? "is-hovered titles" : "titles"}`}>
+    <section className="titles">
       {(Movies.length == 0) & (Series.length == 0) & (Docs.length == 0) ? (
         <NoResults />
       ) : (
