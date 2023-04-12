@@ -18,11 +18,18 @@ export default function RecoverPassword() {
   async function onSubmit(event) {
     event.preventDefault();
     const result = await recoverAccount(form.email);
-    result.status ? onSuccess(result) : onFail(result);
+    result.status ? onSuccess() : onFail(result);
   }
 
   function onSuccess() {
-    alert(recoverMessage);
+    const item = {
+      title: "Error",
+      message: recoverMessage,
+      btnTitle: "Close",
+    };
+    setModal(
+      <InfoPopup setModal={setModal} onClose={closeModal} item={item} />
+    );
   }
 
   function onFail(result) {

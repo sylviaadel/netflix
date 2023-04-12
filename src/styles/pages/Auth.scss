@@ -46,9 +46,9 @@
           &.has-value {
             & + span {
               top: 7px;
-              color: $blackColor;
               font-size: 11px;
               transform: translateY(0);
+              color: #8c8c8c;
             }
           }
           &:-webkit-autofill + span {
