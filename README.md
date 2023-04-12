@@ -41,8 +41,8 @@ To Start Server:
   5. Added admin page
   6. Added add, update and delete items
   7. Added modal for view details
-  9. Added Users landing page to view all titles
-  10. Added hover effect card
+  8. Added Users landing page to view all titles
+  9. Added hover effect card
   
 7. Hosted link:
   https://sylvia-tadross-netflix.web.app/
