@@ -7,6 +7,7 @@
     position: relative;
     &.is-hovered .titles-list {
       overflow: initial;
+      padding-bottom: 10px;
     }
     h3 {
       color: $lightGreyColor;
