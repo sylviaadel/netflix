@@ -44,6 +44,11 @@ export default function Navbar() {
       <Link to="/">
         <img src={logo} alt="Red Netflix logo word" />
       </Link>
+      <section className="page-links">
+        <Link to="/movies">Movies</Link>
+        <Link to="/series">Series</Link>
+        <Link to="/documentaries">Documentaries</Link>
+      </section>
       <div className="login-btn">
         <img src={userImage} alt="User Icon" onClick={() => onChange()} />
       </div>

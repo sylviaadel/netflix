@@ -21,6 +21,20 @@
       margin-top: 20px;
     }
   }
+  .page-links {
+    color: $whiteColor;
+    position: absolute;
+    left: 145px;
+    a {
+      padding-right: 18px;
+      font-size: 10px;
+      color: $whiteColor;
+      transition: all 0.3s ease-in;
+      &:hover {
+        color: #b3b3b3;
+      }
+    }
+  }
   & > div {
     display: flex;
     align-items: center;
@@ -85,5 +99,15 @@
   }
   #Search {
     top: 17px;
+  }
+}
+
+@media (max-width: 400px) {
+  #Navbar .page-links {
+    left: 110px;
+    a {
+      padding-right: 8px;
+      font-size: 10px;
+    }
   }
 }

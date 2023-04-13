@@ -1,9 +1,12 @@
-#LandingPage {
+#LandingPage,
+#MoviesPage,
+#SeriesPage,
+#DocPage {
   background-color: #161b18;
   min-height: calc(100vh);
   .titles {
     margin: $spacing-medium 0;
-    min-height: calc(100vh - 420px);
+    min-height: calc(100vh - 180px);
     position: relative;
     h3 {
       color: $lightGreyColor;
@@ -276,6 +279,14 @@
   }
 }
 
+#MoviesPage .titles,
+#SeriesPage .titles,
+#DocPage .titles {
+  padding-top: 85px;
+  margin: 24px 0 0 !important;
+  color: #161b18;
+}
+
 .no-results {
   width: 100%;
   padding: $spacing-large 0;
@@ -297,7 +308,8 @@
   }
 }
 @media (min-width: 740px) {
-  #LandingPage {
+  #LandingPage,
+  #MoviesPage {
     #Hero {
       .details {
         bottom: 12%;
