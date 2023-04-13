@@ -2,7 +2,7 @@
 #MoviesPage,
 #SeriesPage,
 #DocPage {
-  background-color: #161b18;
+  background-color: #141414;
   min-height: calc(100vh);
   .titles {
     margin: $spacing-medium 0;
@@ -204,7 +204,7 @@
         }
         &::before {
           content: counter(item);
-          color: #161b18;
+          color: #000;
           font-size: 160px;
           position: absolute;
           font-family: fantasy;
