@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "key": "movies",
+    "label": "Movies",
+    "link": "movies"
+  },
+  {
+    "id": 2,
+    "key": "series",
+    "label": "Series",
+    "link": "series"
+  },
+  {
+    "id": 3,
+    "key": "documentaries",
+    "label": "Documentaries",
+    "link": "documentaries"
+  }
+]

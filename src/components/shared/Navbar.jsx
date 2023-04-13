@@ -7,10 +7,11 @@ import Modal from "../modal/Modal";
 import logo from "../../assets/images/logo.png";
 import { logoutInfo } from "../../scripts/helpers";
 import userImage from "../../assets/images/Netflix-avatar.png";
+import Links from "../../data/navLinks.json";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { uid, setUid, saveUID } = useUser();
+  const { setUid, saveUID } = useUser();
   const [modal, setModal] = useState(null);
   const [scroll, setScroll] = useState(false);
   const popup = (
@@ -35,20 +36,23 @@ export default function Navbar() {
     saveUID("");
     navigate("/");
   }
+
   function onChange() {
     setModal(popup);
   }
+
+  const NavLinks = Links.map((item) => (
+    <Link key={item.key} to={`/${item.link}`}>
+      {item.label}
+    </Link>
+  ));
 
   return (
     <section id="Navbar" className={`${scroll ? "scrolled" : ""}`}>
       <Link to="/">
         <img src={logo} alt="Red Netflix logo word" />
       </Link>
-      <section className="page-links">
-        <Link to="/movies">Movies</Link>
-        <Link to="/series">Series</Link>
-        <Link to="/documentaries">Documentaries</Link>
-      </section>
+      <section className="page-links">{NavLinks}</section>
       <div className="login-btn">
         <img src={userImage} alt="User Icon" onClick={() => onChange()} />
       </div>
