@@ -29,7 +29,6 @@ export default function Seasons({ id, collection, addEpisode, seriesId }) {
   async function onSuccess(data) {
     setSeasons(data);
     setStatus(1);
-
     var seasonId = data.sort((a, b) => (a.title > b.title ? 1 : -1))[0].id;
     setSeason(seasonId);
   }

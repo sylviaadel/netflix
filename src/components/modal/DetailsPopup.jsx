@@ -5,9 +5,10 @@ import FormSeason from "./FormSeason";
 import AddEpisode from "./AddEpisode";
 import MoreDetails from "./MoreDetails";
 
-export default function DetailsPopup({ item, series, collection, setModal }) {
+export default function DetailsPopup({ item, series, setModal }) {
   const { heading, background, logo, videoLink } = item;
   const seriesCondition = item.type === "series";
+  const name = "titles";
 
   function openVideo() {
     setModal(<YoutubeEmbed videoLink={videoLink} />);
@@ -15,17 +16,13 @@ export default function DetailsPopup({ item, series, collection, setModal }) {
 
   function addSeason() {
     setModal(
-      <FormSeason series={series} collection={collection} setModal={setModal} />
+      <FormSeason series={series} collection={name} setModal={setModal} />
     );
   }
 
   function addEpisode() {
     setModal(
-      <AddEpisode
-        setModal={setModal}
-        collection={collection}
-        seriesId={series}
-      />
+      <AddEpisode setModal={setModal} collection={name} seriesId={series} />
     );
   }
 
@@ -50,7 +47,7 @@ export default function DetailsPopup({ item, series, collection, setModal }) {
       {seriesCondition && (
         <Seasons
           id={item.id}
-          collection={collection}
+          collection={name}
           addEpisode={addEpisode}
           seriesId={series}
         />

@@ -4,6 +4,7 @@ import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
 import { readDocuments } from "../../scripts/fireStore/readDocuments";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
+import HeroDetails from "./HeroDetails";
 
 export default function Hero({}) {
   const { dispatch } = useItems();
@@ -29,9 +30,7 @@ export default function Hero({}) {
   }
 
   function openDetails() {
-    setModal(
-      <DetailsPopup item={item} collection={collection} setModal={setModal} />
-    );
+    setModal(<DetailsPopup item={item} setModal={setModal} />);
   }
 
   function openVideo() {
@@ -42,16 +41,7 @@ export default function Hero({}) {
     <section id="Hero">
       <div className="background"></div>
       <img src={background} alt={heading} />
-      <div className="details">
-        <img src={logo} alt={heading} />
-        <p>{description}</p>
-        <button onClick={openVideo} className="white-btn">
-          <i className="fa-solid fa-play"></i> Play
-        </button>
-        <button onClick={openDetails} className="grey-btn">
-          <i className="fa-solid fa-info"></i> More Info
-        </button>
-      </div>
+      <HeroDetails item={item} video={openVideo} details={openDetails} />
       <Modal state={[modal, setModal]} />
     </section>
   );

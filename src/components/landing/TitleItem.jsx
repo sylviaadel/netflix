@@ -5,7 +5,7 @@ import AdminActions from "./AdminActions";
 import { deleteInfo } from "../../scripts/helpers";
 import InfoPopup from "../modal/InfoPopup";
 import { deleteDocument } from "../../scripts/fireStore/deleteDocument";
-import imgIcon from "../../assets/images/camera-icon.png";
+import icon from "../../assets/images/camera-icon.png";
 import HoverCard from "./HoverCard";
 import UpdateItem from "../modal/UpdateItem";
 import Modal from "../modal/Modal";
@@ -16,15 +16,8 @@ export default function TitleItem({ item, type }) {
   const [modal, setModal] = useState(null);
   const name = "titles";
 
-  function openDetails() {
-    setModal(
-      <DetailsPopup
-        item={item}
-        series={id}
-        collection={name}
-        setModal={setModal}
-      />
-    );
+  function details() {
+    setModal(<DetailsPopup item={item} series={id} setModal={setModal} />);
   }
 
   async function deleteItem() {
@@ -46,13 +39,9 @@ export default function TitleItem({ item, type }) {
 
   return (
     <article key={id}>
-      <img
-        onClick={openDetails}
-        src={thumbnail ? thumbnail : imgIcon}
-        alt={heading}
-      />
+      <img onClick={details} src={thumbnail ? thumbnail : icon} alt={heading} />
       <AdminActions confirm={confirmDelete} openModal={openEditModal} />
-      <HoverCard item={item} setModal={setModal} details={openDetails} />
+      <HoverCard item={item} setModal={setModal} details={details} />
       <Modal state={[modal, setModal]} />
     </article>
   );

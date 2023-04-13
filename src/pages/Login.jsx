@@ -9,7 +9,7 @@ import InfoPopup from "../components/modal/InfoPopup";
 import Modal from "../components/modal/Modal";
 import AuthNavbar from "../components/shared/AuthNavbar";
 import Footer from "../components/shared/Footer";
-import { googleMsg } from "../scripts/helpers";
+import LoginFooter from "../components/shared/LoginFooter";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -67,11 +67,7 @@ export default function Login() {
             <Link to="/recover-password">Forgot you password?</Link>
           </div>
         </form>
-        <div className="links-container">
-          New to Netflix?
-          <Link to="/sign-up"> Sign up now</Link>.
-        </div>
-        <p>{googleMsg}</p>
+        <LoginFooter />
       </section>
       <Footer />
       <Modal state={[modal, setModal]} />

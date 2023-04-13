@@ -11,9 +11,7 @@ export default function TopTenItem({ item, collection }) {
 
   function openDetails() {
     setID(uid);
-    setModal(
-      <DetailsPopup item={item} collection={collection} setModal={setModal} />
-    );
+    setModal(<DetailsPopup item={item} setModal={setModal} />);
   }
 
   return (

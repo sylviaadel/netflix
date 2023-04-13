@@ -6,7 +6,6 @@ import NoResults from "../shared/NoResults";
 
 export default function TitlesContainer({ movies, series, doc, query }) {
   const [modal, setModal] = useState(null);
-  const DOC = "Documentaries";
   const filter = (item) => {
     if (query === "") {
       return item;
@@ -46,7 +45,7 @@ export default function TitlesContainer({ movies, series, doc, query }) {
             type="series"
           />
           <Title
-            title={DOC}
+            title="Documentaries"
             list={Docs}
             setModal={setModal}
             type="documentary"
