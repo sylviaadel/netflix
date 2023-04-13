@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Top10 from "../components/landing/Top10";
 import Footer from "../components/shared/Footer";
 import TitlesContainer from "../components/landing/TitlesContainer";
 import NotFound from "./NotFound";

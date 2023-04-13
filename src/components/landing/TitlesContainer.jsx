@@ -28,7 +28,7 @@ export default function TitlesContainer({ movies, series, doc, query }) {
 
   return (
     <section className="titles">
-      {(Movies.length == 0) & (Series.length == 0) & (Docs.length == 0) ? (
+      {(Movies.length === 0) & (Series.length === 0) & (Docs.length === 0) ? (
         <NoResults />
       ) : (
         <>

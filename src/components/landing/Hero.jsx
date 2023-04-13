@@ -6,11 +6,11 @@ import { readDocuments } from "../../scripts/fireStore/readDocuments";
 import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 import HeroDetails from "./HeroDetails";
 
-export default function Hero({}) {
+export default function Hero() {
   const { dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const [item, setItem] = useState([]);
-  const { heading, logo, background, description, videoLink } = item;
+  const { heading, background, videoLink } = item;
   const [modal, setModal] = useState(null);
   const collection = "titles";
 
