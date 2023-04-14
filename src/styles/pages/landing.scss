@@ -44,8 +44,8 @@
         box-shadow: rgba(0, 0, 0, 0.75) 0px 3px 10px;
         border-radius: 5px;
         z-index: 11;
-        height: 130px;
-        width: 230px;
+        height: 113px;
+        width: 200px;
         &:first-child {
           padding-left: 30px;
         }
@@ -129,8 +129,8 @@
         }
       }
       img {
-        height: 130px;
-        width: 230px;
+        height: 113px;
+        width: 200px;
         object-fit: cover;
       }
     }
@@ -307,9 +307,12 @@
     display: none;
   }
 }
+
 @media (min-width: 740px) {
   #LandingPage,
-  #MoviesPage {
+  #MoviesPage,
+  #SeriesPage,
+  #DocPage {
     #Hero {
       .details {
         bottom: 12%;
@@ -328,6 +331,25 @@
       h3 {
         font-size: 18px;
       }
+      article {
+        &:hover {
+          height: 130px !important;
+          width: 230px !important;
+        }
+        & > img {
+          height: 130px !important;
+          width: 230px !important;
+        }
+      }
     }
+  }
+}
+
+@media (max-width: 450px) {
+  #LandingPage .titles .titles-list article:hover,
+  #MoviesPage .titles .titles-list article:hover,
+  #SeriesPage .titles .titles-list article:hover,
+  #DocPage .titles .titles-list article:hover {
+    padding-left: 30px;
   }
 }
