@@ -10,8 +10,6 @@ import { readDocuments } from "../scripts/fireStore/readDocuments";
 export default function DocPage() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
-  const movies = data.filter((item) => item.type === null);
-  const series = data.filter((item) => item.type === null);
   const documentaries = data.filter((item) => item.type === "documentary");
   const [query, setQuery] = useState("");
   const collection = "titles";
@@ -37,17 +35,10 @@ export default function DocPage() {
   }
 
   return (
-    <div id="MoviesPage">
+    <div id="DocPage">
       <Search onChange={onChange} />
       {status === 0 && <Spinner />}
-      {status === 1 && (
-        <TitlesContainer
-          query={query}
-          series={series}
-          movies={movies}
-          doc={documentaries}
-        />
-      )}
+      {status === 1 && <TitlesContainer query={query} doc={documentaries} />}
       {status === 2 && <NotFound />}
       <Footer />
     </div>

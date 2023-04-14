@@ -11,8 +11,6 @@ export default function MoviesPage() {
   const { data, dispatch } = useItems();
   const [status, setStatus] = useState(0);
   const movies = data.filter((item) => item.type === "movie");
-  const series = data.filter((item) => item.type === null);
-  const documentaries = data.filter((item) => item.type === null);
   const [query, setQuery] = useState("");
   const collection = "titles";
 
@@ -40,14 +38,7 @@ export default function MoviesPage() {
     <div id="MoviesPage">
       <Search onChange={onChange} />
       {status === 0 && <Spinner />}
-      {status === 1 && (
-        <TitlesContainer
-          query={query}
-          series={series}
-          movies={movies}
-          doc={documentaries}
-        />
-      )}
+      {status === 1 && <TitlesContainer query={query} movies={movies} />}
       {status === 2 && <NotFound />}
       <Footer />
     </div>
