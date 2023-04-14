@@ -23,6 +23,10 @@
       gap: $spacing-xsmall;
       position: relative;
       flex-wrap: wrap;
+      .fa-chevron-left,
+      .fa-chevron-right {
+        display: none;
+      }
       article {
         transition: all 0.2s ease-in-out;
       }
@@ -286,7 +290,32 @@
   margin: 24px 0 0 !important;
   color: #161b18;
 }
-
+.fa-chevron-left {
+  color: #fff;
+  transform: scale(1.5);
+  position: sticky;
+  top: 60px;
+  left: 4px;
+  z-index: 1;
+  height: 100px;
+  cursor: pointer;
+  &::before {
+    text-shadow: 1px 2px 6px rgba(0, 0, 0, 0.4);
+  }
+}
+.fa-chevron-right {
+  color: #fff;
+  transform: scale(1.5);
+  position: sticky;
+  top: 60px;
+  right: 20px;
+  z-index: 1;
+  height: 100px;
+  cursor: pointer;
+  &::before {
+    text-shadow: -1px 2px 7px rgba(0, 0, 0, 0.4);
+  }
+}
 .no-results {
   width: 100%;
   padding: $spacing-large 0;
