@@ -201,7 +201,7 @@
         position: relative;
         margin-right: $spacing-medium;
         &:last-of-type img {
-          margin-left: 110px;
+          margin-left: 150px;
         }
         &:first-of-type {
           margin-left: $spacing-medium;
@@ -209,9 +209,9 @@
         &::before {
           content: counter(item);
           color: #000;
-          font-size: 160px;
+          font-size: 175px;
           position: absolute;
-          font-family: fantasy;
+          font-family: sans-serif;
           display: inline-block;
           top: -31px;
           -webkit-text-stroke: 3px #595959;
@@ -222,7 +222,7 @@
           height: 135px;
           width: 96px;
           object-fit: cover;
-          margin-left: 55px;
+          margin-left: 67px;
           position: inherit;
         }
       }
