@@ -118,3 +118,11 @@
     left: 170px;
   }
 }
+
+@media (min-width: 1200px) {
+  #Navbar .page-links {
+    a {
+      font-size: 14px;
+    }
+  }
+}
