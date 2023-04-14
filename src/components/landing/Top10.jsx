@@ -31,9 +31,7 @@ export default function Top10({ collection }) {
     setStatus(2);
   }
 
-  const Items = topTen.map((item) => (
-    <TopTenItem key={item.id} item={item} collection={collection} />
-  ));
+  const Items = topTen.map((item) => <TopTenItem key={item.id} item={item} />);
 
   return (
     <section className="top10-container">

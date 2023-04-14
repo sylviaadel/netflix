@@ -1,13 +1,12 @@
 import { useState } from "react";
-import YoutubeEmbed from "../../scripts/YoutubeEmbed";
 import Modal from "./Modal";
-import imgIcon from "../../assets/images/camera-icon.png";
 import AdminActions from "../landing/AdminActions";
 import InfoPopup from "./InfoPopup";
 import { deleteInfo } from "../../scripts/helpers";
 import { deleteEpisode } from "../../scripts/fireStore/deleteEpisode";
 import { useItems } from "../../state/ItemsProvider";
 import UpdateEpisode from "./UpdateEpisode";
+import EpisodeDetails from "./EpisodeDetails";
 
 export default function Episode({
   item,
@@ -17,13 +16,9 @@ export default function Episode({
   onDeleteEpisode,
 }) {
   const { dispatch } = useItems();
-  const { id, episode, thumbnail, heading, description, videoLink } = item;
+  const { id } = item;
   const [modal, setModal] = useState(null);
   const collection = "titles";
-
-  function openVideo() {
-    setModal(<YoutubeEmbed videoLink={videoLink} />);
-  }
 
   async function deleteItem() {
     await deleteEpisode(collection, seriesId, currentSeason, id);
@@ -51,12 +46,7 @@ export default function Episode({
 
   return (
     <article>
-      <label>{episode}</label>
-      <img onClick={openVideo} src={thumbnail ? thumbnail : imgIcon} />
-      <div>
-        <h4>{heading}</h4>
-        <p>{description}</p>
-      </div>
+      <EpisodeDetails item={item} setModal={setModal} />
       <AdminActions
         UpdateEpisode={UpdateEpisode}
         confirm={confirmDelete}

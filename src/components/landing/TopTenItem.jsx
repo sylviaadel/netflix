@@ -3,7 +3,7 @@ import DetailsPopup from "../modal/DetailsPopup";
 import Modal from "../modal/Modal";
 import { useItems } from "../../state/ItemsProvider";
 
-export default function TopTenItem({ item, collection }) {
+export default function TopTenItem({ item }) {
   const { topTenImg, heading } = item;
   const { uid } = useItems();
   const [id, setID] = useState("");
