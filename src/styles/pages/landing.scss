@@ -51,7 +51,7 @@
         z-index: 11;
         height: 113px;
         width: 200px;
-        &:first-child {
+        &:first-of-type {
           padding-left: 30px;
         }
         & > img {
