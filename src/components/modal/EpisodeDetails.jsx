@@ -11,7 +11,11 @@ export default function EpisodeDetails({ item, setModal }) {
   return (
     <>
       <label>{episode}</label>
-      <img onClick={openVideo} src={thumbnail ? thumbnail : imgIcon} />
+      <img
+        onClick={openVideo}
+        src={thumbnail ? thumbnail : imgIcon}
+        alt={heading}
+      />
       <div>
         <h4>{heading}</h4>
         <p>{description}</p>
