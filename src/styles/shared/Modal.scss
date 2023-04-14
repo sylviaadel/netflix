@@ -68,7 +68,8 @@
         width: 100%;
         .details {
           position: absolute;
-          top: 25%;
+          top: auto;
+          bottom: 20px;
           left: 4%;
           img {
             width: 300px;
