@@ -269,7 +269,7 @@
       img {
         width: 300px;
         display: block;
-        margin-bottom: 16px;
+        margin-bottom: $spacing-xsmall;
         height: 65px;
         object-fit: contain;
         object-position: left bottom;
@@ -344,6 +344,10 @@
   #SeriesPage,
   #DocPage {
     #Hero {
+      height: 56.25vw;
+      img {
+        margin-bottom: $spacing-small;
+      }
       .details {
         bottom: 12%;
         p {
