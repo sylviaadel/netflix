@@ -48,17 +48,15 @@ export default function RecoverPassword() {
   }
 
   return (
-    <div className="auth-page">
+    <div className="auth-page recover-account">
       <AuthNavbar />
       <section className="container">
         <h1>Recover Account</h1>
         <form onSubmit={(event) => onSubmit(event)}>
           <InputText key={email.id} item={email} state={[form, setForm]} />
-          <button className="primary-btn">Recover Account</button>
+          <button className="primary-btn">Email Me</button>
         </form>
-        <div className="links-container">
-          <Link to="/login">Go back to Login</Link>
-        </div>
+        <Link to="/login">Sign In</Link>
         <p>{googleMsg}</p>
       </section>
       <Footer />
