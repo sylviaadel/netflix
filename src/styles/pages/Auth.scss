@@ -21,6 +21,7 @@
     form {
       display: flex;
       flex-direction: column;
+      margin-bottom: 55px;
       label {
         color: #8c8c8c;
         position: relative;
@@ -92,7 +93,7 @@
     }
     p {
       font-size: 13px;
-      margin: $spacing-small 0;
+      margin: $spacing-small 0 55px;
     }
   }
   &.signup {
