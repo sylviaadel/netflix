@@ -1,10 +1,11 @@
 #AdminPage {
-  background-color: #161b18;
+  background-color: #141414;
   min-height: calc(100vh);
   .titles {
     margin: $spacing-medium 0 0;
     padding-top: 85px;
     min-height: calc(100vh - 160px);
+    color: #141414;
     &:first-child {
       margin-top: 50px;
       padding-top: 3rem;
