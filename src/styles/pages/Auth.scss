@@ -1,11 +1,13 @@
 .auth-page {
   background-color: #000;
   min-height: calc(100vh);
+  .wrapper {
+    min-height: calc(100vh - 120px);
+  }
   section.container {
     background-color: rgba(0, 0, 0, 0.75);
     border-radius: 4px;
     margin: 20px auto 50px;
-    min-height: calc(100vh - 120px);
     padding: 0 5%;
     color: #b3b3b3;
     display: flex;
@@ -188,7 +190,6 @@
           color: inherit;
           font-size: 14px;
           font-weight: bold;
-          top: 30px;
           font-size: 19px;
           color: $redColor;
         }

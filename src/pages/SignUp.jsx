@@ -53,20 +53,22 @@ export default function SignUp() {
   return (
     <div className="auth-page signup">
       <AuthNavbar />
-      <section className="container">
-        <h1>Create a password to start your membership</h1>
-        <p>Just a few more steps and you're finished!</p>
-        <p>We hate paperwork, too.</p>
-        <form onSubmit={(event) => onSubmit(event)}>
-          {FormFields}
-          <InputCheckbox
-            remember={remember}
-            set={() => setRemember(!remember)}
-          />
-          <button className="primary-btn">Sign Up</button>
-        </form>
-        <Link to="/login">Sign In</Link>
-      </section>
+      <div className="wrapper">
+        <section className="container">
+          <h1>Create a password to start your membership</h1>
+          <p>Just a few more steps and you're finished!</p>
+          <p>We hate paperwork, too.</p>
+          <form onSubmit={(event) => onSubmit(event)}>
+            {FormFields}
+            <InputCheckbox
+              remember={remember}
+              set={() => setRemember(!remember)}
+            />
+            <button className="primary-btn">Sign Up</button>
+          </form>
+          <Link to="/login">Sign In</Link>
+        </section>
+      </div>
       <Footer />
       <Modal state={[modal, setModal]} />
     </div>
