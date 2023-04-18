@@ -40,6 +40,8 @@ export default function Admin() {
     <div id="AdminPage">
       <Search onChange={onChange} />
       {status === 0 && <Spinner />}
+      {/* notice how complex is this, why dont combine the series, movies, and docs into a single array */}
+      {/* that should be done on the database, but at least can be done here via JS to merge the 3 arrays */}
       {status === 1 && (
         <TitlesContainer
           query={query}

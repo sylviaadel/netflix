@@ -5,6 +5,7 @@ import MoviesPage from "../pages/Movies";
 import SeriesPage from "../pages/Series";
 import DocPage from "../pages/Documentaries";
 
+// this part dos not show me how to reach the "video player page"
 export default function UserRoutes() {
   return (
     <Routes>

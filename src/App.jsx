@@ -7,6 +7,7 @@ import ScrollToTop from "./components/shared/ScrollToTop";
 import LoggedRoutes from "./routes/LoggedRoutes";
 import "./styles/style.scss";
 
+// no need to do any data loading on the app, leave that do the admin homepage and customer homepage
 export default function App() {
   const { uid } = useUser();
   const [status, setStatus] = useState(0);
