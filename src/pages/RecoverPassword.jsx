@@ -50,15 +50,17 @@ export default function RecoverPassword() {
   return (
     <div className="auth-page recover-account">
       <AuthNavbar />
-      <section className="container">
-        <h1>Recover Account</h1>
-        <form onSubmit={(event) => onSubmit(event)}>
-          <InputText key={email.id} item={email} state={[form, setForm]} />
-          <button className="primary-btn">Email Me</button>
-        </form>
-        <Link to="/login">Sign In</Link>
-        <p>{googleMsg}</p>
-      </section>
+      <div className="wrapper">
+        <section className="container">
+          <h1>Recover Account</h1>
+          <form onSubmit={(event) => onSubmit(event)}>
+            <InputText key={email.id} item={email} state={[form, setForm]} />
+            <button className="primary-btn">Email Me</button>
+          </form>
+          <Link to="/login">Sign In</Link>
+          <p>{googleMsg}</p>
+        </section>
+      </div>
       <Footer />
       <Modal state={[modal, setModal]} />
     </div>
